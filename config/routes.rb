@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :exercises
+  resources :plans
 end
