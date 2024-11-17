@@ -1,0 +1,15 @@
+<h1>Exercises</h1>
+
+<%= link_to 'New Exercise', new_exercise_path %>
+
+<% @exercises.each do |exercise| %>
+  <p><%= exercise.name %></p>
+  <p><%= exercise.description %></p>
+  <p><%= exercise.set %></p>
+  <p><%= exercise.repetition %></p>
+  
+  <%= link_to 'Detail', exercise_path(exercise) %>
+  <%= link_to 'Edit', edit_exercise_path(exercise) %>
+  <%= link_to 'Delete', exercise_path(exercise), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  <hr>
+<% end %>
