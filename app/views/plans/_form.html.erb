@@ -8,6 +8,12 @@
     <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
+
+  <div>
+    <%= f.label :exercises %>
+    <%= f.select :exercises, Exercise.all %>
+  </div>
+
   <div>
     <%= f.submit %>
   </div>

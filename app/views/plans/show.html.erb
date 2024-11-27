@@ -2,5 +2,12 @@
 <%= link_to 'Back', plans_path %>
 <hr>
 
-<p><%= @plan.name %></p>
-<p><%= @plan.description %></p>
+<p>Name: <%= @plan.name %></p>
+<p>Description: <%= @plan.description %></p>
+
+<p>Exercises for this plan: </p>
+<% @plan.exercises.each do |exercise| %>
+  <%= exercise.name%> 
+  <%= exercise.description %>
+  <br>
+<% end %>
