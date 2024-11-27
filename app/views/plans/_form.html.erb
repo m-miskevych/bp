@@ -10,8 +10,12 @@
   </div>
 
   <div>
-    <%= f.label :exercises %>
-    <%= f.select :exercises, Exercise.all %>
+    <h3>Assign Exercises</h3>
+    <%= f.collection_check_boxes(:exercise_ids, Exercise.all, :id, :name) do |cb| %>
+      <div>
+        <%= cb.check_box %> <%= cb.label %>
+      </div>
+    <% end %>
   </div>
 
   <div>

@@ -40,6 +40,6 @@ class PlansController < ApplicationController
   end
 
   def plan_params
-    params.require(:plan).permit(:name, :description)
+    params.require(:plan).permit(:name, :description, exercise_ids: [])
   end
 end
