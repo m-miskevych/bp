@@ -18,6 +18,17 @@
   </head>
 
   <body>
+    <nav>
+      <ul>
+        <li>
+          <%= link_to "Exercises", exercises_path %>
+        </li>
+        <li>
+          <%= link_to "Plans", plans_path %>
+        </li>
+      </ul>
+    </nav>
+
     <%= yield %>
   </body>
 </html>

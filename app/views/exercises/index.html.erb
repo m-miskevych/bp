@@ -2,14 +2,29 @@
 
 <%= link_to 'New Exercise', new_exercise_path %>
 
-<% @exercises.each do |exercise| %>
-  <p><%= exercise.name %></p>
-  <p><%= exercise.description %></p>
-  <p><%= exercise.set %></p>
-  <p><%= exercise.repetition %></p>
-  
-  <%= link_to 'Detail', exercise_path(exercise) %>
-  <%= link_to 'Edit', edit_exercise_path(exercise) %>
-  <%= link_to 'Delete', exercise_path(exercise), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-  <hr>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Set</th>
+      <th>Repetition</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @exercises.each do |exercise| %>
+      <tr>
+        <td><%= exercise.name %></td>
+        <td><%= exercise.description %></td>
+        <td><%= exercise.set %></td>
+        <td><%= exercise.repetition %></td>
+        <td>
+          <%= link_to 'Detail', exercise_path(exercise) %> |
+          <%= link_to 'Edit', edit_exercise_path(exercise) %> |
+          <%= link_to 'Delete', exercise_path(exercise), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
