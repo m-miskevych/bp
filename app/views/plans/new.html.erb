@@ -1,4 +1,6 @@
-<h1>Add a new plan</h1>
-<%= link_to 'Back', plans_path %>
+<h1 class="text-3xl font-extrabold text-gray-900 mb-6">Add a New Plan</h1>
+<%= link_to 'Back', plans_path, class: "text-blue-600 hover:text-blue-800 mb-4 inline-block text-lg font-medium" %>
 
-<%= render "form", plan: @plan %>
+<div class="bg-white p-6 rounded-lg shadow-lg">
+  <%= render "form", plan: @plan %>
+</div>

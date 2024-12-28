@@ -1,5 +1,10 @@
 <% if exercise.errors.any? %>
-  <% exercise.errors.full_messages.each do |msg| %>
-    <p><%= msg %></p>
-  <% end %>
+  <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4">
+    <h2 class="font-bold">There were some errors:</h2>
+    <ul class="list-disc pl-5">
+      <% exercise.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
