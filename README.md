@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## v.1
 
-Things you may want to cover:
+- [x] Create `Exercise` and `Plan` models
+- [x] Define a many-to-many relationship between `Exercise` and `Plan`
+- [x] `Exercise` CRUD operations
+- [x] `Plan` CRUD operations
+- [x] Add an admin home page.
+  - [ ] Customize the admin dashboard
+- [ ] Add ActionText gem for description
+- [ ] Add Active Storage - images upload
+- [ ] Add I18N support for sk/en language
+- [ ] Add Kaminari for pagination / search
 
-* Ruby version
+- [ ] Install and configure Tailwind CSS
+  - [ ] style Exercise
+  - [ ] style Plan
+  - [ ] style Admin page
 
-* System dependencies
+- [ ] Divide admin / user interface
 
-* Configuration
+## v.2
 
-* Database creation
+- [ ] Add authentication and authorization - Device gem
+  - [ ] Physiotherapist registration with profile (name, company)
+  - [ ] Client registration via invite link
 
-* Database initialization
+## v.3
 
-* How to run the test suite
+- [ ] Add Reservation system
 
-* Services (job queues, cache servers, search engines, etc.)
+## v.4
 
-* Deployment instructions
-
-* ...
+- [ ] Cypress Tests
