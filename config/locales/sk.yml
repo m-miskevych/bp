@@ -1,0 +1,45 @@
+sk:
+  app:
+    name: "Fyzio Aplikácia"
+  navbar:
+    home: "Domov"
+    exercises: "Cvičenia"
+    plans: "Plány"
+  common:
+    actions:
+      detail: "Detail"
+      edit: "Upraviť"
+      delete: "Vymazať"
+      new: "Nové"
+      back: "Späť"
+      confirm_delete: "Ste si istý?"
+  exercises:
+    index:
+      title: "Cvičenia"
+      new: "Nové cvičenie"
+      table:
+        headers:
+          name: "Názov"
+          description: "Popis"
+          set: "Séria"
+          repetition: "Opakovanie"
+          actions: "Akcie"
+    new:
+      title: "Pridať nové cvičenie"
+    show:
+      title: "Detail cvičenia: %{name}"
+      fields:
+        name: "Názov"
+        description: "Popis"
+        set: "Séria"
+        repetition: "Opakovania"
+    edit:
+      title: "Upraviť cvičenie"
+    form:
+      name: "Názov"
+      description: "Popis"
+      set: "Séria"
+      repetition: "Opakovanie"
+      submit: "Uložiť cvičenie"
+    errors:
+      title: "Vyskytli sa chyby"

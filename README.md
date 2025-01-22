@@ -8,12 +8,17 @@
 - [x] `Plan` CRUD operations
 - [x] Add an admin home page.
   - [ ] Customize the admin dashboard
+
+- [ ] Add validations
+  - [ ] Exercise Model
+  - [ ] Plan Model
+
 - [ ] Add ActionText gem for description
 - [ ] Add Active Storage - images upload
 - [ ] Add I18N support for sk/en language
 - [ ] Add Kaminari for pagination / search
 
-- [ ] Install and configure Tailwind CSS
+- [x] Install and configure Tailwind CSS
   - [ ] style Exercise
   - [ ] style Plan
   - [ ] style Admin page
