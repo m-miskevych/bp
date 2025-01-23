@@ -1,1 +1,7 @@
 <h1>Dashboard#index</h1>
+<!-- Language Switcher -->
+<div class="language-switcher">
+  <%= select_tag :locale, 
+      options_for_select(I18n.available_locales.map { |locale| [locale.to_s.upcase, locale] }, I18n.locale), 
+      onchange: "window.location.href = '/' + this.value;" %>
+</div>
