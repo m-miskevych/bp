@@ -13,6 +13,8 @@ sk:
       new: "Nové"
       back: "Späť"
       confirm_delete: "Ste si istý?"
+      save: "Uložiť"
+
   exercises:
     index:
       title: "Cvičenia"
@@ -43,3 +45,22 @@ sk:
       submit: "Uložiť cvičenie"
     errors:
       title: "Vyskytli sa chyby"
+
+  plans:
+    index:
+      title: "Plány"
+      new: "Nový Plán"
+    show:
+      title: "Detail Plánu"
+      fields:
+        name: "Názov Plánu"
+        description: "Popis"
+        exercises: "Cvičenia pre tento plán"
+    new:
+      title: "Pridať Nový Plán"
+    edit:
+      title: "Upraviť Plán"
+    form:
+      name: "Názov"
+      description: "Popis"
+      assign_exercises: "Prideliť cvičenia"

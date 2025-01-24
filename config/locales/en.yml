@@ -13,6 +13,7 @@ en:
       new: "New"
       back: "Back"
       confirm_delete: "Are you sure?"
+      save: "Save"
   exercises:
     index:
       title: "Exercises"
@@ -43,3 +44,22 @@ en:
       submit: "Save Exercise"
       errors:
     title: "There were some errors"
+
+  plans:
+    index:
+      title: "Plans"
+      new: "New Plan"
+    show:
+      title: "Plan Detail"
+      fields:
+        name: "Plan Name"
+        description: "Description"
+        exercises: "Exercises for this plan"
+    new:
+      title: "Add a New Plan"
+    edit:
+      title: "Edit Plan"
+    form:
+      name: "Name"
+      description: "Description"
+      assign_exercises: "Assign Exercises"
