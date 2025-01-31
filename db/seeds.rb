@@ -22,13 +22,13 @@ Exercise.create([
   { name_en: "Flat Foot Flexion", name_sk: "Ohyb plochej nohy", description_en: "Flexion of the flat foot joint", description_sk: "Ohyb kĺbu plochej nohy", repetition: 12, set: 2 }
 ])
 
-# Create plans
+# Create plans with translations
 Plan.create([
-  { name: "Rehabilitation Program for Knee Joint", description: "Program for rehabilitation of the knee joint" },
-  { name: "Rehabilitation Program for Shoulder Joint", description: "Program for rehabilitation of the shoulder joint" },
-  { name: "Rehabilitation Program for Core Muscles", description: "Program for rehabilitation of the core muscles" },
-  { name: "Rehabilitation Program for Hip Joint", description: "Program for rehabilitation of the hip joint" },
-  { name: "Rehabilitation Program for Flat Foot Joint", description: "Program for rehabilitation of the flat foot joint" }
+  { name_sk: "Rehabilitačný program pre kolenný kĺb", name_en: "Rehabilitation Program for Knee Joint", description_sk: "Program pre rehabilitáciu kolenného kĺbu", description_en: "Program for rehabilitation of the knee joint" },
+  { name_sk: "Rehabilitačný program pre ramenný kĺb", name_en: "Rehabilitation Program for Shoulder Joint", description_sk: "Program pre rehabilitáciu ramenného kĺbu", description_en: "Program for rehabilitation of the shoulder joint" },
+  { name_sk: "Rehabilitačný program pre svaly stredu tela", name_en: "Rehabilitation Program for Core Muscles", description_sk: "Program pre rehabilitáciu svalov stredu tela", description_en: "Program for rehabilitation of the core muscles" },
+  { name_sk: "Rehabilitačný program pre bedrový kĺb", name_en: "Rehabilitation Program for Hip Joint", description_sk: "Program pre rehabilitáciu bedrového kĺbu", description_en: "Program for rehabilitation of the hip joint" },
+  { name_sk: "Rehabilitačný program pre plochú nohu", name_en: "Rehabilitation Program for Flat Foot Joint", description_sk: "Program pre rehabilitáciu plochej nohy", description_en: "Program for rehabilitation of the flat foot joint" }
 ])
 
 # Randomly assign exercises to plans

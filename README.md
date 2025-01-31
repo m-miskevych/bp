@@ -9,21 +9,26 @@
 - [x] Add an admin home page.
   - [ ] Customize the admin dashboard
 
-- [ ] Add validations
-  - [ ] Exercise Model
-  - [ ] Plan Model
+- [x] Add validations
+  - [x] Exercise Model
+  - [x] Plan Model
 
 - [ ] Add ActionText gem for description
 - [ ] Add Active Storage - images upload
-- [ ] Add I18N support for sk/en language
+- [x] Add I18N support for sk/en language
 - [ ] Add Kaminari for pagination / search
 
 - [x] Install and configure Tailwind CSS
   - [ ] style Exercise
-  - [ ] style Plan
+  - [ ] style Plans
   - [ ] style Admin page
 
 - [ ] Divide admin / user interface
+
+BUGS
+- [ ] Missing translations for error messages
+- [ ] Plan - Exercise -> make it redirect to exercise detail page
+- [ ] Better visualization for Detail, Edit, Delete Buttons 
 
 ## v.2
 

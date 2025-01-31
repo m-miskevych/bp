@@ -42,8 +42,8 @@ en:
       set: "Set"
       repetition: "Repetition"
       submit: "Save Exercise"
-      errors:
-    title: "There were some errors"
+    errors:
+      title: "There were some errors"
 
   plans:
     index:
@@ -63,3 +63,5 @@ en:
       name: "Name"
       description: "Description"
       assign_exercises: "Assign Exercises"
+    errors:
+      title: "There were some errors"

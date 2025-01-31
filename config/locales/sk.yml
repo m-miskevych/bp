@@ -64,3 +64,5 @@ sk:
       name: "Názov"
       description: "Popis"
       assign_exercises: "Prideliť cvičenia"
+    errors:
+      title: "Vyskytli sa chyby"
