@@ -8,18 +8,18 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-# Create exercises
+# Create exercises with translations
 Exercise.create([
-  { name: "Knee Flexion", description: "Bending of the knee joint", repetition: 10, set: 3 },
-  { name: "Shoulder Rotation", description: "Rotation of the shoulder joint in a circle", repetition: 15, set: 2 },
-  { name: "Core Stabilization", description: "Stabilization of the core muscles", repetition: 20, set: 3 },
-  { name: "Hip Extension", description: "Extension of the hip joint", repetition: 12, set: 2 },
-  { name: "Flat Foot Mobilization", description: "Mobilization of the flat foot joint", repetition: 15, set: 3 },
-  { name: "Knee Extension", description: "Extension of the knee joint", repetition: 10, set: 2 },
-  { name: "Shoulder Abduction", description: "Abduction of the shoulder joint", repetition: 12, set: 3 },
-  { name: "Core Rotation", description: "Rotation of the core muscles", repetition: 20, set: 2 },
-  { name: "Hip Flexion", description: "Flexion of the hip joint", repetition: 15, set: 3 },
-  { name: "Flat Foot Flexion", description: "Flexion of the flat foot joint", repetition: 12, set: 2 }
+  { name_en: "Knee Flexion", name_sk: "Ohyb kolena", description_en: "Bending of the knee joint", description_sk: "Ohnutie kolenného kĺbu", repetition: 10, set: 3 },
+  { name_en: "Shoulder Rotation", name_sk: "Rotácia ramena", description_en: "Rotation of the shoulder joint in a circle", description_sk: "Rotácia ramenného kĺbu do kruhu", repetition: 15, set: 2 },
+  { name_en: "Core Stabilization", name_sk: "Stabilizácia stredu tela", description_en: "Stabilization of the core muscles", description_sk: "Stabilizácia svalov stredu tela", repetition: 20, set: 3 },
+  { name_en: "Hip Extension", name_sk: "Natiahnutie bedrového kĺbu", description_en: "Extension of the hip joint", description_sk: "Natiahnutie bedrového kĺbu", repetition: 12, set: 2 },
+  { name_en: "Flat Foot Mobilization", name_sk: "Mobilizácia plochej nohy", description_en: "Mobilization of the flat foot joint", description_sk: "Mobilizácia kĺbu plochej nohy", repetition: 15, set: 3 },
+  { name_en: "Knee Extension", name_sk: "Natiahnutie kolena", description_en: "Extension of the knee joint", description_sk: "Natiahnutie kolenného kĺbu", repetition: 10, set: 2 },
+  { name_en: "Shoulder Abduction", name_sk: "Abdukcia ramena", description_en: "Abduction of the shoulder joint", description_sk: "Abdukcia ramenného kĺbu", repetition: 12, set: 3 },
+  { name_en: "Core Rotation", name_sk: "Rotácia stredu tela", description_en: "Rotation of the core muscles", description_sk: "Rotácia svalov stredu tela", repetition: 20, set: 2 },
+  { name_en: "Hip Flexion", name_sk: "Ohyb bedrového kĺbu", description_en: "Flexion of the hip joint", description_sk: "Ohyb bedrového kĺbu", repetition: 15, set: 3 },
+  { name_en: "Flat Foot Flexion", name_sk: "Ohyb plochej nohy", description_en: "Flexion of the flat foot joint", description_sk: "Ohyb kĺbu plochej nohy", repetition: 12, set: 2 }
 ])
 
 # Create plans
