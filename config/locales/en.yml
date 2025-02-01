@@ -14,6 +14,19 @@ en:
       back: "Back"
       confirm_delete: "Are you sure?"
       save: "Save"
+
+  dashboard:
+    index:
+      welcome: "Welcome, %{name}"
+      description: "Manage your clients, create personalized exercise plans, and track their progress all in one place."
+      statistics:
+        total_exercises: "Total Exercises"
+        total_plans: "Total Plans"
+        total_clients: "Total Clients"
+        new_exercise: "New Exercise"
+        new_plan: "New Plan"
+        new_client: "Add New Client"
+
   exercises:
     index:
       title: "Exercises"

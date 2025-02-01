@@ -15,6 +15,18 @@ sk:
       confirm_delete: "Ste si istý?"
       save: "Uložiť"
 
+  dashboard:
+    index:
+      welcome: "Vitajte, %{name}"
+      description: "Spravujte svojich klientov, vytvárajte personalizované cvičebné plány a sledujte ich pokrok na jednom mieste."
+      statistics:
+        total_exercises: "Celkový počet cvičení"
+        total_plans: "Celkový počet plánov"
+        total_clients: "Celkový počet klientov"
+        new_exercise: "Nové cvičenie"
+        new_plan: "Nový plán"
+        new_client: "Pridať nového klienta"
+
   exercises:
     index:
       title: "Cvičenia"
