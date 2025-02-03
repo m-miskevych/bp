@@ -1,45 +1,61 @@
 # README
 
-## v.1
+## Run the Application
+
+```bash
+   bin/dev
+```
+
+## PLANNING
+
+### v.1
 
 - [x] Create `Exercise` and `Plan` models
 - [x] Define a many-to-many relationship between `Exercise` and `Plan`
 - [x] `Exercise` CRUD operations
 - [x] `Plan` CRUD operations
 - [x] Add an admin home page.
-  - [ ] Customize the admin dashboard
 
 - [x] Add validations
+
   - [x] Exercise Model
   - [x] Plan Model
 
-- [ ] Add ActionText gem for description
-- [ ] Add Active Storage - images upload
 - [x] Add I18N support for sk/en language
-- [ ] Add Kaminari for pagination / search
+- [x] Add Active Storage - images upload
+  - [ ] Image Upload - style 
+- [ ] Add Active Storage - video upload - or via link to YT ?
+- [ ] Add Kaminari for pagination / search - Exercise
+- [ ] Add ActionText gem for descriptions
 
 - [x] Install and configure Tailwind CSS
+- [x] Style
+
+  - [x] style Admin page
   - [ ] style Exercise
   - [ ] style Plans
-  - [ ] style Admin page
+  - [ ] navbar
 
-- [ ] Divide admin / user interface
+- [ ] Divide admin / user namespaces
+- [ ] Add Flash Messages for success and errors
 
 BUGS
+
 - [ ] Missing translations for error messages
 - [ ] Plan - Exercise -> make it redirect to exercise detail page
-- [ ] Better visualization for Detail, Edit, Delete Buttons 
+- [ ] Better visualization for Detail, Edit, Delete Buttons
 
-## v.2
+### v.2
 
+- [ ] Add `User` model - Physiotherapist, Client ( admin? )
 - [ ] Add authentication and authorization - Device gem
   - [ ] Physiotherapist registration with profile (name, company)
   - [ ] Client registration via invite link
 
-## v.3
+### v.3
 
 - [ ] Add Reservation system
 
-## v.4
+### v.4
 
 - [ ] Cypress Tests

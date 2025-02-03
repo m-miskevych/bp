@@ -25,5 +25,16 @@
       <h2 class="text-lg font-semibold text-gray-700"><%= t('.fields.repetition') %>:</h2>
       <p class="text-gray-600 text-base"><%= @exercise.repetition %></p>
     </div>
+
+    <div>
+      <% if @exercise.images.attached? %>
+        <h2 class="text-lg font-semibold text-gray-700"><%= t('.fields.images') %>:</h2>
+        <div class="grid grid-cols-2 gap-4">
+          <% @exercise.images.each do |image| %>
+            <%= image_tag(image, heith: 200) %> 
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

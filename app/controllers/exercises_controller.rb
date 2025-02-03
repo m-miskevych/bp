@@ -39,8 +39,14 @@ class ExercisesController < ApplicationController
     redirect_to exercises_url
   end
 
+  def remove_image
+    @image = ActiveStorage::Attachment.find(params[:id])
+    @image.purge
+    redirect_to exercises_url
+  end
+
   private
   def exercise_params
-    params.require(:exercise).permit(:name_sk, :name_en, :description_sk, :description_en, :set, :repetition)
+    params.require(:exercise).permit(:name_sk, :name_en, :description_sk, :description_en, :set, :repetition, images: [])
   end
 end

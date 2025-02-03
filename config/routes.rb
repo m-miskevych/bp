@@ -14,7 +14,13 @@ Rails.application.routes.draw do
     # Defines the root path route ("/")
     root "dashboard#index"
 
-    resources :exercises
+    resources :exercises do
+      member do
+        # remove_image_exercise_path(image)
+        delete "remove_image"
+      end
+    end
+
     resources :plans
   end
 end

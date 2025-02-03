@@ -6,6 +6,8 @@ class Exercise < ApplicationRecord
   has_many :exercises_plans
   has_many :plans, through: :exercises_plans
 
+  has_many_attached :images
+
   validates :name, presence: true
   validates :description, presence: true
 end
