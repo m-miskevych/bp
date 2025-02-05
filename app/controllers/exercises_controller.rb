@@ -1,6 +1,6 @@
 class ExercisesController < ApplicationController
   def index
-    @exercises = Exercise.all
+    @exercises = Exercise.i18n.order(:name)
   end
 
   def show
@@ -35,8 +35,12 @@ class ExercisesController < ApplicationController
 
   def destroy
     @exercise = Exercise.find(params[:id])
-    @exercise.destroy
-    redirect_to exercises_url
+    if @exercise.exercises_plans.any?
+      redirect_to exercises_url, alert: "This exercise is assigned to a plan and cannot be deleted."
+    else
+      @exercise.destroy
+      redirect_to exercises_url, notice: "Exercise deleted successfully."
+    end
   end
 
   def remove_image

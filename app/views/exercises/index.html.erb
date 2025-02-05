@@ -1,36 +1,162 @@
-<h1 class="text-2xl font-bold text-gray-800 mb-6"><%= t('.title') %></h1>
+<% if notice %>
+  <div class="bg-green-500 text-white p-4 rounded-md shadow-md mb-4">
+    <%= notice %>
+  </div>
+<% end %>
+<% if alert %>
+  <div class="bg-red-500 text-white p-4 rounded-md shadow-md mb-4">
+    <%= alert %>
+  </div>
+<% end %>
 
-<%= link_to t('.new'), new_exercise_path, class: "bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" %>
 
-<table class="min-w-full bg-white border border-gray-200 shadow-md mt-6">
-  <thead>
-    <tr class="bg-gray-200 text-gray-700 uppercase text-sm leading-normal">
-      <th class="py-3 px-6 text-left"><%= t('.table.headers.name') %></th>
-      <th class="py-3 px-6 text-left"><%= t('.table.headers.description') %></th>
-      <th class="py-3 px-6 text-left"><%= t('.table.headers.set') %></th>
-      <th class="py-3 px-6 text-left"><%= t('.table.headers.repetition') %></th>
-      <th class="py-3 px-6 text-center"><%= t('.table.headers.actions') %></th>
-    </tr>
-  </thead>
-  <tbody class="text-gray-600 text-sm font-light">
-    <% @exercises.each do |exercise| %>
-      <tr class="border-b border-gray-200 hover:bg-gray-100">
-        <td class="py-3 px-6 text-left whitespace-nowrap"><%= exercise.name %></td>
-        <td class="py-3 px-6 text-left"><%= exercise.description %></td>
-        <td class="py-3 px-6 text-left"><%= exercise.set %></td>
-        <td class="py-3 px-6 text-left"><%= exercise.repetition %></td>
-        <td class="py-3 px-6 text-center">
-          <div class="flex justify-center space-x-2">
-            <%= link_to t('common.actions.detail'), exercise_path(exercise), 
-                class: "bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600" %>
-            <%= link_to t('common.actions.edit'), edit_exercise_path(exercise), 
-                class: "bg-green-500 text-white px-3 py-2 rounded hover:bg-green-600" %>
-            <%= link_to t('common.actions.delete'), exercise_path(exercise), 
-                data: { turbo_method: :delete, turbo_confirm: t('common.actions.confirm_delete') }, 
-                class: "bg-red-500 text-white px-3 py-2 rounded hover:bg-red-600" %>
+
+<h2 class="block font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-slate-900"><%= t('.title') %></h2>
+
+<div class="relative flex flex-col w-full h-full text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
+  <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white rounded-none bg-clip-border">
+    <div class="flex flex-col justify-between gap-8 mb-4 md:flex-row md:items-center">
+        <div>
+          <p class="block mt-1 font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
+            Below is the database of all exercises. You can view, edit, or delete them as needed.
+          </p>
+        </div>
+        <div class="flex w-full gap-2 shrink-0 md:w-max mt-4 md:mt-0">
+          <%= link_to t('.new'), new_exercise_path, class: "relative px-6 py-3 font-semibold text-black uppercase border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:border-black hover:opacity-75 transition-all mt-4 inline-block" %>
+        </div>
+    </div>
+
+    <!-- Search input below the title -->
+    <div class="mt-4">
+        <div class="w-full md:w-72">
+          <div class="relative h-10 w-full min-w-[200px]">
+            <p>** Search Implementation **</p>
           </div>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </div>
+    </div>
+
+  </div>
+
+  <div class="p-6 px-0 overflow-scroll">
+    <table class="w-full text-left table-auto min-w-max">
+      <thead>
+        <tr>
+          <th class="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
+            <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"><%= t('.table.headers.name') %></p>
+          </th>
+          <th class="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
+            <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"><%= t('.table.headers.description') %></p>
+          </th>
+          <th class="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
+            <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"></p>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @exercises.each do |exercise| %>
+          <tr class="hover:bg-slate-50">
+            <td class="p-4 border-b border-blue-gray-50">
+              <div class="flex items-center gap-3">
+                <% if exercise.images.first&.representable? %>
+                  <%= link_to exercise_path(exercise) do %>
+                    <%= image_tag exercise.images.first.variant(:thumb), class: "relative inline-block h-14 w-14 border border-blue-gray-50 bg-blue-gray-50/50 object-contain object-center p-1" %>
+                  <% end %>
+                <% end %>
+                <%= link_to exercise.name, exercise_path(exercise), class: "block font-sans text-sm antialiased font-bold leading-normal text-blue-gray-900 hover:text-purple-700 transition-colors duration-300" %>                
+              </div>
+            </td>
+            <td class="p-4 border-b border-blue-gray-50">
+              <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900"><%= exercise.description.truncate(75) %></p>
+            </td>
+            <td class="p-4 border-b border-blue-gray-50 space-x-2">
+              <!-- Edit Icon -->
+              <%= link_to edit_exercise_path(exercise), class: "relative inline-block h-10 max-h-[40px] w-10 max-w-[40px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-gray-900 transition-all hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" do %>
+                <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                  <img src="<%= asset_path('edit-icon.png') %>" alt="Edit" class="w-4 h-4"/>
+                </span>
+              <% end %>
+
+              <!-- Delete Icon -->
+              <%= link_to exercise_path(exercise), 
+                        data: { turbo_method: :delete ,turbo_confirm: t('common.actions.confirm_delete') }, 
+                        class: "relative inline-block h-10 max-h-[40px] w-10 max-w-[40px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-gray-900 transition-all hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" do %>
+                <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                  <img src="<%= asset_path('delete-icon.png') %>" alt="Delete" class="w-4 h-4"/>
+                </span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  
+    <div class="flex items-center justify-between p-4 border-t border-blue-gray-50">
+      ** Pagination Implementation **
+      <!--  
+      <button
+        class="select-none rounded-lg border border-gray-900 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-gray-900 transition-all hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+        type="button">
+        Previous
+      </button>
+      <div class="flex items-center gap-2">
+        <button
+          class="relative h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-lg border border-gray-900 text-center align-middle font-sans text-xs font-medium uppercase text-gray-900 transition-all hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          type="button">
+          <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+            1
+          </span>
+        </button>
+        <button
+          class="relative h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-gray-900 transition-all hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          type="button">
+          <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+            2
+          </span>
+        </button>
+        <button
+          class="relative h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-gray-900 transition-all hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          type="button">
+          <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+            3
+          </span>
+        </button>
+        <button
+          class="relative h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-gray-900 transition-all hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          type="button">
+          <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+            ...
+          </span>
+        </button>
+        <button
+          class="relative h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-gray-900 transition-all hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          type="button">
+          <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+            8
+          </span>
+        </button>
+        <button
+          class="relative h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-gray-900 transition-all hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          type="button">
+          <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+            9
+          </span>
+        </button>
+        <button
+          class="relative h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-gray-900 transition-all hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          type="button">
+          <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+            10
+          </span>
+        </button>
+      </div>
+      <button
+        class="select-none rounded-lg border border-gray-900 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-gray-900 transition-all hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+        type="button">
+        Next
+      </button>
+      -->
+    </div>
+  
+</div>
