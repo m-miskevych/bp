@@ -27,5 +27,10 @@ module PhysioApp
     config.i18n.available_locales = [ :en, :sk ]
     config.i18n.default_locale = :sk
     config.i18n.fallbacks = true
+
+    config.generators.system_tests = nil
+    config.generators do |g|
+      g.test_framework :rspec
+    end
   end
 end
