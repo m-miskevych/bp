@@ -20,6 +20,40 @@ RSpec.describe Plan, type: :model do
   end
 
   describe "associations" do
+    it "can be associated with exercises through exercises_plans" do
+      plan = create(:plan)
+      exercise = create(:exercise)
+
+      create(:exercises_plan, plan: plan, exercise: exercise)
+
+      expect(plan.exercises).to include(exercise)
+    end
+
+    it "can have many exercises through exercises_plans" do
+      plan = create(:plan)
+      exercise1 = create(:exercise)
+      exercise2 = create(:exercise)
+
+      create(:exercises_plan, plan: plan, exercise: exercise1)
+      create(:exercises_plan, plan: plan, exercise: exercise2)
+
+      expect(plan.exercises).to include(exercise1, exercise2)
+    end
+
+    it "destroys exercises_plans when the plan is destroyed" do
+      plan = create(:plan)
+      exercise1 = create(:exercise)
+      exercise2 = create(:exercise)
+
+      create(:exercises_plan, plan: plan, exercise: exercise1)
+      create(:exercises_plan, plan: plan, exercise: exercise2)
+
+      expect(ExercisesPlan.count).to eq(2)
+
+      plan.destroy
+
+      expect(ExercisesPlan.count).to eq(0)
+    end
   end
 
   describe "translations" do

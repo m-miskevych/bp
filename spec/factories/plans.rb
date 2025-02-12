@@ -1,7 +1,7 @@
 # spec/factories/plans.rb
 FactoryBot.define do
   factory :plan do
-    name { "Sample Plan" }
+    sequence(:name) { |n| "Sample Plan #{n}" }
     description { "This is a sample description for the plan." }
   end
 end
