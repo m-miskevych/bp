@@ -3,6 +3,10 @@
     <ul class="flex space-x-4">
       <li><%= link_to t('navbar.home'), client_dashboard_index_path, class: "text-blue-600 hover:text-blue-800 font-medium" %></li>
     </ul>
-    <%= render "shared/language_switcher" %>
+    <div class="flex items-center space-x-4 ml-auto">
+      <%= link_to t('navbar.profile'), edit_user_registration_path, class: "text-blue-600 hover:text-blue-800 font-medium" %>
+      <%= button_to t('navbar.logout'), destroy_user_session_path, method: :delete, class: "bg-white text-black uppercase px-3 py-2 rounded-full shadow-md border border-gray-300 hover:bg-gray-100 transition" %>
+      <%= render "shared/language_switcher" %>
+    </div>
   </div>
 </nav>

@@ -5,6 +5,8 @@ sk:
     home: "Domov"
     exercises: "Cvičenia"
     plans: "Plány"
+    profile: "Profil"
+    logout: "Odhlásiť sa"
   common:
     actions:
       detail: "Detail"

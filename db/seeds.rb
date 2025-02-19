@@ -2,7 +2,25 @@
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
+puts "Seeding users..."
+admin = User.find_or_create_by!(email: "admin@example.com") do |user|
+  user.password = "123123"
+  user.password_confirmation = "123123"
+  user.role = 0 # admin
+end
+
+client = User.find_or_create_by!(email: "client@example.com") do |user|
+  user.password = "123123"
+  user.password_confirmation = "123123"
+  user.role = 1 # client
+end
+
+puts "Created users:"
+puts "Admin: #{admin.email}"
+puts "Client: #{client.email}"
+
 # Create exercises with translations
+puts "Seeding exercises..."
 knee_flexion = Exercise.create(
   name_en: "Knee Flexion",
   name_sk: "Ohyb kolena",
@@ -76,6 +94,7 @@ shoulder_abduction = Exercise.create(
 )
 
 # Create plans with translations
+puts "Seeding plans..."
 knee_plan = Plan.create(
   name_sk: "Rehabilitačný program pre kolenný kĺb",
   name_en: "Rehabilitation Program for Knee Joint",

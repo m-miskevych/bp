@@ -5,6 +5,8 @@ en:
     home: "Home"
     exercises: "Exercises"
     plans: "Plans"
+    profile: "Profile"
+    logout: "Logout"
   common:
     actions:
       detail: "Detail"

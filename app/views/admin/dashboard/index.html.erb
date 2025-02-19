@@ -4,12 +4,6 @@
 <h1>Vitajte!</h1>
 <% if user_signed_in? %>
   <p>Ste prihlásený ako <%= current_user.email %> (role: <%= current_user.role %>)</p>
-  <%= button_to "Odhlásiť sa", destroy_user_session_path, method: :delete %>
-<% else %>
-  <p>
-    <%= link_to "Prihlásiť sa", new_user_session_path %> alebo
-    <%= link_to "Registrovať sa", new_user_registration_path %>
-  </p>
 <% end %>
 
 
