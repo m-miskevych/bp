@@ -1,0 +1,5 @@
+<div class="language-switcher flex space-x-2">
+  <% I18n.available_locales.each do |locale| %>
+    <%= link_to locale.to_s.upcase, url_for(locale: locale), class: "bg-black text-white uppercase p-2 rounded-full cursor-pointer" %>
+  <% end %>
+</div>

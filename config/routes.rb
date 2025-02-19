@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|sk/ do
-    get "dashboard/index"
+    devise_for :users
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
     # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -11,8 +11,19 @@ Rails.application.routes.draw do
     get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
     get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
-    # Defines the root path route ("/")
-    root "dashboard#index"
+    # Root path
+    root "home#index"
+
+    # Welcome page log in or sign up
+    get "home/index" => "home#index"
+
+    namespace :admin do
+      get "dashboard/index" => "dashboard#index"
+    end
+
+    namespace :client do
+      get "dashboard/index" => "dashboard#index"
+    end
 
     resources :exercises do
       member do
@@ -20,7 +31,6 @@ Rails.application.routes.draw do
         delete "remove_image"
       end
     end
-
     resources :plans
   end
 end
