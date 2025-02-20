@@ -58,7 +58,7 @@ group :test do
   gem "rspec-rails"
 end
 
-gem "tailwindcss-rails", "~> 3.0"
+gem "tailwindcss-rails", "~> 4.1"
 gem "rails-i18n"
 
 gem "mobility", "~> 1.3"
