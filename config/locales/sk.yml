@@ -30,54 +30,54 @@ sk:
           new_plan: "Nový plán"
           new_client: "Pridať nového klienta"
 
-  exercises:
-    index:
-      title: "Cvičenia"
-      new: "Nové cvičenie"
-      table:
-        headers:
+    exercises:
+      index:
+        title: "Cvičenia"
+        new: "Nové cvičenie"
+        table:
+          headers:
+            name: "Názov"
+            description: "Popis"
+            set: "Séria"
+            repetition: "Opakovanie"
+            actions: "Akcie"
+      new:
+        title: "Pridať nové cvičenie"
+      show:
+        title: "Detail cvičenia: %{name}"
+        fields:
           name: "Názov"
           description: "Popis"
           set: "Séria"
-          repetition: "Opakovanie"
-          actions: "Akcie"
-    new:
-      title: "Pridať nové cvičenie"
-    show:
-      title: "Detail cvičenia: %{name}"
-      fields:
+          repetition: "Opakovania"
+      edit:
+        title: "Upraviť cvičenie"
+      form:
         name: "Názov"
         description: "Popis"
         set: "Séria"
-        repetition: "Opakovania"
-    edit:
-      title: "Upraviť cvičenie"
-    form:
-      name: "Názov"
-      description: "Popis"
-      set: "Séria"
-      repetition: "Opakovanie"
-      submit: "Uložiť cvičenie"
-    errors:
-      title: "Vyskytli sa chyby"
+        repetition: "Opakovanie"
+        submit: "Uložiť cvičenie"
+      errors:
+        title: "Vyskytli sa chyby"
 
-  plans:
-    index:
-      title: "Plány"
-      new: "Nový Plán"
-    show:
-      title: "Detail Plánu"
-      fields:
-        name: "Názov Plánu"
+    plans:
+      index:
+        title: "Plány"
+        new: "Nový Plán"
+      show:
+        title: "Detail Plánu"
+        fields:
+          name: "Názov Plánu"
+          description: "Popis"
+          exercises: "Cvičenia pre tento plán"
+      new:
+        title: "Pridať Nový Plán"
+      edit:
+        title: "Upraviť Plán"
+      form:
+        name: "Názov"
         description: "Popis"
-        exercises: "Cvičenia pre tento plán"
-    new:
-      title: "Pridať Nový Plán"
-    edit:
-      title: "Upraviť Plán"
-    form:
-      name: "Názov"
-      description: "Popis"
-      assign_exercises: "Prideliť cvičenia"
-    errors:
-      title: "Vyskytli sa chyby"
+        assign_exercises: "Prideliť cvičenia"
+      errors:
+        title: "Vyskytli sa chyby"

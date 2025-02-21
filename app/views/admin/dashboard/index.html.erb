@@ -21,13 +21,13 @@
   <div class="p-6 bg-white shadow-md rounded-lg">
     <h2 class="text-xl font-semibold"><%= t('.statistics.total_exercises') %></h2>
     <p class="text-3xl font-bold"><%= @total_exercises %></p>
-    <%= link_to t(".statistics.new_exercise"), new_exercise_path, class: "relative px-6 py-3 font-semibold text-black uppercase border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:border-black hover:text-[#955fc5] transition-all mt-4 inline-block" %>
+    <%= link_to t(".statistics.new_exercise"), new_admin_exercise_path, class: "relative px-6 py-3 font-semibold text-black uppercase border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:border-black hover:text-[#955fc5] transition-all mt-4 inline-block" %>
   </div>
 
   <div class="p-6 bg-white shadow-md rounded-lg">
     <h2 class="text-xl font-semibold"><%= t('.statistics.total_plans') %></h2>
     <p class="text-3xl font-bold"><%= @total_plans %></p>
-    <%= link_to t(".statistics.new_plan"), new_plan_path, class: "relative px-6 py-3 font-semibold text-black uppercase border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:border-black hover:text-[#955fc5] transition-all mt-4 inline-block" %>
+    <%= link_to t(".statistics.new_plan"), new_admin_plan_path, class: "relative px-6 py-3 font-semibold text-black uppercase border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:border-black hover:text-[#955fc5] transition-all mt-4 inline-block" %>
   </div>
     
   <div class="p-6 bg-white shadow-md rounded-lg">

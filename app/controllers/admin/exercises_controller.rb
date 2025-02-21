@@ -1,4 +1,7 @@
-class ExercisesController < ApplicationController
+class Admin::ExercisesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :authorize_admin
+
   def index
     @exercises = Exercise.i18n.order(:name)
   end
@@ -14,7 +17,7 @@ class ExercisesController < ApplicationController
   def create
     @exercise = Exercise.new(exercise_params)
     if @exercise.save
-      redirect_to exercise_url(@exercise)
+      redirect_to admin_exercise_url(@exercise)
     else
       render "new", status: :unprocessable_entity
     end
@@ -27,7 +30,7 @@ class ExercisesController < ApplicationController
   def update
     @exercise = Exercise.find(params[:id])
     if @exercise.update(exercise_params)
-      redirect_to exercise_url(@exercise)
+      redirect_to admin_exercise_url(@exercise)
     else
       render "edit", status: :unprocessable_entity
     end
@@ -36,21 +39,25 @@ class ExercisesController < ApplicationController
   def destroy
     @exercise = Exercise.find(params[:id])
     if @exercise.exercises_plans.any?
-      redirect_to exercises_url, alert: "This exercise is assigned to a plan and cannot be deleted."
+      redirect_to admin_exercises_url, alert: "This exercise is assigned to a plan and cannot be deleted."
     else
       @exercise.destroy
-      redirect_to exercises_url, notice: "Exercise deleted successfully."
+      redirect_to admin_exercises_url, notice: "Exercise deleted successfully."
     end
   end
 
   def remove_image
     @image = ActiveStorage::Attachment.find(params[:id])
     @image.purge
-    redirect_to exercises_url
+    redirect_to admin_exercises_url
   end
 
   private
   def exercise_params
     params.require(:exercise).permit(:name_sk, :name_en, :description_sk, :description_en, :set, :repetition, images: [])
+  end
+
+  def authorize_admin
+    redirect_to client_dashboard_index_path unless current_user.admin?
   end
 end

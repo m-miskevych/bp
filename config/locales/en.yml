@@ -30,54 +30,54 @@ en:
           new_plan: "New Plan"
           new_client: "Add New Client"
 
-  exercises:
-    index:
-      title: "Exercises"
-      new: "New Exercise"
-      table:
-        headers:
+    exercises:
+      index:
+        title: "Exercises"
+        new: "New Exercise"
+        table:
+          headers:
+            name: "Name"
+            description: "Description"
+            set: "Set"
+            repetition: "Repetition"
+            actions: "Actions"
+      new:
+        title: "Add a New Exercise"
+      show:
+        title: "Detail of Exercise: %{name}"
+        fields:
           name: "Name"
           description: "Description"
           set: "Set"
           repetition: "Repetition"
-          actions: "Actions"
-    new:
-      title: "Add a New Exercise"
-    show:
-      title: "Detail of Exercise: %{name}"
-      fields:
+      edit:
+        title: "Edit Exercise"
+      form:
         name: "Name"
         description: "Description"
         set: "Set"
         repetition: "Repetition"
-    edit:
-      title: "Edit Exercise"
-    form:
-      name: "Name"
-      description: "Description"
-      set: "Set"
-      repetition: "Repetition"
-      submit: "Save Exercise"
-    errors:
-      title: "There were some errors"
+        submit: "Save Exercise"
+      errors:
+        title: "There were some errors"
 
-  plans:
-    index:
-      title: "Plans"
-      new: "New Plan"
-    show:
-      title: "Plan Detail"
-      fields:
-        name: "Plan Name"
+    plans:
+      index:
+        title: "Plans"
+        new: "New Plan"
+      show:
+        title: "Plan Detail"
+        fields:
+          name: "Plan Name"
+          description: "Description"
+          exercises: "Exercises for this plan"
+      new:
+        title: "Add a New Plan"
+      edit:
+        title: "Edit Plan"
+      form:
+        name: "Name"
         description: "Description"
-        exercises: "Exercises for this plan"
-    new:
-      title: "Add a New Plan"
-    edit:
-      title: "Edit Plan"
-    form:
-      name: "Name"
-      description: "Description"
-      assign_exercises: "Assign Exercises"
-    errors:
-      title: "There were some errors"
+        assign_exercises: "Assign Exercises"
+      errors:
+        title: "There were some errors"

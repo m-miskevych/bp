@@ -22,7 +22,7 @@
           </p>
         </div>
         <div class="flex w-full gap-2 shrink-0 md:w-max mt-4 md:mt-0">
-          <%= link_to t('.new'), new_exercise_path, class: "relative px-6 py-3 font-semibold text-black uppercase border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:border-black hover:opacity-75 transition-all mt-4 inline-block" %>
+          <%= link_to t('.new'), new_admin_exercise_path, class: "relative px-6 py-3 font-semibold text-black uppercase border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:border-black hover:opacity-75 transition-all mt-4 inline-block" %>
         </div>
     </div>
 
@@ -58,11 +58,11 @@
             <td class="p-4 border-b border-blue-gray-50">
               <div class="flex items-center gap-3">
                 <% if exercise.images.first&.representable? %>
-                  <%= link_to exercise_path(exercise) do %>
+                  <%= link_to admin_exercise_path(exercise) do %>
                     <%= image_tag exercise.images.first.variant(:thumb), class: "relative inline-block h-14 w-14 border border-blue-gray-50 bg-blue-gray-50/50 object-contain object-center p-1" %>
                   <% end %>
                 <% end %>
-                <%= link_to exercise.name, exercise_path(exercise), class: "block font-sans text-sm antialiased font-bold leading-normal text-blue-gray-900 hover:text-purple-700 transition-colors duration-300" %>                
+                <%= link_to exercise.name, admin_exercise_path(exercise), class: "block font-sans text-sm antialiased font-bold leading-normal text-blue-gray-900 hover:text-purple-700 transition-colors duration-300" %>                
               </div>
             </td>
             <td class="p-4 border-b border-blue-gray-50">
@@ -70,14 +70,14 @@
             </td>
             <td class="p-4 border-b border-blue-gray-50 space-x-2">
               <!-- Edit Icon -->
-              <%= link_to edit_exercise_path(exercise), class: "relative inline-block h-10 max-h-[40px] w-10 max-w-[40px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-gray-900 transition-all hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" do %>
+              <%= link_to edit_admin_exercise_path(exercise), class: "relative inline-block h-10 max-h-[40px] w-10 max-w-[40px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-gray-900 transition-all hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" do %>
                 <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                   <img src="<%= asset_path('edit-icon.png') %>" alt="Edit" class="w-4 h-4"/>
                 </span>
               <% end %>
 
               <!-- Delete Icon -->
-              <%= link_to exercise_path(exercise), 
+              <%= link_to admin_exercise_path(exercise), 
                         data: { turbo_method: :delete ,turbo_confirm: t('common.actions.confirm_delete') }, 
                         class: "relative inline-block h-10 max-h-[40px] w-10 max-w-[40px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-gray-900 transition-all hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" do %>
                 <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
