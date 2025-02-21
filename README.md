@@ -8,7 +8,7 @@
 
 ## PLANNING
 
-### v.1
+### 1
 - [x] Create `Exercise` and `Plan` models
 - [x] Define a many-to-many relationship between `Exercise` and `Plan`
 - [x] `Exercise` CRUD operations
@@ -47,14 +47,23 @@ BUGS
 - [ ] Plan - Exercise -> make it redirect to exercise detail page
 - [ ] Better visualization for Detail, Edit, Delete Buttons
 
-### v.2
-- [ ] Add `User` model - Physiotherapist, Client ( admin? )
-- [ ] Add authentication and authorization - Device gem
-  - [ ] Physiotherapist registration with profile (name, company)
-  - [ ] Client registration via invite link
+### 2 - Auth and Authorization, Users - admin, client
+- [x] Add authentication and authorization - Device gem
+- [x] Add `User` model - role: admin, client
+- [ ] Add attribute name to User model
+- [ ] Add `User` controller 2x - admin::user, client::user
+- [ ] user-admin one-to-many relationship with user-client
+- [ ] Physiotherapist registration with profile (name, company)
+- [ ] Client registration via invite link
 
-### v.3
+### 3 - Reservations
 - [ ] Add Reservation system
 
-### v.4
-- [ ] Cypress Tests
+### 4 - Testing
+- [ ] Add RSpec
+  - [ ] model test Exercise
+  - [ ] model test Plan
+  - [ ] model test ExercisesPlan
+  - [ ] model User 
+  
+- [ ] Add Capybara

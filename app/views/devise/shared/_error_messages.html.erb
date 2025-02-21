@@ -1,15 +1,24 @@
-<% if resource.errors.any? %>
-  <div id="error_explanation" data-turbo-cache="false">
-    <h2>
-      <%= I18n.t("errors.messages.not_saved",
-                 count: resource.errors.count,
-                 resource: devise_i18n_fix_model_name_case(resource.model_name.human, i18n_key: 'errors.messages.not_saved'))
-       %>
-    </h2>
-    <ul>
-      <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+<% if resource.errors.any? || flash[:alert] || flash[:error] %>
+  <div id="error_explanation" class="mb-6 bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md shadow-md mt-4" data-turbo-cache="false">
+    
+    <% if resource.errors.any? %>
+      <h2 class="font-semibold text-base">
+        <%= I18n.t("errors.messages.not_saved",
+                   count: resource.errors.count,
+                   resource: devise_i18n_fix_model_name_case(resource.model_name.human, i18n_key: 'errors.messages.not_saved'))
+         %>
+      </h2>
+      
+      <ul class="list-disc pl-6 space-y-2">
+        <% resource.errors.full_messages.each do |message| %>
+          <li class="text-sm"><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% if flash[:alert] || flash[:error] %>
+      <p class="text-sm"><%= flash[:alert] || flash[:error] %></p>
+    <% end %>
+    
   </div>
 <% end %>
