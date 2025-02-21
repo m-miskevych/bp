@@ -4,12 +4,14 @@
 
 puts "Seeding users..."
 admin = User.find_or_create_by!(email: "admin@example.com") do |user|
+  user.name = "Meno Admin"
   user.password = "123123"
   user.password_confirmation = "123123"
   user.role = 0 # admin
 end
 
 client = User.find_or_create_by!(email: "client@example.com") do |user|
+  user.name = "Meno Client"
   user.password = "123123"
   user.password_confirmation = "123123"
   user.role = 1 # client
