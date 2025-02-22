@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     namespace :admin do
       get "dashboard/index" => "dashboard#index"
       resources :plans
+      resources :users
       resources :exercises do
         member do
           # remove_image_exercise_path(image)

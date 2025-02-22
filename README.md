@@ -38,7 +38,7 @@ bundle exec rspec spec/models
   - [ ] style Plans
   - [ ] navbar
 
-- [ ] Divide admin / user namespaces
+- [x] Divide admin / user namespaces
 - [ ] Add Flash Messages for success and errors
 
 - Exercise
@@ -50,9 +50,9 @@ bundle exec rspec spec/models
 ### 2 - Auth and Authorization, Users - admin, client
 - [x] Add authentication and authorization - Device gem
 - [x] Add `User` model - role: admin, client
-- [ ] Add attribute name to User model
+- [x] Add attribute name to User model
 - [ ] Add `User` controller 2x - admin::user, client::user
-- [ ] user-admin one-to-many relationship with user-client
+- [x] user-admin one-to-many relationship with user-client
 - [ ] Physiotherapist registration with profile (name, company)
 - [ ] Client registration via invite link
 

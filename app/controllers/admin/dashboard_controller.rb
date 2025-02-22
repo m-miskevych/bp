@@ -5,6 +5,7 @@ class Admin::DashboardController < ApplicationController
   def index
     @total_exercises = Exercise.count
     @total_plans = Plan.count
+    @total_clients = current_user.users.count
   end
 
   private

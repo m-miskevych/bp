@@ -8,6 +8,10 @@ class User < ApplicationRecord
 
   after_initialize :set_default_role, if: :new_record?
 
+  # associations between admin (physio) and users (clients)
+  has_many :users, class_name: "User", foreign_key: "admin_id", dependent: :nullify
+  belongs_to :admin, class_name: "User", optional: true
+
   def set_default_role
     self.role ||= :admin
   end

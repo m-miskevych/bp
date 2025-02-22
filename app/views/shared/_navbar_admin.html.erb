@@ -4,6 +4,8 @@
       <li><%= link_to t('navbar.home'), admin_dashboard_index_path, class: "text-blue-600 hover:text-blue-800 font-medium" %></li>
       <li><%= link_to t('navbar.exercises'), admin_exercises_path, class: "text-blue-600 hover:text-blue-800 font-medium" %></li>
       <li><%= link_to t('navbar.plans'), admin_plans_path, class: "text-blue-600 hover:text-blue-800 font-medium" %></li>
+      <li><%= link_to t('navbar.clients'), admin_users_path, class: "text-blue-600 hover:text-blue-800 font-medium" %></li>
+
     </ul>
     <div class="flex items-center space-x-4 ml-auto">
       <%= link_to t('navbar.profile'), edit_user_registration_path, class: "text-blue-600 hover:text-blue-800 font-medium" %>

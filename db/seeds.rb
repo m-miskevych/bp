@@ -3,23 +3,58 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
 puts "Seeding users..."
-admin = User.find_or_create_by!(email: "admin@example.com") do |user|
-  user.name = "Meno Admin"
+admin1 = User.find_or_create_by!(email: "admin1@example.com") do |user|
+  user.name = "Admin One"
   user.password = "123123"
   user.password_confirmation = "123123"
-  user.role = 0 # admin
+  user.role = :admin # admin
 end
 
-client = User.find_or_create_by!(email: "client@example.com") do |user|
-  user.name = "Meno Client"
+admin2 = User.find_or_create_by!(email: "admin2@example.com") do |user|
+  user.name = "Admin Two"
   user.password = "123123"
   user.password_confirmation = "123123"
-  user.role = 1 # client
+  user.role = :admin # admin
+end
+
+client1 = User.find_or_create_by!(email: "client1@example.com") do |user|
+  user.name = "Client One"
+  user.password = "123123"
+  user.password_confirmation = "123123"
+  user.role = :user # client
+  user.admin = admin1 # priradenie k adminovi 1
+end
+
+client2 = User.find_or_create_by!(email: "client2@example.com") do |user|
+  user.name = "Client Two"
+  user.password = "123123"
+  user.password_confirmation = "123123"
+  user.role = :user # client
+  user.admin = admin1 # priradenie k adminovi 1
+end
+
+client3 = User.find_or_create_by!(email: "client3@example.com") do |user|
+  user.name = "Client Three"
+  user.password = "123123"
+  user.password_confirmation = "123123"
+  user.role = :user # client
+  user.admin = admin2 # priradenie k adminovi 2
+end
+
+client4 = User.find_or_create_by!(email: "client4@example.com") do |user|
+  user.name = "Client Four"
+  user.password = "123123"
+  user.password_confirmation = "123123"
+  user.role = :user # client
+  user.admin = admin2 # priradenie k adminovi 2
 end
 
 puts "Created users:"
-puts "Admin: #{admin.email}"
-puts "Client: #{client.email}"
+puts "Admin 1: #{admin1.email} (Name: #{admin1.name})"
+puts "Admin 2: #{admin2.email} (Name: #{admin2.name})"
+puts "Clients for Admin 1: #{client1.email}, #{client2.email}"
+puts "Clients for Admin 2: #{client3.email}, #{client4.email}"
+
 
 # Create exercises with translations
 puts "Seeding exercises..."
