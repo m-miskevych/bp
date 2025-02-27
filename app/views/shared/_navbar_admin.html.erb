@@ -1,16 +1,47 @@
 <nav class="bg-white shadow-md">
-  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-    <ul class="flex space-x-4">
-      <li><%= link_to t('navbar.home'), admin_dashboard_index_path, class: "text-blue-600 hover:text-blue-800 font-medium" %></li>
-      <li><%= link_to t('navbar.exercises'), admin_exercises_path, class: "text-blue-600 hover:text-blue-800 font-medium" %></li>
-      <li><%= link_to t('navbar.plans'), admin_plans_path, class: "text-blue-600 hover:text-blue-800 font-medium" %></li>
-      <li><%= link_to t('navbar.clients'), admin_users_path, class: "text-blue-600 hover:text-blue-800 font-medium" %></li>
+  <div class="container mx-auto px-4 py-4 ">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-8">
+        <div class="shrink-0 text-gray-900 font-heading font-bold text-2xl">
+          <%= link_to t('app.title'), root_path %>
+        </div>
+        <ul class="hidden lg:flex items-center justify-start gap-6 md:gap-8 py-1 sm:justify-center">
+          <li><%= link_to t('navbar.home'), admin_dashboard_index_path, class: "text-blue-600 hover:text-blue-800 font-medium" %></li>
+          <li><%= link_to t('navbar.exercises'), admin_exercises_path, class: "text-blue-600 hover:text-blue-800 font-medium" %></li>
+          <li><%= link_to t('navbar.plans'), admin_plans_path, class: "text-blue-600 hover:text-blue-800 font-medium" %></li>
+          <li><%= link_to t('navbar.clients'), admin_users_path, class: "text-blue-600 hover:text-blue-800 font-medium" %></li>
+          <li><%= link_to t('navbar.profile'), edit_user_registration_path, class: "text-blue-600 hover:text-blue-800 font-medium" %></li>
+          <li><%= render "shared/language_switcher" %></li>
+        </ul>
+      </div>
+      <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-4 ml-auto">
+            <%= button_to t('navbar.logout'), destroy_user_session_path, method: :delete, class: "bg-white text-black text-sm uppercase px-3 py-2 rounded-full shadow-md border border-gray-300 hover:bg-gray-100 transition" %>
+        </div>
 
-    </ul>
-    <div class="flex items-center space-x-4 ml-auto">
-      <%= link_to t('navbar.profile'), edit_user_registration_path, class: "text-blue-600 hover:text-blue-800 font-medium" %>
-      <%= button_to t('navbar.logout'), destroy_user_session_path, method: :delete, class: "bg-white text-black uppercase px-3 py-2 rounded-full shadow-md border border-gray-300 hover:bg-gray-100 transition" %>
-      <%= render "shared/language_switcher" %>
+        <div class="flex items-center lg:space-x-2 ">
+          <button type="button" data-collapse-toggle="navbar-menu" aria-controls="navbar-menu" aria-expanded="false" class="inline-flex lg:hidden items-center justify-center hover:bg-gray-100 rounded-md">
+            <span class="sr-only">Open Menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="navbar-menu" class="bg-gray-100 border border-gray-250 rounded-lg py-3 hidden px-4 mt-4 mb-2">
+      <ul class="text-gray-900 text-md font-medium space-y-1">
+        <li><%= link_to t('navbar.home'), admin_dashboard_index_path, class: "block text-blue-600 hover:text-blue-800 font-medium py-2 px-4 rounded-lg hover:bg-gray-100 transition" %></li>
+        <li><%= link_to t('navbar.exercises'), admin_exercises_path, class: "block text-blue-600 hover:text-blue-800 font-medium py-2 px-4 rounded-lg hover:bg-gray-100 transition" %></li>
+        <li><%= link_to t('navbar.plans'), admin_plans_path, class: "block text-blue-600 hover:text-blue-800 font-medium py-2 px-4 rounded-lg hover:bg-gray-100 transition" %></li>
+        <li><%= link_to t('navbar.clients'), admin_users_path, class: "block text-blue-600 hover:text-blue-800 font-medium py-2 px-4 rounded-lg hover:bg-gray-100 transition" %></li>
+        <li><%= link_to t('navbar.profile'), edit_user_registration_path, class: "block text-blue-600 hover:text-blue-800 font-medium py-2 px-4 rounded-lg hover:bg-gray-100 transition" %></li>
+        <li class="border-t border-gray-200 pt-3">
+          <%= render "shared/language_switcher" %>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
+
