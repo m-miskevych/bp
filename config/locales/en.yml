@@ -1,6 +1,7 @@
 en:
   app:
     name: "Physio App"
+    title: "Physio"
   navbar:
     home: "Home"
     exercises: "Exercises"

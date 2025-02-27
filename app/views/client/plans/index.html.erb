@@ -1,0 +1,13 @@
+<h1>Moje plány</h1>
+
+<% if @plans.any? %>
+  <ul>
+    <% @plans.each do |plan| %>
+      <li>
+        <strong><%= plan.name %></strong> - <%= plan.description %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Momentálne nemáte žiadne priradené plány.</p>
+<% end %>

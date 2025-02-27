@@ -1,5 +1,5 @@
 class Admin::PlansController < ApplicationController
-  before_action :authenticate_user!
+  include Authorization
   before_action :authorize_admin
 
   def index
@@ -42,12 +42,29 @@ class Admin::PlansController < ApplicationController
     redirect_to admin_plans_url
   end
 
+    # **Nová akcia na výber klienta pre plán**
+    def assign
+      @plan = Plan.find(params[:id])
+      @clients = User.where(role: :user)  # Zobrazí iba klientov (nie adminov)
+    end
+
+    # **Akcia na priradenie plánu vybranému klientovi**
+    def assign_plan_to_client
+      @plan = Plan.find(params[:id])
+      @client = User.find(params[:user_id])
+
+      if @client.plans.include?(@plan)
+        flash[:alert] = "Tento klient už má tento plán priradený!"
+      else
+        @client.plans << @plan
+        flash[:notice] = "Plán bol úspešne priradený klientovi."
+      end
+
+      redirect_to admin_plans_path
+    end
+
   private
   def plan_params
     params.require(:plan).permit(:name_sk, :name_en, :description_sk, :description_en, exercise_ids: [])
-  end
-
-  def authorize_admin
-    redirect_to client_dashboard_index_path unless current_user.admin?
   end
 end

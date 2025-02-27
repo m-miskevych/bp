@@ -1,5 +1,5 @@
 class Admin::ExercisesController < ApplicationController
-  before_action :authenticate_user!
+  include Authorization
   before_action :authorize_admin
 
   def index
@@ -17,7 +17,7 @@ class Admin::ExercisesController < ApplicationController
   def create
     @exercise = Exercise.new(exercise_params)
     if @exercise.save
-      redirect_to admin_exercise_url(@exercise)
+      redirect_to admin_exercise_url(@exercise), notice: "Exercise created successfully."
     else
       render "new", status: :unprocessable_entity
     end
@@ -42,7 +42,7 @@ class Admin::ExercisesController < ApplicationController
       redirect_to admin_exercises_url, alert: "This exercise is assigned to a plan and cannot be deleted."
     else
       @exercise.destroy
-      redirect_to admin_exercises_url, notice: "Exercise deleted successfully."
+      redirect_to admin_exercises_url, alert: "Exercise deleted successfully."
     end
   end
 
@@ -55,9 +55,5 @@ class Admin::ExercisesController < ApplicationController
   private
   def exercise_params
     params.require(:exercise).permit(:name_sk, :name_en, :description_sk, :description_en, :set, :repetition, images: [])
-  end
-
-  def authorize_admin
-    redirect_to client_dashboard_index_path unless current_user.admin?
   end
 end

@@ -10,16 +10,17 @@
 
     <%= yield :head %>
 
-    <link rel="manifest" href="/manifest.json">
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
   </head>
 
-  <body>
+  <body class="static">
     <% if user_signed_in? %>
       <% if current_user.admin? %>
         <%= render "shared/navbar_admin" %>
@@ -30,8 +31,12 @@
       <%= render "shared/navbar_public" %>
     <% end %>
 
+    <%= render "shared/notifications", locals: { notice: notice, alert: alert } %>
+    
     <main class="container mx-auto px-4 py-6">
       <%= yield %>
+
+      <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     </main>
   </body>
 </html>

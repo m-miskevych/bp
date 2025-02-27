@@ -12,6 +12,10 @@ class User < ApplicationRecord
   has_many :users, class_name: "User", foreign_key: "admin_id", dependent: :nullify
   belongs_to :admin, class_name: "User", optional: true
 
+  # Many-to-Many asociácia s plánmi cez user_plans
+  has_many :user_plans, dependent: :destroy
+  has_many :plans, through: :user_plans
+
   def set_default_role
     self.role ||= :admin
   end

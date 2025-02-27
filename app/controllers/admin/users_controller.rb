@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  before_action :authenticate_user!
+  include Authorization
   before_action :authorize_admin
   before_action :set_admin
 
@@ -13,10 +13,6 @@ class Admin::UsersController < ApplicationController
   end
 
   private
-  def authorize_admin
-    redirect_to client_dashboard_index_path unless current_user.admin?
-  end
-
   def set_admin
     @admin = current_user
   end

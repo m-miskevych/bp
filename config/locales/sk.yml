@@ -1,6 +1,7 @@
 sk:
   app:
     name: "Fyzio Aplikácia"
+    title: "Fyzio"
   navbar:
     home: "Domov"
     exercises: "Cvičenia"

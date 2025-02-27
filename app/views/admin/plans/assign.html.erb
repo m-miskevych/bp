@@ -1,0 +1,14 @@
+<h1>Priradiť plán: <%= @plan.name %></h1>
+
+<%= form_with url: assign_plan_to_client_admin_plan_path(@plan), method: :post do %>
+  <label for="user_id">Vyberte klienta:</label>
+  <select name="user_id" id="user_id">
+    <% @clients.each do |client| %>
+      <option value="<%= client.id %>"><%= client.email %></option>
+    <% end %>
+  </select>
+
+  <%= submit_tag "Priradiť plán" %>
+<% end %>
+
+<%= link_to "Späť na zoznam plánov", admin_plans_path %>

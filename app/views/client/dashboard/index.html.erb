@@ -3,10 +3,6 @@
   <p>Find me in app/views/client/dashboard/index.html.erb</p>
 </div>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-<h1>Vitajte!</h1>
 <% if user_signed_in? %>
   <p>Ste prihlásený ako <%= current_user.email %> (role: <%= current_user.role %>)</p>
 <% end %>

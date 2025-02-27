@@ -6,6 +6,9 @@ class Plan < ApplicationRecord
   has_many :exercises_plans, dependent: :destroy
   has_many :exercises, through: :exercises_plans
 
+  has_many :user_plans, dependent: :destroy
+  has_many :users, through: :user_plans
+
   validates :name, presence: true
   validates :description, presence: true
 end
