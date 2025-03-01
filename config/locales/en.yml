@@ -7,6 +7,7 @@ en:
     exercise_created: "Exercise was successfully created."
     exercise_updated: "Exercise was successfully updated."
     exercise_deleted: "Exercise was successfully deleted."
+    user_created: "User was successfully created."
   alerts:
     plan_already_assigned: "This client already has this plan assigned!"
     exercise_assigned_to_plan: "This exercise is assigned to a plan and cannot be deleted."
@@ -105,3 +106,9 @@ en:
           headers:
             name: "Name"
             email: "Email"
+      new:
+        title: "Add a New Client"
+      form:
+        name: "Name"
+        email: "Email"
+        submit: "Create Client"

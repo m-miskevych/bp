@@ -7,6 +7,7 @@ sk:
     exercise_created: "Cvičenie bolo úspešne vytvorené."
     exercise_updated: "Cvičenie bolo úspešne upravené."
     exercise_deleted: "Cvičenie bolo úspešne odstránené."
+    user_created: "Uživatel bol úspešne vytvorený."
   alerts:
     plan_already_assigned: "Tento klient už má tento plán priradený!"
     exercise_assigned_to_plan: "Toto cvičenie je priradené k plánu a nemôže byť odstránené."
@@ -105,3 +106,9 @@ sk:
           headers:
             name: "Meno"
             email: "Email"
+      new:
+        title: "Pridať nového klienta"
+      form:
+        name: "Meno"
+        email: "Email"
+        submit: "Uložiť klienta"
