@@ -6,6 +6,7 @@ en:
     home: "Home"
     exercises: "Exercises"
     plans: "Plans"
+    clients: "Clients"
     profile: "Profile"
     logout: "Logout"
   common:
@@ -51,6 +52,7 @@ en:
           description: "Description"
           set: "Set"
           repetition: "Repetition"
+          images: "Image"
       edit:
         title: "Edit Exercise"
       form:
@@ -58,6 +60,7 @@ en:
         description: "Description"
         set: "Set"
         repetition: "Repetition"
+        images_upload: "Image Upload"
         submit: "Save Exercise"
       errors:
         title: "There were some errors"
@@ -82,3 +85,12 @@ en:
         assign_exercises: "Assign Exercises"
       errors:
         title: "There were some errors"
+
+    users:
+      index:
+        title: "My Clients"
+        new: "New Client"
+        table:
+          headers:
+            name: "Name"
+            email: "Email"

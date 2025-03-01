@@ -6,6 +6,7 @@ sk:
     home: "Domov"
     exercises: "Cvičenia"
     plans: "Plány"
+    clients: "Klienti"
     profile: "Profil"
     logout: "Odhlásiť sa"
   common:
@@ -51,6 +52,7 @@ sk:
           description: "Popis"
           set: "Séria"
           repetition: "Opakovania"
+          images: "Obrázky"
       edit:
         title: "Upraviť cvičenie"
       form:
@@ -58,6 +60,7 @@ sk:
         description: "Popis"
         set: "Séria"
         repetition: "Opakovanie"
+        images_upload: "Nahrajte obrázky"
         submit: "Uložiť cvičenie"
       errors:
         title: "Vyskytli sa chyby"
@@ -82,3 +85,12 @@ sk:
         assign_exercises: "Prideliť cvičenia"
       errors:
         title: "Vyskytli sa chyby"
+
+    users:
+      index:
+        title: "Moji klienti"
+        new: "Nový Klient"
+        table:
+          headers:
+            name: "Meno"
+            email: "Email"
