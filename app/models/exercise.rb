@@ -14,4 +14,6 @@ class Exercise < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
+  validates :set, numericality: { only_integer: true, greater_than: 0 }, allow_nil: true
+  validates :repetition, numericality: { only_integer: true, greater_than: 0 }, allow_nil: true
 end

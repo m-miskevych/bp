@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :users, class_name: "User", foreign_key: "admin_id", dependent: :nullify
   belongs_to :admin, class_name: "User", optional: true
 
-  # Many-to-Many asociácia s plánmi cez user_plans
+  # Many-to-Many association between users and plans
   has_many :user_plans, dependent: :destroy
   has_many :plans, through: :user_plans
 
