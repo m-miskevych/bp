@@ -1,4 +1,15 @@
 en:
+  notices:
+    plan_created: "Plan was successfully created."
+    plan_updated: "Plan was successfully updated."
+    plan_deleted: "Plan was successfully deleted."
+    plan_assigned: "Plan was successfully assigned to the client."
+    exercise_created: "Exercise was successfully created."
+    exercise_updated: "Exercise was successfully updated."
+    exercise_deleted: "Exercise was successfully deleted."
+  alerts:
+    plan_already_assigned: "This client already has this plan assigned!"
+    exercise_assigned_to_plan: "This exercise is assigned to a plan and cannot be deleted."
   app:
     name: "Physio App"
     title: "Physio"

@@ -17,7 +17,7 @@ class Admin::ExercisesController < ApplicationController
   def create
     @exercise = Exercise.new(exercise_params)
     if @exercise.save
-      redirect_to admin_exercise_url(@exercise), notice: "Exercise created successfully."
+      redirect_to admin_exercise_url(@exercise), notice: t("notices.exercise_created")
     else
       render "new", status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class Admin::ExercisesController < ApplicationController
   def update
     @exercise = Exercise.find(params[:id])
     if @exercise.update(exercise_params)
-      redirect_to admin_exercise_url(@exercise)
+      redirect_to admin_exercise_url(@exercise), notice: t("notices.exercise_updated")
     else
       render "edit", status: :unprocessable_entity
     end
@@ -39,10 +39,10 @@ class Admin::ExercisesController < ApplicationController
   def destroy
     @exercise = Exercise.find(params[:id])
     if @exercise.exercises_plans.any?
-      redirect_to admin_exercises_url, alert: "This exercise is assigned to a plan and cannot be deleted."
+      redirect_to admin_exercises_url, alert: t("alerts.exercise_assigned_to_plan")
     else
       @exercise.destroy
-      redirect_to admin_exercises_url, alert: "Exercise deleted successfully."
+      redirect_to admin_exercises_url, alert: t("notices.exercise_deleted")
     end
   end
 

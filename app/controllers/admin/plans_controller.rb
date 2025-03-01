@@ -17,7 +17,7 @@ class Admin::PlansController < ApplicationController
   def create
     @plan = Plan.new(plan_params)
     if @plan.save
-      redirect_to admin_plan_url(@plan)
+      redirect_to admin_plan_url(@plan), notice: t("notices.plan_created")
     else
       render "new", status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class Admin::PlansController < ApplicationController
   def update
     @plan = Plan.find(params[:id])
     if @plan.update(plan_params)
-      redirect_to admin_plan_url(@plan)
+      redirect_to admin_plan_url(@plan), notice: t("notices.plan_updated")
     else
       render "edit", status: :unprocessable_entity
     end
@@ -39,7 +39,7 @@ class Admin::PlansController < ApplicationController
   def destroy
     @plan = Plan.find(params[:id])
     @plan.destroy
-    redirect_to admin_plans_url
+    redirect_to admin_plans_url, alert: t("alerts.plan_deleted")
   end
 
     # **Nová akcia na výber klienta pre plán**
@@ -54,10 +54,10 @@ class Admin::PlansController < ApplicationController
       @client = User.find(params[:user_id])
 
       if @client.plans.include?(@plan)
-        flash[:alert] = "Tento klient už má tento plán priradený!"
+        flash[:alert] = t("alerts.plan_already_assigned")
       else
         @client.plans << @plan
-        flash[:notice] = "Plán bol úspešne priradený klientovi."
+        flash[:notice] = t("notices.plan_assigned")
       end
 
       redirect_to admin_plans_path

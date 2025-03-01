@@ -7,7 +7,6 @@ class Admin::UsersController < ApplicationController
     @clients = @admin.users
   end
 
-  # Zobrazenie detailov konkrétneho klienta
   def show
     @client = @admin.users.find(params[:id])
   end

@@ -1,4 +1,15 @@
 sk:
+  notices:
+    plan_created: "Plán bol úspešne vytvorený."
+    plan_updated: "Plán bol úspešne upravený."
+    plan_deleted: "Plán bol úspešne odstránený."
+    plan_assigned: "Plán bol úspešne priradený klientovi."
+    exercise_created: "Cvičenie bolo úspešne vytvorené."
+    exercise_updated: "Cvičenie bolo úspešne upravené."
+    exercise_deleted: "Cvičenie bolo úspešne odstránené."
+  alerts:
+    plan_already_assigned: "Tento klient už má tento plán priradený!"
+    exercise_assigned_to_plan: "Toto cvičenie je priradené k plánu a nemôže byť odstránené."
   app:
     name: "Fyzio Aplikácia"
     title: "Fyzio"
