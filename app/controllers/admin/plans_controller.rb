@@ -42,26 +42,26 @@ class Admin::PlansController < ApplicationController
     redirect_to admin_plans_url, alert: t("alerts.plan_deleted")
   end
 
-    # **Nová akcia na výber klienta pre plán**
-    def assign
-      @plan = Plan.find(params[:id])
-      @clients = User.where(role: :user)  # Zobrazí iba klientov (nie adminov)
+  # **Nová akcia na výber klienta pre plán**
+  def assign
+    @plan = Plan.find(params[:id])
+    @clients = current_user.users # clients for current admin
+  end
+
+  # **Akcia na priradenie plánu vybranému klientovi**
+  def assign_plan_to_client
+    @plan = Plan.find(params[:id])
+    @client = User.find(params[:user_id])
+
+    if @client.plans.include?(@plan)
+      flash[:alert] = t("alerts.plan_already_assigned")
+    else
+      @client.plans << @plan
+      flash[:notice] = t("notices.plan_assigned")
     end
 
-    # **Akcia na priradenie plánu vybranému klientovi**
-    def assign_plan_to_client
-      @plan = Plan.find(params[:id])
-      @client = User.find(params[:user_id])
-
-      if @client.plans.include?(@plan)
-        flash[:alert] = t("alerts.plan_already_assigned")
-      else
-        @client.plans << @plan
-        flash[:notice] = t("notices.plan_assigned")
-      end
-
-      redirect_to admin_plans_path
-    end
+    redirect_to admin_plans_path
+  end
 
   private
   def plan_params

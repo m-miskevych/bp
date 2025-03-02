@@ -113,3 +113,13 @@ en:
         name: "Name"
         email: "Email"
         submit: "Create Client"
+
+  client:
+    dashboard:
+      index:
+        welcome: "Welcome, %{name}"
+        description: "View your assigned exercise plans and stay consistent for better health and recovery!"
+
+    plans:
+      index:
+        title: "Plans"

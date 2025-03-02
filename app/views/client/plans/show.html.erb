@@ -1,0 +1,29 @@
+<div class="max-w-4xl mx-auto p-6">
+  <h1 class="text-3xl font-bold text-slate-900 mb-4"><%= @plan.name %></h1>
+
+  <div class="bg-white shadow-md rounded-lg p-6">
+    <p class="text-lg font-semibold text-slate-800">Popis:</p>
+    <p class="text-slate-600 leading-normal mt-2"><%= @plan.description %></p>
+
+    <!-- Priradené cvičenia (ak existujú) -->
+    <% if @plan.exercises.any? %>
+      <div class="mt-6">
+        <p class="text-lg font-semibold text-slate-800">Priradené cvičenia:</p>
+        <ul class="mt-2">
+          <% @plan.exercises.each do |exercise| %>
+            <li class="p-4 bg-gray-100 rounded-lg shadow-sm hover:bg-gray-200 mb-4">
+              <p class="text-lg font-medium text-gray-800"><%= exercise.name %></p>
+              <p class="text-sm text-gray-600"><%= exercise.description %></p>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% else %>
+      <p class="text-gray-500 mt-2">Žiadne priradené cvičenia.</p>
+    <% end %>
+
+    <div class="mt-6">
+      <%= link_to 'Späť na zoznam plánov', client_plans_path, class: "text-blue-600 hover:text-blue-800" %>
+    </div>
+  </div>
+</div>

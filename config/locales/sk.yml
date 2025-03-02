@@ -113,3 +113,13 @@ sk:
         name: "Meno"
         email: "Email"
         submit: "Uložiť klienta"
+
+  client:
+    dashboard:
+      index:
+        welcome: "Vitajte, %{name}"
+        description: "Zobraziť priradené cvičebné plány a buďte konzistentní pre lepšie zdravie a rekonvalescenciu!"
+
+    plans:
+      index:
+        title: "Plány"

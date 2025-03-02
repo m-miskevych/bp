@@ -5,4 +5,8 @@ class Client::PlansController < ApplicationController
   def index
     @plans = current_user.plans
   end
+
+  def show
+    @plan = current_user.plans.find(params[:id])
+  end
 end
