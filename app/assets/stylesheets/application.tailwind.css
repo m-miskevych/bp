@@ -7,3 +7,7 @@
          shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] 
          hover:shadow-none hover:border-black hover:text-[#955fc5] transition-all mt-4 inline-block;
 }
+
+.icon-button {
+  @apply flex justify-center items-center h-10 w-10 rounded-lg text-gray-900 transition-all hover:bg-gray-300;
+}

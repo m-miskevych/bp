@@ -11,6 +11,7 @@ sk:
   alerts:
     plan_already_assigned: "Tento klient už má tento plán priradený!"
     exercise_assigned_to_plan: "Toto cvičenie je priradené k plánu a nemôže byť odstránené."
+    plan_deleted: "Plán bol úspešne odstránený."
   app:
     name: "Fyzio Aplikácia"
     title: "Fyzio"

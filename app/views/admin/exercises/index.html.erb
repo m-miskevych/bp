@@ -36,25 +36,25 @@
                 <%= link_to exercise.name, admin_exercise_path(exercise), class: "block font-sans text-sm antialiased font-bold leading-normal text-blue-gray-900 hover:text-purple-700 transition-colors duration-300" %>                
               </div>
             </td>
+            
             <td class="p-4 border-b border-blue-gray-50">
               <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900"><%= exercise.description.truncate(75) %></p>
             </td>
-            <td class="p-4 border-b border-blue-gray-50 space-x-2">
-              <!-- Edit Icon -->
-              <%= link_to edit_admin_exercise_path(exercise), class: "relative inline-block h-10 max-h-[40px] w-10 max-w-[40px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-gray-900 transition-all hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" do %>
-                <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                  <img src="<%= asset_path('edit-icon.png') %>" alt="Edit" class="w-4 h-4"/>
-                </span>
-              <% end %>
 
-              <!-- Delete Icon -->
-              <%= link_to admin_exercise_path(exercise), 
-                        data: { turbo_method: :delete ,turbo_confirm: t('common.actions.confirm_delete') }, 
-                        class: "relative inline-block h-10 max-h-[40px] w-10 max-w-[40px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-gray-900 transition-all hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" do %>
-                <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                  <img src="<%= asset_path('delete-icon.png') %>" alt="Delete" class="w-4 h-4"/>
-                </span>
-              <% end %>
+            <td class="p-4 border-b border-blue-gray-50">
+              <div class="inline-flex space-x-2">
+                <!-- Edit Icon -->
+                <%= link_to edit_admin_exercise_path(exercise), class: "icon-button" do %>
+                  <img src="<%= asset_path('edit-icon.png') %>" alt="Edit" class="w-5 h-5"/>
+                <% end %>
+
+                <!-- Delete Icon -->
+                <%= link_to admin_exercise_path(exercise), 
+                        data: { turbo_method: :delete, turbo_confirm: t('common.actions.confirm_delete') }, 
+                        class: "icon-button" do %>
+                  <img src="<%= asset_path('delete-icon.png') %>" alt="Delete" class="w-5 h-5"/>
+                <% end %>
+              </div>
             </td>
           </tr>
         <% end %>

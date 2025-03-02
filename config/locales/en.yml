@@ -11,6 +11,7 @@ en:
   alerts:
     plan_already_assigned: "This client already has this plan assigned!"
     exercise_assigned_to_plan: "This exercise is assigned to a plan and cannot be deleted."
+    plan_deleted: "Plan was successfully deleted."
   app:
     name: "Physio App"
     title: "Physio"
