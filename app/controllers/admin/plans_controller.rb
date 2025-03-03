@@ -4,10 +4,14 @@ class Admin::PlansController < ApplicationController
 
   def index
     @plans = Plan.all
+    @users = User.includes(:plans).where(admin: current_user)
+
+    @user_plans = UserPlan.includes(:user, :plan).order("users.name ASC")
   end
 
   def show
     @plan = Plan.find(params[:id])
+    @clients = @plan.users # clients assign to current plan
   end
 
   def new
@@ -42,13 +46,11 @@ class Admin::PlansController < ApplicationController
     redirect_to admin_plans_url, alert: t("alerts.plan_deleted")
   end
 
-  # **Nová akcia na výber klienta pre plán**
   def assign
     @plan = Plan.find(params[:id])
     @clients = current_user.users # clients for current admin
   end
 
-  # **Akcia na priradenie plánu vybranému klientovi**
   def assign_plan_to_client
     @plan = Plan.find(params[:id])
     @client = User.find(params[:user_id])

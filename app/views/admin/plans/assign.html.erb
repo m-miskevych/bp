@@ -1,14 +1,25 @@
-<h1>Priradiť plán: <%= @plan.name %></h1>
+<div class="max-w-lg mx-auto bg-white shadow-md rounded-lg p-6">
+  <h1 class="text-2xl font-semibold text-slate-800 mb-4">
+    Priradiť plán: <%= @plan.name %>
+  </h1>
 
-<%= form_with url: assign_plan_to_client_admin_plan_path(@plan), method: :post do %>
-  <label for="user_id">Vyberte klienta:</label>
-  <select name="user_id" id="user_id">
-    <% @clients.each do |client| %>
-      <option value="<%= client.id %>"><%= client.email %></option>
-    <% end %>
-  </select>
+  <%= form_with url: assign_plan_to_client_admin_plan_path(@plan), method: :post, class: "space-y-4" do %>
+    <div>
+      <label for="user_id" class="block text-sm font-medium text-slate-700">Vyberte klienta:</label>
+      <select name="user_id" id="user_id" 
+              class="mt-1 block w-full p-2 border border-slate-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+        <% @clients.each do |client| %>
+          <option value="<%= client.id %>"><%= client.email %></option>
+        <% end %>
+      </select>
+    </div>
 
-  <%= submit_tag "Priradiť plán" %>
-<% end %>
+    <div class="flex items-center justify-between">
+      <%= submit_tag "Priradiť plán", 
+            class: "px-4 py-2 bg-indigo-600 text-slate-100 font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50" %>
 
-<%= link_to "Späť na zoznam plánov", admin_plans_path %>
+      <%= link_to "Späť na zoznam plánov", admin_plans_path, 
+            class: "text-indigo-600 hover:underline text-sm" %>
+    </div>
+  <% end %>
+</div>

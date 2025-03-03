@@ -1,6 +1,6 @@
 <h1 class="text-3xl font-extrabold text-gray-900 mb-6"><%= t('.title') %></h1>
 <%= link_to t('common.actions.back'), admin_plans_path, class: "text-blue-600 hover:text-blue-800 mb-4 inline-block text-lg font-medium" %>
-<hr class="my-6 border-t border-gray-200">
+
 
 <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
   <p class="text-2xl font-semibold text-gray-800 mb-4"><%= t('.fields.name') %>: <span class="text-blue-600"><%= @plan.name %></span></p>
@@ -11,12 +11,35 @@
     <ul class="space-y-4">
       <% @plan.exercises.each do |exercise| %>
         <li class="p-4 bg-gray-100 rounded-lg shadow-sm hover:bg-gray-200">
-          <p class="text-lg font-medium text-gray-800"><%= exercise.name %></p>
+          <p class="text-lg font-medium text-gray-800">
+            <%= link_to exercise.name, admin_exercise_path(exercise), class: "text-blue-600 hover:underline" %>
+          </p>
           <p class="text-sm text-gray-600"><%= exercise.description %></p>
         </li>
       <% end %>
     </ul>
   </div>
+
+  <!-- Clients assigned to the plan 
+  <div class="mt-6">
+    <p class="text-xl font-semibold text-gray-800 mb-3"><%= t('.fields.clients_assigned') %>:</p>
+    <% if @clients.any? %>
+      <ul class="space-y-4">
+        <% @clients.each do |client| %>
+          <li class="p-4 bg-gray-100 rounded-lg shadow-sm hover:bg-gray-200">
+            <p class="text-lg font-medium text-gray-800">
+              <%= link_to client.name, admin_user_path(client), class: "text-blue-600 hover:underline" %>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p class="text-sm text-gray-600">Žiadny klient ešte nemá tento plán priradený.</p>
+    <% end %>
+  </div>
+
+  -->
+
 </div>
 
-<%= link_to "Priradiť klienta", assign_admin_plan_path(@plan), class: "bg-blue-600 hover:bg-blue-800 text-white px-4 py-2 rounded-lg shadow-md transition" %>
+<%#= link_to "Priradiť klienta", assign_admin_plan_path(@plan), class: "bg-blue-600 hover:bg-blue-800 text-white px-4 py-2 rounded-lg shadow-md transition" %>

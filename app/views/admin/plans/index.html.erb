@@ -1,46 +1,32 @@
-<div class="flex justify-between items-center mb-6  pb-3">
-  <p class="text-2xl font-semibold text-slate-900">
-    <%= t('.title') %>
-  </p>
-  <%= link_to t('.new'), new_admin_plan_path, class: "btn-fancy" %>
+<!-- Header with title and button -->
+<div class="flex justify-between items-center mb-6 pb-3">
+  <p class="text-2xl font-semibold text-slate-900"><%= t('.title') %></p>
+    <%= link_to t('.new'), new_admin_plan_path, class: "btn-fancy" %>
 </div>
 
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-6">
-  <% @plans.each do |plan| %>
-    <div class="relative flex flex-col my-6 bg-white shadow-md border border-slate-200 rounded-lg w-full h-full">
-      <!-- Header (Názov plánu) -->
-      <div class="mx-3 mb-0 border-b border-slate-200 pt-3 pb-2 px-1">
-        <%= link_to plan.name, admin_plan_path(plan), 
-            class: "text-slate-800 text-lg font-semibold text-center block hover:underline" %>
-      </div>
-  
-      <!-- Popis plánu -->
-      <div class="p-4 flex-1">
-        <p class="text-slate-600 leading-normal font-light">
-          <%= plan.description %>
-        </p>
-      </div>
-  
-      <!-- footer -->
-      <div class="mx-3 border-t border-slate-200 pb-3 pt-2 px-1">
-        <div class="flex justify-center items-center gap-4">
-          <!-- Edit Icon -->
-          <%= link_to edit_admin_plan_path(plan), class: "icon-button" do %>
-            <img src="<%= asset_path('edit-icon.png') %>" alt="Edit" class="w-5 h-5"/>
-          <% end %>
+<p class="text-xl font-semibold text-slate-800 mb-4"><%= t('plans.all') %></p>
 
-          <!-- Delete Icon -->
-          <%= link_to admin_plan_path(plan), 
-                      data: { turbo_method: :delete, turbo_confirm: t('common.actions.confirm_delete') }, 
-                      class: "icon-button" do %>
-            <img src="<%= asset_path('delete-icon.png') %>" alt="Delete" class="w-5 h-5"/>
-          <% end %>
-        </div>
-      </div>
-    </div>
+<!-- List of all plans -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-6 mb-10">
+  <% @plans.each do |plan| %>
+    <%= render partial: "plan", locals: { plan: plan, show_footer: true, users_names: true } %>
   <% end %>
 </div>
 
+<hr class="mx-auto bg-black w-3/4 sm:w-1/2 mt-10 mb-8">
 
+<!-- List of users with plans -->
+<% @users.each do |user| %>
+  <% if user.plans.any? %> 
+    <div class="bg-white shadow-md rounded-lg p-4 mb-6">
+      <p class="text-purple-600 font-semibold  mb-2"><%= user.name %></p>
 
-
+      <!-- Grid na zobrazenie plánov pre tohto používateľa -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-4">
+          <% user.plans.each do |plan| %>
+            <%= render partial: "plan", locals: { plan: plan, show_footer: false, users_names: false } %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
