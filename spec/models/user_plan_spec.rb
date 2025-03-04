@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe UserPlan, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "has valid factory" do
+    user_plan = build(:user_plan)
+    expect(user_plan).to be_valid
+  end
 end
