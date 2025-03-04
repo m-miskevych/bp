@@ -40,12 +40,12 @@
 
 ### 2.1 Login Credentials
 You can log in with the following credentials:
-	•	Admin1: admin1@example.com / 123123
-	•	Admin2: admin2@example.com / 123123
-	•	Client1: client1@example.com / 123123
-	•	Client2: client2@example.com / 123123
-	•	Client3: client3@example.com / 123123
-	•	Client4: client4@example.com / 123123
++ Admin1: admin1@example.com / 123123
++ Admin2: admin2@example.com / 123123
++ Client1: client1@example.com / 123123
++ Client2: client2@example.com / 123123
++ Client3: client3@example.com / 123123
++ Client4: client4@example.com / 123123
 
 ## 3. Testing
 
@@ -98,7 +98,7 @@ BUGS
   - [x] navbar mobile view
 
 🔬 Testing
-- [ ] Add RSpec tests for models
+- [x] Add RSpec tests for models
    - [x] Exercise model
    - [x] Plan model
    - [x] ExercisesPlan model
@@ -106,7 +106,7 @@ BUGS
 --- 
 
 🏋️ Exercise Model
-- [ ] Implement video upload via Active Storage or link to YouTube ( iframe )
+- [ ] Implement video upload via Active Storage or link to YouTube ( iframe ) 
 - [ ] Add pagination to the exercise index page
 - [ ] Add search to the exercise index page
 
