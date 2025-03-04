@@ -1,116 +1,151 @@
-# README
+# BP Project Documentation
 
-## Set up the Application
-Install Ruby, Rails, PostgreSQL: https://gorails.com/setup/macos/14-sonoma
+## 1. Setup Instructions
 
-If the images are not displayed, install: ImageMagick 
-https://guides.rubyonrails.org/active_storage_overview.html#requirements
+### 1.1 Install Required Dependencies
 
-Clone the repository
+1. **Ruby, Rails, PostgreSQL**  
+   Follow this [guide](https://gorails.com/setup/macos/14-sonoma) to install Ruby, Rails, and PostgreSQL.
+
+2. **ImageMagick**  
+   If images are not displaying correctly, install [ImageMagick](https://guides.rubyonrails.org/active_storage_overview.html#requirements).
+
+
+### 1.2 Clone the Repository
 ```bash
   git clone git@github.com:m-miskevych/bp.git
 ```
 
-Navigate to the repository
+### 1.3 Navigate to the Project Directory
 ```bash
   cd bp
 ```
 
-Install dependencies
+### 1.4 Install Dependencies
 ```bash
   bundle install
 ```
 
-Set up database
+### 1.5 Set Up the Database
 ```bash
   rails db:create
   rails db:migrate
   rails db:seed
 ```
 
-## Run the Application
+## 2 Run the Application
 ```bash
    bin/dev
 ```
 
-### Log in data
-admin1@example.com, 123123
-admin2@example.com, 123123
-client1@example.com, 123123
-client2@example.com, 123123
-client3@example.com, 123123
-client4@example.com, 123123
+### 2.1 Login Credentials
+You can log in with the following credentials:
+	•	Admin1: admin1@example.com / 123123
+	•	Admin2: admin2@example.com / 123123
+	•	Client1: client1@example.com / 123123
+	•	Client2: client2@example.com / 123123
+	•	Client3: client3@example.com / 123123
+	•	Client4: client4@example.com / 123123
 
-## Run RSpec model tests
+## 3. Testing
+
+### 3.1 Run RSpec model tests
 ```bash
 bundle exec rspec spec/models
 ```
 
-## PLANNING
+### 3.2 Run Capybara tests
+```bash
 
-### 1
-- [x] Create `Exercise` and `Plan` models
-- [x] Define a many-to-many relationship between `Exercise` and `Plan`
-- [x] `Exercise` CRUD operations
-- [x] `Plan` CRUD operations
-- [x] Add an admin home page.
+```
 
-- [x] Add validations
-  - [x] Exercise Model
-  - [x] Plan Model
-
-- [x] Add I18N support for sk/en language
-- [x] Add Active Storage - images upload
-  - [ ] Image Upload - style
-- [ ] Add Active Storage - video upload - or via link to YT ?
-- [ ] Add ActionText gem for descriptions
-
-- [x] Install and configure Tailwind CSS
-- [x] Style
-  - [x] style Admin page
-  - [ ] style Exercise
-  - [ ] style Plans
-  - [x] navbar
-
-- [x] Divide admin / user namespaces
-- [ ] Add Flash Messages for success and errors - stimulus
-
-- Exercise
-  - [ ] index page - implement search
-  - [ ] index page - implement pagination
-  - [x] index page - add cover img
-
- ### 2 Commnets
-  - [ ] Add comment system
-
-- User_Plan - associaion M:N between User and Plan
-  - [x] Add User_Plan model
-  - [ ] Add status - assigned, in-progress, completed
-
-### 3 - Auth and Authorization, Users - admin, client
-- [x] Add authentication and authorization - Device gem
-- [x] Add `User` model - role: admin, client
-- [x] Add attribute name to User model
-- [x] Add `User` controller 2x - admin::user, client::user
-- [x] user-admin one-to-many relationship with user-client
-- [ ] Physiotherapist registration with profile (name, company)
-- [ ] Client registration via invite link
-
-### 4 - Reservations
-- [ ] Add Reservation system
-
-### 5 - Testing
-- [ ] Add RSpec
-  - [x] model test Exercise
-  - [x] model test Plan
-  - [x] model test ExercisesPlan
-  - [ ] model User
-- [ ] Add Capybara
-
+## 4. PLANNING
 
 BUGS
 - [x] Delete Exercise Associated to a Plan - how to handle it ? can not delete if exercise is assigned to a plan
-- [ ] Missing translations for error messages
 - [x] Plan - Exercise -> make it redirect to exercise detail page
 - [x] Better visualization for Detail, Edit, Delete Buttons
-- [ ] In Plans, amdin can see only his clients assigned to the plan
+- [x] In Plans, amdin can see only his clients assigned to the plan
+
+
+🏋️ Exercise Model
+- [x] Create `Exercise` and `Plan` models
+- [x] Define a many-to-many relationship between `Exercise` and `Plan`
+- [x] `Exercise` CRUD operations
+- [x] Add an admin home page.
+- [x] Add validations
+  - [x] Exercise Model
+- [x] Add Active Storage - images upload
+
+📋 Plan Model
+- [x] `Plan` CRUD operations
+- [x] Add validations
+  - [x] Plan Model
+
+👤 User Model & Authentication
+- [x] Divide admin / user namespaces
+
+🌍 Translations & I18N
+- [x] Add I18N support for sk/en language
+
+🔔 Flash Messages 
+- [x] Add Flash Messages for success and errors
+
+🎨 Styling & UI (Tailwind)
+- [x] Install and configure Tailwind CSS
+- [x] Style
+  - [x] style Admin page
+  - [x] navbar mobile view
+
+🔬 Testing
+- [ ] Add RSpec tests for models
+   - [x] Exercise model
+   - [x] Plan model
+   - [x] ExercisesPlan model
+
+--- 
+
+🏋️ Exercise Model
+- [ ] Implement video upload via Active Storage or link to YouTube ( iframe )
+- [ ] Add pagination to the exercise index page
+- [ ] Add search to the exercise index page
+
+📋 Plan Model
+- [ ] Add a timer functionality for plans
+- [ ] Add a status bar for plans
+- [ ] Add a progress bar for plans
+
+👤 User Model & Authentication
+- [ ] Enable client registration via an invite link
+- [ ] Add physiotherapist registration with profile (name, company)
+
+💬 Comments Model
+- [ ] Add comment system to plans
+
+🗓️ Reservation System
+- [ ] Add reservation system for booking physiotherapy sessions
+- [ ] Implement calendar view for physiotherapists
+- [ ] Allow clients to request appointments
+
+🌍 Translations & I18N
+- [ ] Add missing translations in locales
+- [ ] Implement language switcher with SK/EN flags
+
+🔔 Flash Messages 
+- [ ] Flash messages - stimulus 
+
+🎨 Styling & UI (Tailwind)
+- [ ] Extract commonly used Tailwind classes into reusable components
+- [ ] Views styling
+  - [ ] Exercise Detail Page
+  - [ ] Plan Detail Page
+
+📦 Other
+- [ ] Rethink redirections in controllers
+
+🔬 Testing
+- [ ] Add RSpec tests for models
+   - [ ] User model
+   - [ ] UserPlan model
+- [ ] Add Capybara tests
+

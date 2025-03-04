@@ -15,18 +15,22 @@
 
 <hr class="mx-auto bg-black w-3/4 sm:w-1/2 mt-10 mb-8">
 
-<!-- List of users with plans -->
-<% @users.each do |user| %>
-  <% if user.plans.any? %> 
-    <div class="bg-white shadow-md rounded-lg p-4 mb-6">
-      <p class="text-purple-600 font-semibold  mb-2"><%= user.name %></p>
 
-      <!-- Grid na zobrazenie plánov pre tohto používateľa -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-4">
-          <% user.plans.each do |plan| %>
-            <%= render partial: "plan", locals: { plan: plan, show_footer: false, users_names: false } %>
+<!-- List of users with plans  UsersPlan-->
+<div>
+  <% @users.each do |user| %>
+    <% user_plans = @user_plans.select { |up| up.user_id == user.id } %>
+
+    <% if user_plans.any? %>
+      <div class="bg-white shadow-md rounded-lg p-4 mb-6 mt-10">
+        <p class="text-purple-600 font-semibold mb-2"><%= user.name %></p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-4">
+          <% user_plans.each do |up| %>
+            <%= render partial: "plan", locals: { plan: up.plan, user: user, show_footer: false, users_names: false } %>
           <% end %>
         </div>
       </div>
     <% end %>
   <% end %>
+</div>

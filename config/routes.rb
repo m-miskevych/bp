@@ -18,6 +18,7 @@ Rails.application.routes.draw do
         member do
           get "assign"
           post "assign_plan_to_client"
+          delete "remove_plan_from_client"
         end
       end
       resources :users

@@ -11,8 +11,15 @@
   <% if @client.plans.any? %>
     <ul class="space-y-2">
       <% @client.plans.each do |plan| %>
-        <li class="bg-blue-100 text-blue-800 p-3 rounded-lg shadow-sm">
-          <strong><%= plan.name %></strong> - <%= plan.description %>
+        <li class="bg-blue-100 text-blue-800 p-3 rounded-lg shadow-sm flex justify-between items-center">
+          <div class="flex-1">
+            <strong><%= plan.name %></strong> - <%= plan.description.truncate(30) %>
+          </div>
+          <div>
+            <%= link_to "Odstrániť plán", remove_plan_from_client_admin_plan_path(plan, user_id: @client.id),
+                data: { turbo_method: :delete, turbo_confirm: "Naozaj chceš odstrániť tento plán?" }, 
+                class: "px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm" %>
+          </div>
         </li>
       <% end %>
     </ul>
