@@ -37,6 +37,13 @@
 ```bash
    bin/dev
 ```
+> [!TIP]
+> Accessing Localhost on Mobile
+> 1. Find your local IP address
+> 2. Start the Rails server  `bin/dev`
+> 3. On your mobile device, open a browser and enter: `http://[YOUR_IP_ADDRESS]:3000`
+> 4. Ensure your computer and mobile device are connected to the same Wi-Fi network
+
 
 ### 2.1 Login Credentials
 You can log in with the following credentials:
