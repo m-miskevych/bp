@@ -1,14 +1,13 @@
 class Admin::ExercisesController < ApplicationController
   include Authorization
   before_action :authorize_admin
+  before_action :set_exercise, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @exercises = Exercise.i18n.order(:name)
   end
 
-  def show
-    @exercise = Exercise.find(params[:id])
-  end
+  def show; end
 
   def new
     @exercise = Exercise.new
@@ -23,12 +22,9 @@ class Admin::ExercisesController < ApplicationController
     end
   end
 
-  def edit
-    @exercise = Exercise.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @exercise = Exercise.find(params[:id])
     if @exercise.update(exercise_params)
       redirect_to admin_exercise_url(@exercise), notice: t("notices.exercise_updated")
     else
@@ -37,11 +33,10 @@ class Admin::ExercisesController < ApplicationController
   end
 
   def destroy
-    @exercise = Exercise.find(params[:id])
     if @exercise.exercises_plans.any?
       redirect_to admin_exercises_url, alert: t("alerts.exercise_assigned_to_plan")
     else
-      @exercise.destroy
+      @exercise.destroy!
       redirect_to admin_exercises_url, alert: t("notices.exercise_deleted")
     end
   end
@@ -49,10 +44,14 @@ class Admin::ExercisesController < ApplicationController
   def remove_image
     @image = ActiveStorage::Attachment.find(params[:id])
     @image.purge
-    redirect_to admin_exercises_url
+    redirect_to admin_exercises_url, notice: t("notices.image_removed")
   end
 
   private
+  def set_exercise
+    @exercise = Exercise.find(params[:id])
+  end
+
   def exercise_params
     params.require(:exercise).permit(:name_sk, :name_en, :description_sk, :description_en, :set, :repetition, images: [])
   end
