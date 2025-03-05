@@ -2,14 +2,13 @@ class Admin::UsersController < ApplicationController
   include Authorization
   before_action :authorize_admin
   before_action :set_admin
+  before_action :set_client, only: [ :show, :destroy ]
 
   def index
     @clients = @admin.users
   end
 
-  def show
-    @client = @admin.users.find(params[:id])
-  end
+  def show; end
 
   def new
     @client = User.new
@@ -28,9 +27,21 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def destroy
+    if @client.destroy
+      redirect_to admin_users_path, notice: t("notices.user_deleted")
+    else
+      redirect_to admin_users_path, alert: t("alerts.user_delete_failed")
+    end
+  end
+
   private
   def set_admin
     @admin = current_user
+  end
+
+  def set_client
+    @client = @admin.users.find(params[:id])
   end
 
   def user_params

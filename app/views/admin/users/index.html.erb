@@ -16,6 +16,8 @@
           <th class="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
             <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"><%= t('.table.headers.email') %></p>
           </th>
+          <th class="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
+          </th>
         </tr>
       </thead>
 
@@ -27,6 +29,14 @@
             </td>
             <td class="p-4 border-b border-blue-gray-50">
               <%= link_to client.email, admin_user_path(client), class: "block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900" %>
+            </td>
+            <td class="p-4 border-b border-blue-gray-50"> 
+              <!-- Delete Icon -->
+              <%= link_to admin_user_path(client), 
+                  data: { turbo_method: :delete, turbo_confirm: t('common.actions.confirm_delete') }, 
+                  class: "icon-button" do %>
+                <img src="<%= asset_path('delete-icon.png') %>" alt="Delete" class="w-5 h-5"/>
+              <% end %>
             </td>
           </tr>
         <% end %>
