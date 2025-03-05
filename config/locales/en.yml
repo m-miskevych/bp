@@ -107,6 +107,17 @@ en:
           headers:
             name: "Name"
             email: "Email"
+      show:
+        title: "Client Details"
+        invite_accepted: "Invite Accepted: Not Yet"
+        fields:
+          name: "Name"
+          email: "Email"
+          assigned_plans: "Assigned Plans"
+          no_plans: "The client has no assigned plans."
+          remove_plan: "Remove plan"
+          confirm_remove_plan: "Are you sure you want to remove this plan?"
+          back_to_clients: "Back to client list"
       new:
         title: "Add a New Client"
       form:

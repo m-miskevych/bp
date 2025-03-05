@@ -16,13 +16,13 @@ class Admin::UsersController < ApplicationController
   end
 
   def create
-    @client = User.new(user_params)
-    @client.role = :user  # set role as client
-    @client.admin = @admin  # assign to current admin
-    @client.password = SecureRandom.hex(10) # set temporery password for user ????
+    @client = User.invite!(user_params) do |u|
+      u.role = :user
+      u.admin = @admin
+    end
 
-    if @client.save
-      redirect_to admin_users_path, notice: t("notices.user_created")
+    if @client.persisted?
+      redirect_to admin_users_path, notice: t("notices.user_invited")
     else
       render "new", status: :unprocessable_entity
     end

@@ -107,6 +107,17 @@ sk:
           headers:
             name: "Meno"
             email: "Email"
+      show:
+        title: "Detail klienta"
+        invite_accepted: "Pozvánka prijatá: Ešte nie"
+        fields:
+          name: "Meno"
+          email: "Email"
+          assigned_plans: "Priradené plány"
+          no_plans: "Klient nemá priradené žiadne plány."
+          remove_plan: "Odstrániť plán"
+          confirm_remove_plan: "Naozaj chceš odstrániť tento plán?"
+          back_to_clients: "Späť na zoznam klientov"
       new:
         title: "Pridať nového klienta"
       form:

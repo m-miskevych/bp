@@ -123,7 +123,7 @@ BUGS
 - [ ] Add a progress bar for plans
 
 👤 User Model & Authentication
-- [ ] Enable client registration via an invite link
+- [x] Enable client registration via an invite link
 - [ ] Add physiotherapist registration with profile (name, company)
 
 💬 Comments Model

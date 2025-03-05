@@ -1,12 +1,18 @@
 <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-2xl p-6">
-  <h1 class="text-2xl font-bold text-gray-800 mb-4">Detail klienta</h1>
+  <h1 class="text-2xl font-bold text-gray-800 mb-4"><%= t('.title') %></h1>
 
+  <% if @client.invitation_token.present? %>
+    <div class="bg-red-100 text-red-800 p-4 rounded-lg mb-6">
+      <p class="text-lg"><strong><%= t('.invite_accepted') %></strong></p>
+    </div>
+  <% end %>
+    
   <div class="bg-gray-100 p-4 rounded-lg mb-6">
-    <p class="text-lg"><strong>Email:</strong> <%= @client.email %></p>
-    <p class="text-lg"><strong>Meno:</strong> <%= @client.name %></p>
+    <p class="text-lg"><strong><%= t('.fields.name') %>:</strong> <%= @client.name %></p>
+    <p class="text-lg"><strong><%= t('.fields.email') %>:</strong> <%= @client.email %></p>
   </div>
 
-  <h2 class="text-xl font-semibold text-gray-700 mb-3">Priradené plány</h2>
+  <h2 class="text-xl font-semibold text-gray-700 mb-3"><%= t('.fields.assigned_plans') %></h2>
 
   <% if @client.plans.any? %>
     <ul class="space-y-2">
@@ -16,18 +22,18 @@
             <strong><%= plan.name %></strong> - <%= plan.description.truncate(30) %>
           </div>
           <div>
-            <%= link_to "Odstrániť plán", remove_plan_from_client_admin_plan_path(plan, user_id: @client.id),
-                data: { turbo_method: :delete, turbo_confirm: "Naozaj chceš odstrániť tento plán?" }, 
+            <%= link_to t('.fields.remove_plan'), remove_plan_from_client_admin_plan_path(plan, user_id: @client.id),
+                data: { turbo_method: :delete, turbo_confirm: t(".fields.confirm_remove_plan") }, 
                 class: "px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm" %>
           </div>
         </li>
       <% end %>
     </ul>
   <% else %>
-    <p class="text-gray-500 italic">Klient nemá priradené žiadne plány.</p>
+    <p class="text-gray-500 italic"><%= t('.fields.no_plans') %></p>
   <% end %>
 
   <div class="mt-6">
-    <%= link_to "Späť na zoznam klientov", admin_users_path, class: "bg-gray-200 hover:bg-gray-900 text-black px-4 py-2 rounded-lg shadow-md transition" %>
+    <%= link_to t('.fields.back_to_clients'), admin_users_path, class: "bg-gray-200 hover:bg-gray-300 text-black px-4 py-2 rounded-lg shadow-md transition" %>
   </div>
 </div>
