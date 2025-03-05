@@ -1,0 +1,31 @@
+sk:
+  devise:
+    failure:
+      invited: "Máte čakajúce pozvanie, prijmite ho na dokončenie vytvorenia účtu."
+    invitations:
+      send_instructions: "E-mail s pozvánkou bol odoslaný na %{email}."
+      invitation_token_invalid: "Poskytnutý token pozvánky nie je platný!"
+      updated: "Vaše heslo bolo úspešne nastavené. Teraz ste prihlásený/-á."
+      updated_not_active: "Vaše heslo bolo úspešne nastavené."
+      no_invitations_remaining: "Žiadne zostávajúce pozvánky"
+      invitation_removed: "Vaša pozvánka bola odstránená."
+      new:
+        header: "Odoslať pozvánku"
+        submit_button: "Odoslať pozvánku"
+      edit:
+        header: "Nastavte si heslo"
+        submit_button: "Nastaviť moje heslo"
+    mailer:
+      invitation_instructions:
+        subject: "Inštrukcie k pozvánke"
+        hello: "Dobrý deň %{email}"
+        someone_invited_you: "Niekto vás pozval na %{url}, môžete to prijať cez odkaz nižšie."
+        accept: "Prijať pozvánku"
+        accept_until: "Táto pozvánka vyprší %{due_date}."
+        ignore: "Ak nechcete prijať pozvánku, ignorujte tento e-mail. Váš účet nebude vytvorený, pokiaľ nekliknete na uvedený odkaz a nenastavíte si heslo."
+  time:
+    formats:
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%d. %B %Y %H:%M"
