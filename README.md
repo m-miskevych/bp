@@ -119,7 +119,7 @@ BUGS
 
 📋 Plan Model
 - [ ] Add a timer functionality for plans
-- [ ] Add a status bar for plans
+- [x] Add a status bar for plans
 - [ ] Add a progress bar for plans
 
 👤 User Model & Authentication
