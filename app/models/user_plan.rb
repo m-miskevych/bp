@@ -3,4 +3,6 @@ class UserPlan < ApplicationRecord
   belongs_to :plan
 
   validates :user_id, uniqueness: { scope: :plan_id, message: "už má tento plán priradený" }
+
+  enum status: { draft: 0, in_progress: 1, done: 2 }
 end
