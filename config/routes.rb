@@ -21,7 +21,15 @@ Rails.application.routes.draw do
           delete "remove_plan_from_client"
         end
       end
+
+      resources :user_plans, only: [ :show ] do
+        collection do
+          get ":user_id/:plan_id", to: "user_plans#show", as: "user_plan"
+        end
+      end
+
       resources :users
+
       resources :exercises do
         member do
           delete "remove_image" # remove_image_exercise_path(image)
@@ -29,9 +37,13 @@ Rails.application.routes.draw do
       end
     end
 
+
+
+
+
     namespace :client do
       get "dashboard/index" => "dashboard#index"
-      resources :plans
+      resources :user_plans, only: [ :index, :show ]
     end
   end
 end

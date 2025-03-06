@@ -2,13 +2,17 @@
 <div class="bg-white shadow-md rounded-lg p-4 mb-6 mt-10">
   <p class="text-purple-600 font-semibold mb-2"><%= user.name %></p>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-4">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4">
     <% user_plans.each do |up| %>
       <div class="relative flex flex-col bg-white shadow-md border border-slate-200 rounded-lg w-full h-full">
         <!-- Header with plan name and status -->
         <div class="mx-3 mb-0 border-b border-slate-200 pt-3 pb-2 px-1 flex justify-between items-center">
-          <%= link_to up.plan.name, admin_plan_path(up.plan), class: "text-slate-800 text-lg font-semibold text-center block hover:underline" %>
-          <span class="status-draft">
+          <%= link_to up.plan.name, user_plan_admin_user_plans_path(user_id: up.user.id, plan_id: up.plan.id), class: "text-slate-800 text-lg font-semibold text-center block hover:underline" %>
+          <span class="
+            <%= 'status-draft' if up.status == 'draft' %>
+            <%= 'status-in-progress' if up.status == 'in_progress' %>
+            <%= 'status-done' if up.status == 'done' %>
+          ">
             <%= up.status.humanize %>
           </span>
         </div>
@@ -21,3 +25,4 @@
     <% end %>
   </div>
 </div>
+
