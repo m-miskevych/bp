@@ -1,5 +1,7 @@
-<div class="language-switcher flex space-x-2">
+<div class="language-switcher flex">
   <% I18n.available_locales.each do |locale| %>
-    <%= link_to locale.to_s.upcase, url_for(locale: locale), class: "bg-black text-white uppercase p-2 rounded-full cursor-pointer" %>
+    <%= link_to url_for(locale: locale), class: "p-2 rounded-full cursor-pointer" do %>
+      <%= image_tag("flags/#{locale}.png", alt: locale.to_s, class: "h-7 w-7") %>
+    <% end %>
   <% end %>
 </div>
