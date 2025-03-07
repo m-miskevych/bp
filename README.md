@@ -136,7 +136,7 @@ BUGS
 
 🌍 Translations & I18N
 - [ ] Add missing translations in locales
-- [ ] Implement language switcher with SK/EN flags
+- [x] Implement language switcher with SK/EN flags
 
 🔔 Flash Messages 
 - [ ] Flash messages - stimulus 
