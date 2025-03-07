@@ -76,53 +76,27 @@ BUGS
 
 
 🏋️ Exercise Model
-- [x] Create `Exercise` and `Plan` models
-- [x] Define a many-to-many relationship between `Exercise` and `Plan`
-- [x] `Exercise` CRUD operations
-- [x] Add an admin home page.
-- [x] Add validations
-  - [x] Exercise Model
-- [x] Add Active Storage - images upload
-
-📋 Plan Model
-- [x] `Plan` CRUD operations
-- [x] Add validations
-  - [x] Plan Model
-
-👤 User Model & Authentication
-- [x] Divide admin / user namespaces
-
-🌍 Translations & I18N
-- [x] Add I18N support for sk/en language
-
-🔔 Flash Messages 
-- [x] Add Flash Messages for success and errors
-
-🎨 Styling & UI (Tailwind)
-- [x] Install and configure Tailwind CSS
-- [x] Style
-  - [x] style Admin page
-  - [x] navbar mobile view
-
-🔬 Testing
-- [x] Add RSpec tests for models
-   - [x] Exercise model
-   - [x] Plan model
-   - [x] ExercisesPlan model
-
---- 
-
-🏋️ Exercise Model
++ Create `Exercise` and `Plan` models
++ Define a many-to-many relationship between `Exercise` and `Plan`
++ `Exercise` CRUD operations
++ Add an admin home page.
++ Add validations
+   + Exercise Model
++ Add Active Storage - images upload
 - [ ] Implement video upload via Active Storage or link to YouTube ( iframe ) 
 - [ ] Add pagination to the exercise index page
 - [ ] Add search to the exercise index page
 
 📋 Plan Model
-- [ ] Add a timer functionality for plans
++ `Plan` CRUD operations
++  Add validations
+   + Plan Model
 - [x] Add a status bar for plans
+- [ ] Add a timer functionality for plans
 - [ ] Add a progress bar for plans
 
 👤 User Model & Authentication
++  Divide admin / user namespaces
 - [x] Enable client registration via an invite link
 - [ ] Add physiotherapist registration with profile (name, company)
 
@@ -135,24 +109,34 @@ BUGS
 - [ ] Allow clients to request appointments
 
 🌍 Translations & I18N
-- [ ] Add missing translations in locales
++  Add I18N support for sk/en language
 - [x] Implement language switcher with SK/EN flags
 
 🔔 Flash Messages 
++  Add Flash Messages for success and errors
 - [ ] Flash messages - stimulus 
 
 🎨 Styling & UI (Tailwind)
++  Install and configure Tailwind CSS
++  Style
+  +  style Admin page
+  +  navbar mobile view
 - [ ] Extract commonly used Tailwind classes into reusable components
 - [ ] Views styling
   - [ ] Exercise Detail Page
   - [ ] Plan Detail Page
 
+
 📦 Other
 - [ ] Rethink redirections in controllers
 
 🔬 Testing
-- [ ] Add RSpec tests for models
++  Add RSpec tests for models
+   +  Exercise model
+   +  Plan model
+   +  ExercisesPlan model
    - [ ] User model
    - [ ] UserPlan model
 - [ ] Add Capybara tests
+--- 
 
