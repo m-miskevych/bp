@@ -23,3 +23,4 @@
 .status-done {
   @apply px-3 py-1 rounded-full text-sm font-medium bg-green-200 text-green-700;
 }
+@import 'actiontext.css';

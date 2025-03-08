@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_many :user_plans, dependent: :destroy
   has_many :plans, through: :user_plans
 
+  has_many :comments, dependent: :destroy
+
   def set_default_role
     self.role ||= :admin
   end
