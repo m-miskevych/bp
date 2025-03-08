@@ -1,0 +1,24 @@
+<div class="bg-white p-4 rounded-lg shadow">
+  <div class="flex items-center justify-between mb-2">
+    <div class="flex items-center">
+      <img src="https://avatar.iran.liara.run/public/15" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+      <img src="https://avatar.iran.liara.run/username?username=<%= CGI.escape(comment.user&.name.to_s) %>" 
+            alt="User Avatar" 
+            class="w-10 h-10 rounded-full mr-3">
+      <div>
+        <h3 class="font-semibold"><%= comment.user&.name %></h3>
+        <p class="text-sm text-gray-500"><%= time_ago_in_words(comment.created_at) %> ago</p>
+      </div>
+    </div>
+    
+    <% if current_user == comment.user %>
+      <%= link_to user_plan_comment_path(@user_plan, comment), 
+                  data: { turbo_method: :delete, turbo_confirm: t('common.actions.confirm_delete') }, 
+                  class: "icon-button" do %>
+        <img src="<%= asset_path('delete-icon.png') %>" alt="Delete" class="w-5 h-5"/>
+      <% end %>
+    <% end %>
+  </div>
+  
+  <div class="text-gray-700 p-3 rounded-lg"><%= comment.body %></div>
+</div>

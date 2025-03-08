@@ -101,7 +101,7 @@ BUGS
 - [ ] Add physiotherapist registration with profile (name, company)
 
 💬 Comments Model
-- [ ] Add comment system to plans
+- [x] Add comment system to plans
 
 🗓️ Reservation System
 - [ ] Add reservation system for booking physiotherapy sessions

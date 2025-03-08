@@ -4,6 +4,7 @@ class Admin::UserPlansController < ApplicationController
 
   def show
     @user_plan = UserPlan.find_by(user_id: params[:user_id], plan_id: params[:plan_id])
+    @comments = @user_plan.comments.order(created_at: :desc)
 
     if @user_plan.nil?
       # Handle the case where the UserPlan doesn't exist

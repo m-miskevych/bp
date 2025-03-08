@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
     namespace :admin do
       get "dashboard/index" => "dashboard#index"
+      resources :users
       resources :plans do
         member do
           get "assign"
@@ -28,8 +29,6 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :users
-
       resources :exercises do
         member do
           delete "remove_image" # remove_image_exercise_path(image)
@@ -37,13 +36,14 @@ Rails.application.routes.draw do
       end
     end
 
-
-
-
-
     namespace :client do
       get "dashboard/index" => "dashboard#index"
       resources :user_plans, only: [ :index, :show ]
+    end
+
+    # /user_plans/1/comments/4
+    resources :user_plans do
+      resources :comments
     end
   end
 end
