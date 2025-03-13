@@ -52,7 +52,7 @@ class Admin::PlansController < ApplicationController
       @client.plans << @plan
       flash[:notice] = t("notices.plan_assigned")
     end
-    redirect_to admin_plans_path
+    redirect_back_or_to admin_plans_url
   end
 
   def remove_plan_from_client

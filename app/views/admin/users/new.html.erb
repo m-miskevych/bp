@@ -1,8 +1,19 @@
-<h1 class="text-3xl font-extrabold text-gray-900 mb-6"><%= t('.title') %></h1>
-<%= link_to t('common.actions.back'), admin_users_path, class: "text-blue-600 hover:text-blue-800 mb-4 inline-block text-lg font-medium" %>
+<div class="bg-indigo-400 text-white text-3xl font-bold pt-4 pb-16 px-8 flex items-center justify-between flex-col sm:flex-row">
+  <div><%= t('.title') %></div>
+  <div><%= link_to t("common.actions.back"), admin_users_path, class: "btn-fancy-white text-base sm:text-sm mt-4 sm:mt-0" %></div>
+</div>
+<div class="bg-indigo-400 pt-4 pb-16 relative z-10"></div>
+<div class="p-0 sm:p-6 -mt-24">
+  <div class="bg-white shadow-md rounded-none sm:rounded-lg p-4 sm:p-8 min-h-[300px] border border-gray-200 relative z-10 w-full">
 
-<%= render "errors", client: @client %>
+    <!-- Content -->
+    <div class="p-1 sm:px-12">
+      <%= render "errors", client: @client %>
+      <div class="mt-6">
+        <%= render "form", client: @client %>
+      </div>
+    </div>
 
-<div class="bg-white p-6 rounded-lg shadow-lg">
-  <%= render "form", client: @client %>
+    
+  </div>
 </div>

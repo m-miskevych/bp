@@ -1,47 +1,54 @@
-<div class="flex justify-between items-center mb-6  pb-3">
-  <p class="text-2xl font-semibold text-slate-900">
-    <%= t('.title') %>
-  </p>
-  <%= link_to t('.new'), new_admin_user_path, class: "btn-fancy" %>
+<div class="bg-indigo-400 text-white text-3xl font-bold pt-4 pb-16 px-8 flex items-center justify-between flex-col sm:flex-row">
+  <div><%= t('.title') %></div>
+  <div><%= link_to t('.new'), new_admin_user_path, class: "btn-fancy-white text-base sm:text-sm mt-4 sm:mt-0" %></div>
 </div>
+<div class="bg-indigo-400 pt-4 pb-16 relative z-10"></div>
+<div class="p-0 sm:p-6 -mt-24">
+  <div class="bg-white shadow-md rounded-none sm:rounded-lg p-4 sm:p-8 min-h-[300px] border border-gray-200 relative z-10 w-full">
 
-<div class="relative flex flex-col w-full h-full text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
-  <div class="p-6 px-0 overflow-scroll">
-    <table class="w-full text-left table-auto min-w-max">
-      <thead>
-        <tr>
-          <th class="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
-            <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"><%= t('.table.headers.name') %></p>
-          </th>
-          <th class="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
-            <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"><%= t('.table.headers.email') %></p>
-          </th>
-          <th class="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
-          </th>
-        </tr>
-      </thead>
+    <!-- Content -->
+    <div class="relative flex flex-col w-full h-full text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
+      <div class="p-6 px-0 overflow-scroll">
+        <table class="w-full text-left table-auto min-w-max">
+          <thead>
+            <tr>
+              <th class="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
+                <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"><%= t('.table.headers.name') %></p>
+              </th>
+              <th class="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
+                <p class="hidden lg:flex font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"><%= t('.table.headers.email') %></p>
+              </th>
+              <th class="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
+              </th>
+            </tr>
+          </thead>
 
-      <tbody>
-        <% @clients.each do |client| %>
-          <tr class="hover:bg-slate-50 cursor-pointer">
-            <td class="p-4 border-b border-blue-gray-50">
-              <%= link_to client.name, admin_user_path(client), class: "block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900" %>
-            </td>
-            <td class="p-4 border-b border-blue-gray-50">
-              <%= link_to client.email, admin_user_path(client), class: "block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900" %>
-            </td>
-            <td class="p-4 border-b border-blue-gray-50"> 
-              <!-- Delete Icon -->
-              <%= link_to admin_user_path(client), 
-                  data: { turbo_method: :delete, turbo_confirm: t('common.actions.confirm_delete') }, 
-                  class: "icon-button" do %>
-                <img src="<%= asset_path('delete-icon.png') %>" alt="Delete" class="w-5 h-5"/>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+          <tbody>
+            <% @clients.each do |client| %>
+              <tr class="hover:bg-slate-50 cursor-pointer">
+                <td class="p-4 border-b border-blue-gray-50">
+                  <%= link_to client.name, admin_user_path(client), class: "block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900" %>
+                </td>
+                <td class="p-4 border-b border-blue-gray-50 ">
+                  <%= link_to client.email, admin_user_path(client), class: " hidden lg:flex font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900" %>
+                </td>
+                <td class="p-4 border-b border-blue-gray-50"> 
+                  <!-- Delete Icon -->
+                  <%= link_to admin_user_path(client), 
+                      data: { turbo_method: :delete, turbo_confirm: t('common.actions.confirm_delete') }, 
+                      class: "icon-button" do %>
+                    <img src="<%= asset_path('delete-icon.png') %>" alt="Delete" class="w-5 h-5"/>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    
   </div>
 </div>
+
 

@@ -1,6 +1,6 @@
 <div class="language-switcher flex">
   <% I18n.available_locales.each do |locale| %>
-    <%= link_to url_for(locale: locale), class: "p-2 rounded-full cursor-pointer" do %>
+    <%= link_to url_for(locale: locale), class: "p-2 rounded-full cursor-pointer", data: { turbo: false } do %>
       <%= image_tag("flags/#{locale}.png", alt: locale.to_s, class: "h-7 w-7") %>
     <% end %>
   <% end %>

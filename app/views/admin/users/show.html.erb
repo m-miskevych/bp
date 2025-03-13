@@ -1,39 +1,50 @@
-<div class="max-w-3xl mx-auto bg-white shadow-lg rounded-2xl p-6">
-  <h1 class="text-2xl font-bold text-gray-800 mb-4"><%= t('.title') %></h1>
+<div class="bg-indigo-400 text-white text-3xl font-bold pt-4 pb-16 px-8 flex items-center justify-between flex-col sm:flex-row">
+  <div><%= t('.title') %></div>
+  <div><%= link_to t('.fields.back_to_clients'), admin_users_path, class: "btn-fancy-white text-base sm:text-sm mt-4 sm:mt-0" %></div>
+</div>
+<div class="bg-indigo-400 pt-4 pb-16 relative z-10"></div>
+<div class="p-0 sm:p-6 -mt-24">
+  <div class="bg-white shadow-md rounded-none sm:rounded-lg p-4 sm:p-8 min-h-[300px] border border-gray-200 relative z-10 w-full">
 
-  <% if @client.invitation_token.present? %>
-    <div class="bg-red-100 text-red-800 p-4 rounded-lg mb-6">
-      <p class="text-lg"><strong><%= t('.invite_accepted') %></strong></p>
-    </div>
-  <% end %>
-    
-  <div class="bg-gray-100 p-4 rounded-lg mb-6">
-    <p class="text-lg"><strong><%= t('.fields.name') %>:</strong> <%= @client.name %></p>
-    <p class="text-lg"><strong><%= t('.fields.email') %>:</strong> <%= @client.email %></p>
-  </div>
 
-  <h2 class="text-xl font-semibold text-gray-700 mb-3"><%= t('.fields.assigned_plans') %></h2>
+    <!-- Content -->
+    <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-2xl p-6">
 
-  <% if @client.plans.any? %>
-    <ul class="space-y-2">
-      <% @client.plans.each do |plan| %>
-        <li class="bg-blue-100 text-blue-800 p-3 rounded-lg shadow-sm flex justify-between items-center">
-          <div class="flex-1">
-            <strong><%= plan.name %></strong> - <%= plan.description.truncate(30) %>
-          </div>
-          <div>
-            <%= link_to t('.fields.remove_plan'), remove_plan_from_client_admin_plan_path(plan, user_id: @client.id),
-                data: { turbo_method: :delete, turbo_confirm: t(".fields.confirm_remove_plan") }, 
-                class: "px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm" %>
-          </div>
-        </li>
+      <% if @client.invitation_token.present? %>
+        <div class="bg-red-100 text-red-800 p-4 rounded-lg mb-6">
+          <p class="text-md"><strong><%= t('.invite_accepted') %></strong></p>
+        </div>
       <% end %>
-    </ul>
-  <% else %>
-    <p class="text-gray-500 italic"><%= t('.fields.no_plans') %></p>
-  <% end %>
 
-  <div class="mt-6">
-    <%= link_to t('.fields.back_to_clients'), admin_users_path, class: "bg-gray-200 hover:bg-gray-300 text-black px-4 py-2 rounded-lg shadow-md transition" %>
+      <div class="bg-indigo-100 p-4 rounded-lg mb-6">
+        <p class="text-md"><strong><%= t('.fields.name') %>:</strong> <%= @client.name %></p>
+        <p class="text-md"><strong><%= t('.fields.email') %>:</strong> <%= @client.email %></p>
+      </div>
+
+      <h2 class="text-xl font-semibold text-gray-700 mb-3"><%= t('.fields.assigned_plans') %></h2>
+
+        <% if @client.plans.any? %>
+          <ul class="space-y-2">
+            <% @client.plans.each do |plan| %>
+              <li class="bg-pink-50 text-slate-800 p-3 rounded-lg shadow-sm flex justify-between items-center">
+                <div class="flex-1">
+                  <strong><%= plan.name %></strong>
+                </div>
+                <div>
+                  <%= link_to t('.fields.remove_plan'), remove_plan_from_client_admin_plan_path(plan, user_id: @client.id),
+                      data: { turbo_method: :delete, turbo_confirm: t(".fields.confirm_remove_plan") }, 
+                      class: "px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm" %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        <% else %>
+          <p class="text-gray-500 italic"><%= t('.fields.no_plans') %></p>
+        <% end %>
+
+    </div>
+
+
   </div>
 </div>
+

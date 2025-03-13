@@ -31,6 +31,9 @@ en:
       back: "Back"
       confirm_delete: "Are you sure?"
       save: "Save"
+      select_language: "Choose the language in which the form will be filled out"
+  users_with_this_plan: "Users with this plan:"
+  no_users_assigned: "No users are assigned to this plan."
 
   admin:
     dashboard:
@@ -59,7 +62,7 @@ en:
       new:
         title: "Add a New Exercise"
       show:
-        title: "Detail of Exercise: %{name}"
+        title: "%{name}"
         fields:
           name: "Name"
           description: "Description"
@@ -82,6 +85,8 @@ en:
       index:
         title: "Plans"
         new: "New Plan"
+        all_plans: "List of all available plans"
+
       show:
         title: "Plan Detail"
         fields:
@@ -92,12 +97,27 @@ en:
         title: "Add a New Plan"
       edit:
         title: "Edit Plan"
+      assign:
+        title: "Assign Plan: %{name}"
+        client: "Select a client:"
+        assign: "Assign Plan"
       form:
         name: "Name"
         description: "Description"
         assign_exercises: "Assign Exercises"
       errors:
         title: "There were some errors"
+
+    user_plans:
+      show:
+        title: "Plan Detail"
+        fields:
+          name: "Plan Name"
+          user: "Client"
+          description: "Description"
+          exercises: "Exercises for this plan"
+        comments:
+          title: "Use this space to communicate and discuss any details or concers about the plan."
 
     users:
       index:
@@ -131,6 +151,14 @@ en:
         welcome: "Welcome, %{name}"
         description: "View your assigned exercise plans and stay consistent for better health and recovery!"
 
-    plans:
+    user_plans:
       index:
         title: "Plans"
+      show:
+        title: "Plan Detail"
+        fields:
+          name: "Plan Name"
+          description: "Description"
+          exercises: "Exercises for this plan"
+        comments:
+          title: "Use this space to communicate and discuss any details or concers about the plan."

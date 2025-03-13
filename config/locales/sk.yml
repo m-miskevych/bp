@@ -31,6 +31,9 @@ sk:
       back: "Späť"
       confirm_delete: "Ste si istý?"
       save: "Uložiť"
+      select_language: "Zvoľte jazyk, v ktorom bude vyplnený formulár"
+  users_with_this_plan: "Používatelia s týmto plánom:"
+  no_users_assigned: "Žiadni používatelia nie sú priradení k tomuto plánu."
 
   admin:
     dashboard:
@@ -59,7 +62,7 @@ sk:
       new:
         title: "Pridať nové cvičenie"
       show:
-        title: "Detail cvičenia: %{name}"
+        title: "%{name}"
         fields:
           name: "Názov"
           description: "Popis"
@@ -82,6 +85,8 @@ sk:
       index:
         title: "Plány"
         new: "Nový Plán"
+        all_plans: "Zoznam všetkých dostupných plánov"
+
       show:
         title: "Detail Plánu"
         fields:
@@ -92,12 +97,27 @@ sk:
         title: "Pridať Nový Plán"
       edit:
         title: "Upraviť Plán"
+      assign:
+        title: "Priradiť Plán: %{name}"
+        client: "Vyberte klienta:"
+        assign: "Priradiť Plán"
       form:
         name: "Názov"
         description: "Popis"
         assign_exercises: "Prideliť cvičenia"
       errors:
         title: "Vyskytli sa chyby"
+
+    user_plans:
+      show:
+        title: "Detail Plánu"
+        fields:
+          name: "Názov Plánu"
+          user: "Klient"
+          description: "Popis"
+          exercises: "Cvičenia pre tento plán"
+        comments:
+          title: "Využite tento priestor na komunikáciu a prediskutovanie akýchkoľvek detailov alebo obáv týkajúcich sa plánu."
 
     users:
       index:
@@ -131,6 +151,14 @@ sk:
         welcome: "Vitajte, %{name}"
         description: "Zobraziť priradené cvičebné plány a buďte konzistentní pre lepšie zdravie a rekonvalescenciu!"
 
-    plans:
+    user_plans:
       index:
         title: "Plány"
+      show:
+        title: "Detail Plánu"
+        fields:
+          name: "Názov Plánu"
+          description: "Popis"
+          exercises: "Cvičenia pre tento plán"
+        comments:
+          title: "Využite tento priestor na komunikáciu a prediskutovanie akýchkoľvek detailov alebo obáv týkajúcich sa plánu."
