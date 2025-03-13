@@ -1,27 +1,55 @@
-<!-- Header with title and button -->
-<div class="flex justify-between items-center mb-6 pb-3">
-  <p class="text-2xl font-semibold text-slate-900"><%= t('.title') %></p>
-    <%= link_to t('.new'), new_admin_plan_path, class: "btn-fancy" %>
+<div class="bg-indigo-400 text-white text-3xl font-bold pt-4 pb-16 px-8 flex items-center justify-between flex-col sm:flex-row">
+  <div><%= t('.title') %></div>
+  <div><%= link_to t('.new'), new_admin_plan_path, class: "btn-fancy-white text-base sm:text-sm mt-4 sm:mt-0" %></div>
+</div>
+<div class="bg-indigo-400 pt-4 pb-16 relative z-10"></div>
+<div class="p-0 sm:p-6 -mt-24">
+  <div class="bg-white shadow-md rounded-none sm:rounded-lg p-4 sm:p-8 min-h-[300px] border border-gray-200 relative z-10 w-full">
+
+
+    <!-- Content -->
+    <!-- Tabs -->
+    <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+      <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-styled-tab" data-tabs-toggle="#default-styled-tab-content" data-tabs-active-classes="text-purple-600 hover:text-purple-600 dark:text-purple-500 dark:hover:text-purple-500 border-purple-600 dark:border-purple-500" data-tabs-inactive-classes="dark:border-transparent text-gray-500 hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300" role="tablist">
+        <li class="me-2" role="presentation">
+            <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-styled-tab" data-tabs-target="#styled-profile" type="button" role="tab" aria-controls="profile" aria-selected="true"><%= t('.tab.all') %></button>
+        </li>
+        <li class="me-2" role="presentation">
+          <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="dashboard-styled-tab" data-tabs-target="#styled-dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false"><%= t('.tab.by_client') %></button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Tab content - all plans -->
+    <div id="default-styled-tab-content">
+      <div class="hidden container mx-auto p-6 space-y-16" id="styled-profile" role="tabpanel" aria-labelledby="profile-tab">
+        <section>
+          <h3 class="text-xl font-semibold text-slate-700 mb-6"><%= t('.all_plans') %></h3>
+          <!-- List of all plans -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 mb-10">
+            <% @plans.each do |plan| %>
+              <%= render partial: "all_plans", locals: { plan: plan } %>
+            <% end %>
+          </div>
+        </section>
+      </div>
+
+      <!-- Tab content - plans by user -->
+      <div class="hidden container mx-auto p-6 space-y-16" id="styled-dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+        <section>
+          <h3 class="text-xl font-semibold text-slate-700 mb-6"><%= t('plans.by_client') %></h3>
+          <div class="space-y-12">
+            <% @users.each do |user| %>
+              <%= render partial: 'admin/plans/user_plans', locals: { user: user } %>
+            <% end %>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+
+  </div>
 </div>
 
-<p class="text-xl font-semibold text-slate-800 mb-4"><%= t('plans.all') %></p>
 
-<!-- List of all plans -->
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 mb-10">
-  <% @plans.each do |plan| %>
-    <%= render partial: "all_plans", locals: { plan: plan } %>
-  <% end %>
-</div>
-
-<hr class="mx-auto bg-black w-3/4 sm:w-1/2 mt-10 mb-8">
-
-<!-- Plans by user -->
-<div>
-  <% @users.each do |user| %>
-    <% user_plans = @user_plans.select { |up| up.user_id == user.id } %>
-
-    <% if user_plans.any? %>
-      <%= render partial: "admin/plans/user_plans", locals: { user: user, user_plans: user_plans } %>
-    <% end %>
-  <% end %>
-</div>

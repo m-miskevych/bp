@@ -1,25 +1,35 @@
-<div class="max-w-lg mx-auto bg-white shadow-md rounded-lg p-6">
-  <h1 class="text-2xl font-semibold text-slate-800 mb-4">
-    Priradiť plán: <%= @plan.name %>
-  </h1>
+<div class="bg-indigo-400 text-white text-3xl font-bold pt-4 pb-16 px-8 flex items-center justify-between flex-col sm:flex-row">
+  <div><%= t('.title', name: @plan.name) %></div>
+  <div><%= link_to t("common.actions.back"), admin_plans_path, data: { turbo: false }, class: "btn-fancy-white text-base sm:text-sm mt-4 sm:mt-0" %></div>
+</div>
+<div class="bg-indigo-400 pt-4 pb-16 relative z-10"></div>
+<div class="p-0 sm:p-6 -mt-24">
+  <div class="bg-white shadow-md rounded-none sm:rounded-lg p-4 sm:p-8 min-h-[300px] border border-gray-200 relative z-10 w-full">
 
-  <%= form_with url: assign_plan_to_client_admin_plan_path(@plan), method: :post, class: "space-y-4" do %>
-    <div>
-      <label for="user_id" class="block text-sm font-medium text-slate-700">Vyberte klienta:</label>
-      <select name="user_id" id="user_id" 
-              class="mt-1 block w-full p-2 border border-slate-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-        <% @clients.each do |client| %>
-          <option value="<%= client.id %>"><%= client.email %></option>
-        <% end %>
-      </select>
+
+    <!-- Content -->
+    <div class="max-w-lg mx-auto bg-white shadow-md rounded-lg p-6">
+      <h1 class="text-2xl font-semibold text-slate-800 mb-4">
+        <%= @plan.name %>
+      </h1>
+
+      <%= form_with url: assign_plan_to_client_admin_plan_path(@plan), method: :post, class: "space-y-4" do %>
+        <div>
+          <label for="user_id" class="block text-sm font-medium text-slate-700"><%= t('.client') %></label>
+          <select name="user_id" id="user_id" 
+                  class="mt-1 block w-full p-2 border border-slate-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+            <% @clients.each do |client| %>
+              <option value="<%= client.id %>"><%= client.email %></option>
+            <% end %>
+          </select>
+        </div>
+
+        <div class="flex justify-center">
+          <%= submit_tag t('.assign'), class: "btn-fancy" %>
+        </div>
+      <% end %>
     </div>
 
-    <div class="flex items-center justify-between">
-      <%= submit_tag "Priradiť plán", 
-            class: "px-4 py-2 bg-indigo-600 text-slate-100 font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50" %>
-
-      <%= link_to "Späť na zoznam plánov", admin_plans_path, 
-            class: "text-indigo-600 hover:underline text-sm" %>
-    </div>
-  <% end %>
+    
+  </div>
 </div>

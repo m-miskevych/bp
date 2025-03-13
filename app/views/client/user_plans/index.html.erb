@@ -1,42 +1,50 @@
-<!-- Header with title -->
-<div class="flex justify-between items-center mb-6 pb-3">
-  <p class="text-2xl font-semibold text-slate-900"><%= t('.title') %></p>
+<div class="bg-indigo-400 text-white text-3xl font-bold pt-4 pb-16 px-8 flex items-center justify-between flex-col sm:flex-row">
+  <div><%= t('.title') %></div>
+  <div></div>
 </div>
+<div class="bg-indigo-400 pt-4 pb-16 relative z-10"></div>
+<div class="p-0 sm:p-6 -mt-24">
+  <div class="bg-white shadow-md rounded-none sm:rounded-lg p-4 sm:p-8 min-h-[300px] border border-gray-200 relative z-10 w-full">
 
-<!-- Plans by status -->
-<div>
-  <% grouped_user_plans = @user_plans.group_by(&:status) %>
+    <!-- Content -->
+    <!-- Plans by status -->
+    <div>
+      <% grouped_user_plans = @user_plans.group_by(&:status) %>
 
-  <% grouped_user_plans.each do |status, plans| %>
-    <p class="text-xl font-semibold text-slate-800 mt-6 mb-4">
-      <%= t("user_plans.status.#{status}") %>
-    </p>
+      <% grouped_user_plans.each do |status, plans| %>
+        <p class="text-xl font-semibold text-slate-800 mt-6 mb-4">
+          <%= t("user_plans.status.#{status}") %>
+        </p>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      <% plans.each do |user_plan| %>
-        <div class="relative flex flex-col bg-white shadow-md border border-slate-200 rounded-lg w-full h-full">
-          <!-- Header with plan name and status -->
-          <div class="mx-3 mb-0 border-b border-slate-200 pt-3 pb-2 px-1 flex justify-between items-center">
-            <%= link_to user_plan.plan.name, client_user_plan_path(user_plan), class: "text-slate-800 text-lg font-semibold text-center block hover:underline" %>
-            
-            <!-- Status with dynamic color classes -->
-            <span class="
-              <%= 'status-draft' if user_plan.status == 'draft' %>
-              <%= 'status-in-progress' if user_plan.status == 'in_progress' %>
-              <%= 'status-done' if user_plan.status == 'done' %>
-            ">
-              <%= user_plan.status.humanize %>
-            </span>
-            
-          </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <% plans.each do |user_plan| %>
+            <div class="relative flex flex-col bg-white shadow-md border border-slate-200 rounded-lg w-full h-full">
+              <!-- Header with plan name and status -->
+              <div class="mx-3 mb-0 border-b border-slate-200 pt-3 pb-2 px-1 flex justify-between items-center">
+                <%= link_to user_plan.plan.name, client_user_plan_path(user_plan), class: "text-slate-800 text-lg font-semibold text-center block hover:underline" %>
+                
+                <!-- Status with dynamic color classes -->
+                <span class="
+                  <%= 'status-draft' if user_plan.status == 'draft' %>
+                  <%= 'status-in-progress' if user_plan.status == 'in_progress' %>
+                  <%= 'status-done' if user_plan.status == 'done' %>
+                ">
+                  <%= user_plan.status.humanize %>
+                </span>
+                
+              </div>
 
-          <!-- Description -->
-          <div class="p-4 flex-1">
-            <p class="text-slate-600 leading-normal font-light"><%= user_plan.plan.description %></p>
-          </div>
+              <!-- Description -->
+              <div class="p-4 flex-1">
+                <p class="text-slate-600 leading-normal font-light"><%= user_plan.plan.description %></p>
+              </div>
 
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
-  <% end %>
+
+
+  </div>
 </div>

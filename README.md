@@ -69,11 +69,12 @@ bundle exec rspec spec/models
 ## 4. PLANNING
 
 BUGS
-- [x] Delete Exercise Associated to a Plan - how to handle it ? can not delete if exercise is assigned to a plan
-- [x] Plan - Exercise -> make it redirect to exercise detail page
-- [x] Better visualization for Detail, Edit, Delete Buttons
-- [x] In Plans, amdin can see only his clients assigned to the plan
-
++ Delete Exercise Associated to a Plan - how to handle it ? can not delete if exercise is assigned to a plan
++ Plan - Exercise -> make it redirect to exercise detail page
++ Better visualization for Detail, Edit, Delete Buttons
++ In Plans, amdin can see only his clients assigned to the plan
+- [ ] exercise -> set and repetition are required
+- [ ] exercise show detial -> if img or video are missing, adjust the view
 
 🏋️ Exercise Model
 + Create `Exercise` and `Plan` models
@@ -98,7 +99,6 @@ BUGS
 👤 User Model & Authentication
 +  Divide admin / user namespaces
 - [x] Enable client registration via an invite link
-- [ ] Add physiotherapist registration with profile (name, company)
 
 💬 Comments Model
 - [x] Add comment system to plans
@@ -111,6 +111,8 @@ BUGS
 🌍 Translations & I18N
 +  Add I18N support for sk/en language
 - [x] Implement language switcher with SK/EN flags
+- [x] Form - exercise language switcher
+- [x] Form - plan language switcher
 
 🔔 Flash Messages 
 +  Add Flash Messages for success and errors
@@ -122,9 +124,19 @@ BUGS
   +  style Admin page
   +  navbar mobile view
 - [ ] Extract commonly used Tailwind classes into reusable components
-- [ ] Views styling
-  - [ ] Exercise Detail Page
-  - [ ] Plan Detail Page
+- [x] Views styling
+  - admin
+    - [x] nav bar
+    - [x] dashboard page
+    - [x] exercises 
+    - [x] plans
+    - [x] user_plans
+    - [x] users
+    - [x] "profile" page
+  - client
+    - [x] nav bar
+    - [x] dashboard page
+    - [x] user_plans
 
 
 📦 Other
