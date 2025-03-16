@@ -38,7 +38,12 @@ Rails.application.routes.draw do
 
     namespace :client do
       get "dashboard/index" => "dashboard#index"
-      resources :user_plans, only: [ :index, :show ]
+      resources :user_plans, only: [ :index, :show ] do
+        member do
+          patch :start
+          patch :complete
+        end
+      end
     end
 
     # /user_plans/1/comments/4
