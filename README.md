@@ -73,7 +73,7 @@ BUGS
 + Plan - Exercise -> make it redirect to exercise detail page
 + Better visualization for Detail, Edit, Delete Buttons
 + In Plans, amdin can see only his clients assigned to the plan
-- [ ] exercise -> set and repetition are required
+- [x] exercise -> set and repetition are required
 - [ ] exercise show detial -> if img or video are missing, adjust the view
 
 🏋️ Exercise Model
@@ -84,9 +84,7 @@ BUGS
 + Add validations
    + Exercise Model
 + Add Active Storage - images upload
-- [ ] Implement video upload via Active Storage or link to YouTube ( iframe ) 
-- [ ] Add pagination to the exercise index page
-- [ ] Add search to the exercise index page
+- [x] Implement video upload via Active Storage or link to YouTube ( iframe ) 
 
 📋 Plan Model
 + `Plan` CRUD operations

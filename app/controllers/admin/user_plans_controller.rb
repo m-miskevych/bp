@@ -8,7 +8,7 @@ class Admin::UserPlansController < ApplicationController
 
     if @user_plan.nil?
       # Handle the case where the UserPlan doesn't exist
-      redirect_to admin_user_plans_path, alert: "User plan not found"
+      redirect_to admin_user_plans_path, alert: t("alerts.plan_not_found")
     end
   end
 end

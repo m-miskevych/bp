@@ -7,40 +7,31 @@
   <div class="bg-white shadow-md rounded-none sm:rounded-lg p-4 sm:p-8 min-h-[300px] border border-gray-200 relative z-10 w-full">
 
     <!-- Content -->
-    <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
-      <div class="flex justify-between items-center mb-4">
-
-        <!-- Ľavá strana - názov plánu -->
-        <p class="text-2xl font-semibold text-gray-800">
-          <%= t('.fields.name') %>: 
-          <span class="text-blue-600"><%= @user_plan.plan.name %></span>
-        </p>
-
-        <!-- Pravá strana - status + akcie -->
-        <div class="flex items-center space-x-4">
-          <!-- Tlačidlá na zmenu statusu -->
-          <% if @user_plan.draft? %>
-            <%= button_to 'Začať plán', start_client_user_plan_path(@user_plan), method: :patch, class: "text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800" %>
-          <% elsif @user_plan.in_progress? %>
-            <%= button_to 'Dokončiť plán', complete_client_user_plan_path(@user_plan), method: :patch, class: "text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900" %>
-          <% elsif @user_plan.done? %>
-            <span class="text-gray-500 italic text-sm">Plán je dokončený</span>
-          <% end %>
-
-          <!-- Zobrazenie statusu s farbou -->
-          <span class="
-            <%= 'status-draft' if @user_plan.status == 'draft' %>
-            <%= 'status-in-progress' if @user_plan.status == 'in_progress' %>
-            <%= 'status-done' if @user_plan.status == 'done' %>">
-              <%= @user_plan.status.humanize %>
-          </span>
-        </div>
-
+    <div class="flex flex-col sm:flex-row sm:justify-between items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full p-2">
+      <div class="flex space-x-2">
+        <!-- Buttons - change status -->
+        <% if @user_plan.draft? %>
+          <%= button_to t("common.actions.start_plan"), start_client_user_plan_path(@user_plan), method: :patch, class: "text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800" %>
+        <% elsif @user_plan.in_progress? %>
+          <%= button_to t("common.actions.finish_plan"), complete_client_user_plan_path(@user_plan), method: :patch, class: "text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900" %>
+        <% elsif @user_plan.done? %>
+          <span class="text-gray-500 italic text-sm"><%= t(".plan_completed") %></span>
+        <% end %>
       </div>
 
-      <p class="text-lg text-gray-700 mb-4">
-        <%= t('.fields.description') %>: <%= @user_plan.plan.description %>
-      </p>
+      <!-- Status -->
+      <span class="
+        <%= 'status-draft' if @user_plan.status == 'draft' %>
+        <%= 'status-in-progress' if @user_plan.status == 'in_progress' %>
+        <%= 'status-done' if @user_plan.status == 'done' %>">
+          <%= @user_plan.status.humanize %>
+      </span>
+    </div>
+
+
+    <div class="p-0 sm:p-6  mb-6">
+      <p class="text-2xl font-semibold text-gray-800"><%= t('.fields.name') %>: <span class="text-blue-600"><%= @user_plan.plan.name %></span></p>
+      <p class="text-lg text-gray-700 mb-4"><%= t('.fields.description') %>: <%= @user_plan.plan.description %></p>
 
       
       <div class="mt-6 space-y-6">
@@ -48,30 +39,44 @@
 
         <% @user_plan.plan.exercises.each do |exercise| %>
           <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden max-w-4xl w-full mx-auto">
-            
-            <!-- Obsah cvičenia -->
-            <div class="p-6 flex justify-center">
-              <div>
-                <p class="text-2xl font-semibold text-gray-800 mb-2"><%= exercise.name %></p>
-                <p class="text-gray-700 mb-1"><strong>Popis:</strong> <%= exercise.description %></p>
-                <p class="text-gray-700 mb-1"><strong>Počet sérií:</strong> <%= exercise.set %></p>
-                <p class="text-gray-700 mb-1"><strong>Počet opakovaní:</strong> <%= exercise.repetition %></p>
+            <!-- Text -->
+            <div class="w-full text-center p-4">
+              <h2 class="text-2xl font-semibold text-gray-800 mb-4"><%= exercise.name %></h2>
+              <p class="text-gray-700 mb-3"><strong><%= t('.fields.description') %>:</strong> <%= exercise.description %></p>
+              
+              <div class="flex justify-center gap-6">
+                <div class="bg-gray-100 px-4 py-2 rounded-lg shadow">
+                  <p class="text-gray-600 text-sm"><%= t('.fields.sets') %></p>
+                  <p class="text-xl font-semibold text-gray-900"><%= exercise.set %></p>
+                </div>
+                <div class="bg-gray-100 px-4 py-2 rounded-lg shadow">
+                  <p class="text-gray-600 text-sm"><%= t('.fields.repetitions') %></p>
+                  <p class="text-xl font-semibold text-gray-900"><%= exercise.repetition %></p>
+                </div>
               </div>
             </div>
 
-            <!-- Obrázky -->
+            <!-- Video -->
+            <% if exercise.video_url.present? %>
+              <div class="p-4 border-t border-gray-200 bg-gray-50 flex justify-center">
+                <iframe 
+                  class="aspect-video rounded-md shadow-md"
+                  src="<%= exercise.youtube_embed_url %>"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+            <% end %>
+            
+            <!-- Images -->
             <% if exercise.images.attached? %>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 border-t border-gray-200 bg-gray-50">
                 <% exercise.images.each do |image| %>
                   <%= image_tag image, alt: exercise.name, class: "rounded-md shadow-sm w-30 h-30 object-cover" %>
                 <% end %>
               </div>
-            <% else %>
-              <div class="p-4 border-t border-gray-200 bg-gray-50 text-center text-gray-500 italic">
-                K tomuto cvičeniu zatiaľ nie sú pridané obrázky.
-              </div>
             <% end %>
-
           </div>
         <% end %>
       </div>
