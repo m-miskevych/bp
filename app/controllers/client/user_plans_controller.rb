@@ -15,9 +15,9 @@ class Client::UserPlansController < ApplicationController
   def start
     if @user_plan.draft?
       @user_plan.update(status: :in_progress)
-      flash[:notice] = "Plán bol spustený!"
+      flash[:notice] = t("notices.plan_started")
     else
-      flash[:alert] = "Plán sa už nedá spustiť."
+      flash[:alert] = t("alerts.plan_cannot_be_started")
     end
     redirect_to user_plan_path(@user_plan)
   end
@@ -25,9 +25,9 @@ class Client::UserPlansController < ApplicationController
   def complete
     if @user_plan.in_progress?
       @user_plan.update(status: :done)
-      flash[:notice] = "Plán bol dokončený!"
+      flash[:notice] = t("notices.plan_completed")
     else
-      flash[:alert] = "Plán nie je aktívny."
+      flash[:alert] = t("alerts.plan_is_not_active")
     end
     redirect_to user_plan_path(@user_plan)
   end

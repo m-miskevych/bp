@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_03_07_152652) do
+ActiveRecord::Schema[7.2].define(version: 2025_03_16_113808) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,6 +66,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_07_152652) do
     t.integer "repetition"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "video_url"
   end
 
   create_table "exercises_plans", force: :cascade do |t|

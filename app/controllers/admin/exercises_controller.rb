@@ -53,6 +53,6 @@ class Admin::ExercisesController < ApplicationController
   end
 
   def exercise_params
-    params.require(:exercise).permit(:name_sk, :name_en, :description_sk, :description_en, :set, :repetition, images: [])
+    params.require(:exercise).permit(:name_sk, :name_en, :description_sk, :description_en, :set, :repetition, :video_url,  images: [])
   end
 end
