@@ -1,4 +1,8 @@
 sk:
+  activerecord:
+    errors:
+      messages:
+        invalid_youtube_url: "musí byť platný YouTube link (napr. https://www.youtube.com/watch?v=ID alebo https://youtu.be/ID)"
   notices:
     plan_created: "Plán bol úspešne vytvorený."
     plan_updated: "Plán bol úspešne upravený."

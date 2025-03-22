@@ -6,7 +6,7 @@ class UserPlan < ApplicationRecord
 
   validates :user_id, uniqueness: { scope: :plan_id, message: "už má tento plán priradený" }
 
-  enum status: { draft: 0, in_progress: 1, done: 2 }
+  enum :status, { draft: 0, in_progress: 1, done: 2 }
 
   # Scopes status
   scope :draft, -> { where(status: 0) }
