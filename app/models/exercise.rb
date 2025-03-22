@@ -34,7 +34,7 @@ class Exercise < ApplicationRecord
 
   def validate_youtube_url
     unless extract_youtube_id(video_url)
-      errors.add(:video_url, "musí byť platný YouTube link (napr. https://www.youtube.com/watch?v=ID alebo https://youtu.be/ID)")
+      errors.add(:video_url, :invalid_youtube_url)
     end
   end
 end

@@ -1,4 +1,8 @@
 en:
+  activerecord:
+    errors:
+      messages:
+        invalid_youtube_url: "must be a valid YouTube link (e.g., https://www.youtube.com/watch?v=ID or https://youtu.be/ID)"
   notices:
     plan_created: "Plan was successfully created."
     plan_updated: "Plan was successfully updated."
