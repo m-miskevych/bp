@@ -61,7 +61,12 @@ You can log in with the following credentials:
 bundle exec rspec spec/models
 ```
 
-### 3.2 Run Capybara tests
+### 3.2 Run RSpec request tests
+```bash
+bundle exec rspec spec/requests
+```
+
+### 3.3 Run 
 ```bash
 
 ```
@@ -142,11 +147,7 @@ BUGS
 
 🔬 Testing
 +  Add RSpec tests for models
-   +  Exercise model
-   +  Plan model
-   +  ExercisesPlan model
-   - [ ] User model
-   - [ ] UserPlan model
++  Add RSpec tests for controllers/requests
 - [ ] Add Capybara tests
 --- 
 

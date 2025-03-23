@@ -75,4 +75,12 @@ RSpec.describe User, type: :model do
       expect(new_user.role).to eq("admin")
     end
   end
+
+  describe "devise invitation" do
+    it "invites a user with valid params" do
+      invite = User.invite!(email: "invite@example.com", name: "Invited User")
+      expect(invite).to be_persisted
+      expect(invite.invitation_sent_at).not_to be_nil
+    end
+  end
 end

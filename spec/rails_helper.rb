@@ -73,4 +73,10 @@ RSpec.configure do |config|
   config.before(:each) do
     I18n.locale = :en
   end
+
+  # gem "rails-controller-testing"
+  config.include Rails::Controller::Testing::TestProcess, type: :controller
+  config.include Rails::Controller::Testing::TemplateAssertions, type: :controller
+  config.include Rails::Controller::Testing::TestProcess, type: :request
+  config.include Rails::Controller::Testing::TemplateAssertions, type: :request
 end

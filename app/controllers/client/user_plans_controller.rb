@@ -19,7 +19,8 @@ class Client::UserPlansController < ApplicationController
     else
       flash[:alert] = t("alerts.plan_cannot_be_started")
     end
-    redirect_to user_plan_path(@user_plan)
+    # redirect_to user_plan_path(@user_plan)
+    redirect_to client_user_plan_path(@user_plan)
   end
 
   def complete
@@ -29,11 +30,18 @@ class Client::UserPlansController < ApplicationController
     else
       flash[:alert] = t("alerts.plan_is_not_active")
     end
-    redirect_to user_plan_path(@user_plan)
+    # redirect_to user_plan_path(@user_plan)
+    redirect_to client_user_plan_path(@user_plan)
   end
 
   private
   def set_user_plan
-    @user_plan = UserPlan.find(params[:id])
+    # only current user plans
+    @user_plan = current_user.user_plans.find_by(id: params[:id])
+
+    unless @user_plan
+      flash[:alert] = t("alerts.plan_not_found")
+      render file: Rails.root.join("public/404.html"), status: :not_found, layout: false
+    end
   end
 end

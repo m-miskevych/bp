@@ -37,7 +37,7 @@ RSpec.describe "Comments", type: :request do
 
   describe "DELETE /user_plans/:user_plan_id/comments/:id" do
     it "deletes the comment" do
-      comment # ensure comment exists before trying to delete it
+      comment
 
       expect {
         delete user_plan_comment_path(user_plan, comment)
