@@ -57,6 +57,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "rspec-rails"
+  gem "rails-controller-testing"
 end
 
 gem "tailwindcss-rails", "~> 3.0"

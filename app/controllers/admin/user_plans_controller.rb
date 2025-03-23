@@ -4,11 +4,11 @@ class Admin::UserPlansController < ApplicationController
 
   def show
     @user_plan = UserPlan.find_by(user_id: params[:user_id], plan_id: params[:plan_id])
-    @comments = @user_plan.comments.order(created_at: :desc)
-
     if @user_plan.nil?
-      # Handle the case where the UserPlan doesn't exist
-      redirect_to admin_user_plans_path, alert: t("alerts.plan_not_found")
+      # Handles the case where the UserPlan doesn't exist
+      redirect_to admin_plans_url, alert: t("alerts.plan_not_found")
+      return
     end
+    @comments = @user_plan.comments.order(created_at: :desc)
   end
 end
