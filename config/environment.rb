@@ -6,7 +6,7 @@ Rails.application.initialize!
 
 ActionMailer::Base.smtp_settings = {
   user_name: "apikey",
-  password: Rails.application.credentials.dig(:sendgrid, :api_key),
+  password: ENV["SENDGRID_API_KEY"],
   domain: "physioflow-efc5e7175d2c.herokuapp.com",
   address: "smtp.sendgrid.net",
   port: 587,
