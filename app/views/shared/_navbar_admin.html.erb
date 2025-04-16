@@ -20,7 +20,12 @@
         </div>
 
         <div class="flex items-center lg:space-x-2 ">
-          <button type="button" data-collapse-toggle="navbar-menu" aria-controls="navbar-menu" aria-expanded="false" class="inline-flex lg:hidden items-center justify-center hover:bg-gray-100 rounded-md">
+          <button 
+            type="button" 
+            aria-controls="navbar-menu" 
+            class="inline-flex lg:hidden items-center justify-center hover:bg-gray-100 rounded-md"
+            onclick="document.getElementById('navbar-menu').classList.toggle('hidden')"
+          >
             <span class="sr-only">Open Menu</span>
             <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
               <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"></path>
