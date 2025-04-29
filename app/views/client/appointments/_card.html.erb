@@ -1,0 +1,36 @@
+<div class="bg-white border border-gray-200 rounded-lg shadow-sm p-4 flex flex-col justify-between">
+  <div class="mb-4 space-y-2">
+    <p class="text-sm text-gray-600">
+      <strong><%= t("client.appointments.show.session") %>:</strong> <%= appointment.session_slot.name %>
+    </p>
+    <p class="text-sm text-gray-600">
+      <strong><%= t("client.appointments.show.datetime") %>:</strong> <%= l(appointment.start_at, format: :long) %>
+    </p>
+    <p class="text-sm text-gray-600">
+      <strong><%= t("client.appointments.show.location") %>:</strong> <%= appointment.session_slot.location %>
+    </p>
+    <% if appointment.notes.present? %>
+      <p class="text-sm text-gray-600">
+        <strong><%= t("client.appointments.show.notes") %>:</strong>
+        <span class="block mt-1 text-gray-600 whitespace-pre-line"><%= appointment.notes %></span>
+      </p>
+    <% end %>
+    <p class="text-sm text-gray-600">
+      <strong><%= t("client.appointments.show.status") %>:</strong>
+      <% status_class = {
+        "pending" => "bg-yellow-100 text-yellow-800",
+        "approved" => "bg-green-100 text-green-800",
+        "rejected" => "bg-red-100 text-red-800"
+      }[appointment.status] %>
+      <span class="px-2 py-1 text-xs font-semibold rounded <%= status_class %> inline-block">
+        <%= appointment.status.capitalize %>
+      </span>
+    </p>
+  </div>
+
+  <% if appointment.start_at.future? %>
+    <div class="flex justify-center bg-red-400 text-white font-semibold py-2 px-4 rounded-lg shadow transition duration-200 text-sm">
+      <%= button_to t("client.appointments.show.cancel"), client_appointment_path(appointment), method: :delete, data: { confirm: t("client.appointments.show.confirm_cancel") } %>
+    </div>
+  <% end %>
+</div>

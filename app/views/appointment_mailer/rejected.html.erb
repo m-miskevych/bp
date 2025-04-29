@@ -1,0 +1,6 @@
+<h1><%= t("mailers.appointment_mailer.rejected.greeting", name: @client.name || @client.email) %></h1>
+
+<p><%= t("mailers.appointment_mailer.rejected.text", slot: @slot.name, datetime: l(@appointment.start_at, format: :long)).html_safe %></p>
+
+<p><%= t("mailers.appointment_mailer.rejected.alternative") %></p>
+<p><%= t("mailers.appointment_mailer.rejected.thank_you") %></p>

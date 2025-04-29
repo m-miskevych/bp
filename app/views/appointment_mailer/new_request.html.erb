@@ -1,0 +1,16 @@
+<h1><%= t("mailers.appointment_mailer.new_request.heading") %></h1>
+
+<p><%= t("mailers.appointment_mailer.new_request.greeting", name: @physio.name || @physio.email) %></p>
+
+<p><%= t("mailers.appointment_mailer.new_request.body") %></p>
+
+<ul>
+  <li><strong><%= t("mailers.appointment_mailer.new_request.client_name") %>:</strong> <%= @appointment.client.name || @appointment.client.email %></li>
+  <li><strong><%= t("mailers.appointment_mailer.new_request.slot_name") %>:</strong> <%= @appointment.session_slot.name %></li>
+  <li><strong><%= t("mailers.appointment_mailer.new_request.datetime") %>:</strong> <%= l(@appointment.start_at, format: :long) %></li>
+  <li><strong><%= t("mailers.appointment_mailer.new_request.location") %>:</strong> <%= @appointment.session_slot.location %></li>
+</ul>
+
+<p><%= t("mailers.appointment_mailer.new_request.call_to_action") %></p>
+
+<p><%= link_to t("mailers.appointment_mailer.new_request.view_all"), admin_appointments_url %></p>

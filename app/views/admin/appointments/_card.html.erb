@@ -1,0 +1,36 @@
+<div class="bg-white border border-gray-200 rounded-lg shadow-sm p-4 flex flex-col justify-between">
+  <div class="mb-4 space-y-2">
+    <p class="text-sm text-gray-600"><strong><%= t("admin.appointments.show.client") %></strong> <%= appointment.client.name || appointment.client.email %></p>
+    <p class="text-sm text-gray-600"><strong><%= t("admin.appointments.show.date") %></strong> <%= appointment.session_slot.name %></p>
+    <p class="text-sm text-gray-600"><strong><%= t("admin.appointments.show.location") %></strong> <%= appointment.session_slot.location %></p>
+    <p class="text-sm text-gray-600"><strong><%= t("admin.appointments.show.datetime") %></strong> <%= l(appointment.start_at, format: :long) %></p>
+    <% if appointment.notes.present? %>
+      <p class="text-sm text-gray-600">
+        <strong><%= t("admin.appointments.show.notes") %></strong>
+        <span class="block mt-1 text-gray-600 whitespace-pre-line"><%= appointment.notes %></span>
+      </p>
+    <% end %>
+    <p class="text-sm text-gray-600">
+      <strong><%= t("admin.appointments.show.status") %></strong> 
+      <% status_class = {
+        "pending" => "bg-yellow-100 text-yellow-800",
+        "approved" => "bg-green-100 text-green-800",
+        "rejected" => "bg-red-100 text-red-800"
+      }[appointment.status] %>
+      <span class="px-2 py-1 text-xs font-semibold rounded <%= status_class %> inline-block">
+        <%= appointment.status.capitalize %>
+      </span>
+    </p>
+  </div>
+
+  <% if appointment.pending? %>
+      <div class="flex justify-end gap-2 mt-2">
+      <div class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg shadow transition duration-200 text-sm">
+        <%= button_to t("admin.appointments.show.approve"), admin_appointment_path(appointment, status: :approved), method: :patch %>
+      </div>
+      <div class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg shadow transition duration-200 text-sm">
+        <%= button_to t("admin.appointments.show.reject"), admin_appointment_path(appointment, status: :rejected), method: :patch %>
+      </div>
+    </div>
+  <% end %>
+</div>

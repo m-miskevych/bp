@@ -12,7 +12,24 @@
       <%= image_tag("fyzio2.jpg", alt: "Physiotherapist", class: "w-2/3 sm:w-1/3") %>
     </section>
 
-    <hr class="mx-auto bg-black w-3/4 sm:w-1/2">
+    <div class="p-6 bg-white shadow-md rounded-lg border border-gray-200 text-center sm:text-left col-span-full">
+      <h2 class="text-lg sm:text-xl font-semibold mb-4"><%= t('.next_appointment') %></h2>
+
+      <% if @next_appointment %>
+        <ul class="space-y-3">
+          <li class="border border-gray-100 rounded px-4 py-2 bg-gray-50">
+            <div class="font-semibold text-slate-800">
+              <%= @next_appointment.session_slot.name %>
+            </div>
+            <div class="text-slate-600 text-sm">
+              <%= l(@next_appointment.start_at, format: :long) %> @ <%= @next_appointment.session_slot.location %>
+            </div>
+          </li>
+        </ul>
+      <% else %>
+        <p class="text-slate-600"><%= t('.no_upcoming_appointments') %></p>
+      <% end %>
+    </div>
 
 
     <div>

@@ -1,0 +1,40 @@
+<table class="min-w-full bg-white border border-gray-200 shadow rounded-lg text-sm sm:text-base">
+  <thead class="bg-gray-100 text-left text-xs sm:text-sm text-gray-600">
+    <tr>
+      <th class="px-4 py-3">Klient</th>
+      <th class="px-4 py-3">Termín</th>
+      <th class="px-4 py-3">Dátum a čas</th>
+      <th class="px-4 py-3">Stav</th>
+      <th class="px-4 py-3">Akcia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% appointments.each do |appointment| %>
+      <tr class="border-t hover:bg-gray-50">
+        <td class="px-4 py-2"><%= appointment.client.name || appointment.client.email %></td>
+        <td class="px-4 py-2"><%= appointment.session_slot.name %></td>
+        <td class="px-4 py-2"><%= l(appointment.start_at, format: :long) %></td>
+        <td class="px-4 py-2">
+          <% status_class = {
+            "pending" => "bg-yellow-100 text-yellow-800",
+            "approved" => "bg-green-100 text-green-800",
+            "rejected" => "bg-red-100 text-red-800"
+          }[appointment.status] %>
+          <span class="px-2 py-1 text-xs font-semibold rounded <%= status_class %>">
+            <%= appointment.status.capitalize %>
+          </span>
+        </td>
+        <td class="px-4 py-2">
+          <% if appointment.pending? %>
+            <div class="flex gap-2">
+              <%= button_to t(".approve"), admin_appointment_path(appointment, status: :approved), method: :patch, class: "text-white bg-green-600 hover:bg-green-700 px-3 py-1 rounded text-xs" %>
+              <%= button_to t(".reject"), admin_appointment_path(appointment, status: :rejected), method: :patch, class: "text-white bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-xs" %>
+            </div>
+          <% else %>
+            <span class="text-sm text-gray-600 italic"><%= appointment.status.capitalize %></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
