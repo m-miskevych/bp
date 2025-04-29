@@ -18,6 +18,12 @@ class User < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
+  # session slots
+  has_many :session_slots, foreign_key: :physiotherapist_id, dependent: :destroy
+
+  has_many :appointments_as_client, class_name: "Appointment", foreign_key: :client_id, dependent: :destroy
+
+
   def set_default_role
     self.role ||= :admin
   end

@@ -3,6 +3,32 @@ sk:
     errors:
       messages:
         invalid_youtube_url: "musí byť platný YouTube link (napr. https://www.youtube.com/watch?v=ID alebo https://youtu.be/ID)"
+  mailers:
+    appointment_mailer:
+      approved:
+        subject: "Váš termín bol schválený"
+        greeting: "Dobrý deň %{name},"
+        text: 'Váš termín "%{slot}" s fyzioterapeutom bol <strong>schválený</strong>.'
+        datetime: "Dátum a čas"
+        location: "Miesto"
+        footer: "Tešíme sa na vás!"
+      rejected:
+        subject: "Váš termín bol odmietnutý"
+        greeting: "Dobrý deň %{name},"
+        text: 'Žiaľ, váš termín "%{slot}" naplánovaný na %{datetime} bol <strong>odmietnutý</strong> fyzioterapeutom.'
+        alternative: "Môžete si skúsiť rezervovať iný dostupný termín."
+        thank_you: "Ďakujeme za pochopenie."
+      new_request:
+        subject: "Nový termín čaká na schválenie"
+        heading: "Nový termín čaká na schválenie"
+        greeting: "Milý %{name},"
+        body: "Váš klient si rezervoval nový termín:"
+        client_name: "Meno klienta"
+        slot_name: "Názov slotu"
+        datetime: "Dátum a čas"
+        location: "Miesto"
+        call_to_action: "Prosím prihláste sa do systému a schváľte alebo odmietnite túto rezerváciu."
+        view_all: "Zobraziť všetky termíny"
   notices:
     plan_created: "Plán bol úspešne vytvorený."
     plan_updated: "Plán bol úspešne upravený."
@@ -18,6 +44,10 @@ sk:
     user_deleted: "Uživatel bol úspešne odstranený."
     plan_started: "Plán bol úspešne zahajený."
     plan_completed: "Plán bol úspešne dokončený."
+    appointment_status_updated: "Stav rezervácie bol aktualizovaný."
+    session_slot_created: "Termín bol úspešne vytvorený."
+    appointment_created: "Rezervácia bola úspešne vytvorená!"
+    appointment_canceled: "Rezervácia bola úspešne zrušená."
   alerts:
     plan_already_assigned: "Tento klient už má tento plán priradený!"
     exercise_assigned_to_plan: "Toto cvičenie je priradené k plánu a nemôže byť odstránené."
@@ -27,6 +57,7 @@ sk:
     user_delete_failed: "Nepodarilo sa odstranit uživatela."
     plan_cannot_be_started: "Plán nebol spusteny."
     plan_is_not_active: "Plán nie je aktivny."
+    appointment_status_update_failed: "Nepodarilo sa aktualizovať stav rezervácie."
   app:
     name: "Fyzio Aplikácia"
     title: "Fyzio"
@@ -35,6 +66,9 @@ sk:
     exercises: "Cvičenia"
     plans: "Plány"
     clients: "Klienti"
+    availability: "Moje termíny"
+    sessions: "Termíny"
+    appointments: "Rezervácie"
     profile: "Profil"
     logout: "Odhlásiť sa"
   common:
@@ -64,6 +98,9 @@ sk:
           new_exercise: "Nové cvičenie"
           new_plan: "Nový plán"
           new_client: "Pridať nového klienta"
+        bookings:
+          upcoming_appointments: "Vaše najbližšie stretnutia"
+          no_appointments: "Zatiaľ nemáte nič naplánované."
 
     exercises:
       index:
@@ -104,6 +141,10 @@ sk:
         title: "Plány"
         new: "Nový Plán"
         all_plans: "Zoznam všetkých dostupných plánov"
+        tab:
+          all: "Všetky"
+          by_client: "Klienti"
+        by_client: "Plány jednotlivých klientov"
 
       show:
         title: "Detail Plánu"
@@ -163,11 +204,55 @@ sk:
         email: "Email"
         submit: "Uložiť klienta"
 
+    session_slots:
+      index:
+        title: "Moje dostupné termíny"
+        new: "Pridať nový termín"
+        add_first_slot: "Pridať prvý termín"
+        table:
+          headers:
+            name: "Názov"
+      new:
+        title: "Pridať nový termín"
+      form:
+        name: "Názov termínu"
+        location: "Miesto konania"
+        description: "Poznámka"
+        duration: "Trvanie (v minútach)"
+        date_and_time: "Dátum a čas"
+        submit: "Uložiť termín"
+      errors:
+        title: "Vyskytli sa chyby"
+
+    appointments:
+      index:
+        title: "Rezervácie"
+        upcoming: "Naplanované stretnutia"
+        no_appointments: "Zatiaľ nemáte naplánované stretnutia."
+        past: "Predchádzajúce stretnutia"
+        no_past_appointments: "Zatiaľ nemáte historiu predchadzajich stretnutí."
+
+      show:
+        client: "👤 Klient"
+        date: "📅 Termín"
+        location: "📍 Miesto"
+        datetime: "🕒 Dátum a čas"
+        notes: "📝 Poznámka od klienta"
+        status: "🔖 Stav"
+        approve: "Schváliť"
+        reject: "Zamietnuť"
+        statuses:
+          pending: "Čaká na schválenie"
+          approved: "Schválené"
+          rejected: "Zamietnuté"
+
   client:
     dashboard:
       index:
         welcome: "Vitajte, %{name}"
         description: "Zobraziť priradené cvičebné plány a buďte konzistentní pre lepšie zdravie a rekonvalescenciu!"
+        next_appointment: "Najbližší termín"
+        no_upcoming_appointments: "Momentálne nemáte žiadny naplánovaný termín."
 
     user_plans:
       index:
@@ -183,3 +268,53 @@ sk:
           exercises: "Cvičenia pre tento plán"
         comments:
           title: "Využite tento priestor na komunikáciu a prediskutovanie akýchkoľvek detailov alebo obáv týkajúcich sa plánu."
+
+    session_slots:
+      index:
+        title: "Dostupné termíny od vášho fyzioterapeuta"
+        no_slots: "Váš fyzioterapeut momentálne nemá žiadne dostupné termíny."
+        table:
+          headers:
+            name: "Názov"
+        book: "Rezervovať"
+
+    appointments:
+      new:
+        book_session:
+          title: "Rezervovať termín"
+      index:
+        title: "Moje rezervácie"
+        upcoming: "Naplanované stretnutia"
+        no_appointments: "Zatiaľ nemáte naplánované stretnutia."
+        past: "Predchádzajúce stretnutia"
+        no_past_appointments: "Zatiaľ nemáte historiu predchadzajich stretnutí."
+        rejected: "Zamietnuté stretnutia"
+        no_rejected_appointments: "Zatiaľ nemáte zamietnuté stretnutia."
+      show:
+        session: "👤 Termín"
+        location: "📍 Miesto"
+        datetime: "🕒 Dátum a čas"
+        notes: "📝 Moje poznámky"
+        status: "🔖 Stav"
+        cancel: "Zrušiť stretnutie"
+        statuses:
+          pending: "Čaká na schválenie"
+          approved: "Schválené"
+          rejected: "Zamietnuté"
+      new:
+        title: "Rezervovať termín"
+        notes: "Poznámka"
+        session: "Termín"
+        description: "Popis"
+        datetime: "Dátum a čas"
+        duration: "Trvanie"
+        location: "Miesto"
+        physio: "Fyzioterapeut"
+        physio_email: "Email fyzioterapeuta"
+        confirm_booking: "Potvrdiť rezerváciu"
+        booking_error: "Nastala chyba pri rezervácii termina. Skúste to prosím znova."
+
+  comments:
+    form:
+      add_comment: "Pridať komentár"
+      reply: "Odpovedať"

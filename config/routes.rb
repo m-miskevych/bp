@@ -34,6 +34,9 @@ Rails.application.routes.draw do
           delete "remove_image" # remove_image_exercise_path(image)
         end
       end
+
+      resources :session_slots, only: [ :index, :new, :create ]
+      resources :appointments, only: [ :index, :update ]
     end
 
     namespace :client do
@@ -44,6 +47,9 @@ Rails.application.routes.draw do
           patch :complete
         end
       end
+
+      resources :session_slots, only: [ :index ]
+      resources :appointments, only: [ :index, :new, :create, :destroy ]
     end
 
     # /user_plans/1/comments/4

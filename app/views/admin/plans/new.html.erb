@@ -1,6 +1,6 @@
 <div class="bg-indigo-400 text-white text-3xl font-bold pt-4 pb-16 px-8 flex items-center justify-between flex-col sm:flex-row">
   <div><%= t('.title') %></div>
-  <div><%= link_to t("common.actions.back"), admin_plans_path, class: "btn-fancy-white text-base sm:text-sm mt-4 sm:mt-0" %></div>
+  <div><%= link_to t("common.actions.back"), admin_plans_path, data: { turbo: false }, class: "btn-fancy-white text-base sm:text-sm mt-4 sm:mt-0" %></div>
 </div>
 <div class="bg-indigo-400 pt-4 pb-16 relative z-10"></div>
 <div class="p-0 sm:p-6 -mt-24">

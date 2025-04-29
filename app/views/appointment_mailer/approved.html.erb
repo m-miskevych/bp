@@ -1,0 +1,8 @@
+<h1><%= t("mailers.appointment_mailer.approved.greeting", name: @client.name || @client.email) %></h1>
+
+<p><%= t("mailers.appointment_mailer.approved.text", slot: @slot.name).html_safe %></p>
+
+<p><strong><%= t("mailers.appointment_mailer.approved.datetime") %>:</strong> <%= l(@appointment.start_at, format: :long) %></p>
+<p><strong><%= t("mailers.appointment_mailer.approved.location") %>:</strong> <%= @slot.location %></p>
+
+<p><%= t("mailers.appointment_mailer.approved.footer") %></p>

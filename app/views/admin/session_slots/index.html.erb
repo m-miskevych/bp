@@ -1,0 +1,66 @@
+<div class="bg-indigo-400 text-white text-3xl font-bold pt-4 pb-16 px-8 flex items-center justify-between flex-col sm:flex-row">
+  <div><%= t('.title') %></div>
+  <div><%= link_to t('.new'), new_admin_session_slot_path, class: "btn-fancy-white text-base sm:text-sm mt-4 sm:mt-0" %></div>
+</div>
+<div class="bg-indigo-400 pt-4 pb-16 relative z-10"></div>
+<div class="p-0 sm:p-6 -mt-24">
+  <div class="bg-white shadow-sm rounded-none sm:rounded-lg sm:p-8 min-h-[300px] border border-gray-200 relative z-10 w-full">
+
+    <!-- Content -->
+    <% if @session_slots.any? %>
+      <div class="relative flex flex-col w-full h-full text-gray-700 bg-white shadow-sm rounded-xl bg-clip-border">
+        <div class="p-6 px-0 overflow-scroll">
+          <table class="w-full text-left table-auto min-w-max">
+            <thead>
+              <tr>
+                <th class="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
+                  <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"><%= t('.table.headers.name') %></p>
+                </th>
+                <th class="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
+                  <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">📍</p>
+                </th>
+                <th class="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
+                  <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">🕒</p>
+                </th>
+                <th class="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
+                  <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">⏳</p>
+                </th>
+                <th class="p-4 border-y border-blue-gray-100 bg-blue-gray-50/50">
+                  <p class="hidden lg:flex font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">📝</p>
+                </th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @session_slots.each do |slot| %>
+                <tr class="hover:bg-slate-50 transition text-xs sm:text-sm lg:text-base">
+                  <td class="p-4 border-b border-blue-gray-50"><%= slot.name %></td>
+                  <td class="p-4 border-b border-blue-gray-50"><%= slot.location %></td>
+                  <td class="p-4 border-b border-blue-gray-50"><%= l(slot.available_at, format: :short) %></td>
+                  <td class="p-4 border-b border-blue-gray-50"><%= slot.duration %> min</td>
+                  <td class="p-4 border-b border-blue-gray-50">
+                    <p class="hidden lg:flex"><%= truncate(slot.description, length: 60) %></p>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    <% else %>
+      <div class="text-center py-24">
+        <%= link_to new_admin_session_slot_path, class: "inline-flex flex-col items-center justify-center text-indigo-600 hover:text-indigo-800 transition" do %>
+          <div class="text-6xl font-light">+</div>
+          <div class="mt-2 text-lg font-medium"><%= t('.add_first_slot') %></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 <div class="bg-indigo-400 text-white text-3xl font-bold pt-4 pb-16 px-8 flex items-center justify-between flex-col sm:flex-row">
   <div><%= t('.title') %></div>
-  <div><%= link_to t('.new'), new_admin_plan_path, class: "btn-fancy-white text-base sm:text-sm mt-4 sm:mt-0" %></div>
+  <div></div>
 </div>
 <div class="bg-indigo-400 pt-4 pb-16 relative z-10"></div>
 <div class="p-0 sm:p-6 -mt-24">
@@ -30,6 +30,12 @@
             <% @plans.each do |plan| %>
               <%= render partial: "all_plans", locals: { plan: plan } %>
             <% end %>
+            
+            <div class="flex items-center justify-center bg-white shadow-md border border-slate-200 rounded-lg w-full h-full">
+              <%= link_to new_admin_plan_path do %>
+                <div class="text-5xl text-gray-400">+</div>
+              <% end %>
+            </div>
           </div>
         </section>
       </div>
@@ -37,7 +43,7 @@
       <!-- Tab content - plans by user -->
       <div class="hidden container mx-auto p-6 space-y-16" id="styled-dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
         <section>
-          <h3 class="text-xl font-semibold text-slate-700 mb-6"><%= t('plans.by_client') %></h3>
+          <h3 class="text-xl font-semibold text-slate-700 mb-6"><%= t('.by_client') %></h3>
           <div class="space-y-12">
             <% @users.each do |user| %>
               <%= render partial: 'admin/plans/user_plans', locals: { user: user } %>

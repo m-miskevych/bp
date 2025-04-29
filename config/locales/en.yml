@@ -3,6 +3,32 @@ en:
     errors:
       messages:
         invalid_youtube_url: "must be a valid YouTube link (e.g., https://www.youtube.com/watch?v=ID or https://youtu.be/ID)"
+  mailers:
+    appointment_mailer:
+      approved:
+        subject: "Your appointment has been approved"
+        greeting: "Hi %{name},"
+        text: 'Your appointment "%{slot}" with your physiotherapist has been <strong>approved</strong>.'
+        datetime: "Date and Time"
+        location: "Location"
+        footer: "We're looking forward to seeing you!"
+      rejected:
+        subject: "Your appointment has been rejected"
+        greeting: "Hi %{name},"
+        text: 'Unfortunately, your appointment "%{slot}" scheduled for %{datetime} was <strong>rejected</strong> by your physiotherapist.'
+        alternative: "You can try booking a different available slot."
+        thank_you: "Thank you for your understanding."
+      new_request:
+        subject: "New appointment request"
+        heading: "New appointment awaiting approval"
+        greeting: "Dear %{name},"
+        body: "Your client has booked a new appointment:"
+        client_name: "Client name"
+        slot_name: "Session name"
+        datetime: "Date and Time"
+        location: "Location"
+        call_to_action: "Please log in to your dashboard to approve or reject this request."
+        view_all: "View all appointments"
   notices:
     plan_created: "Plan was successfully created."
     plan_updated: "Plan was successfully updated."
@@ -18,6 +44,10 @@ en:
     user_deleted: "User was successfully deleted."
     plan_started: "Plan was successfully started."
     plan_completed: "Plan was successfully completed."
+    appointment_status_updated: "Appointment status updated."
+    session_slot_created: "Session slot created."
+    appointment_created: "Appointment successfully created!"
+    appointment_canceled: "Appointment was successfully canceled."
   alerts:
     plan_already_assigned: "This client already has this plan assigned!"
     exercise_assigned_to_plan: "This exercise is assigned to a plan and cannot be deleted."
@@ -27,6 +57,7 @@ en:
     user_delete_failed: "Failed to delete user."
     plan_cannot_be_started: "Plan cannot be started"
     plan_is_not_active: "Plan is not active"
+    appointment_status_update_failed: "Could not update status."
   app:
     name: "Physio App"
     title: "Physio"
@@ -35,6 +66,9 @@ en:
     exercises: "Exercises"
     plans: "Plans"
     clients: "Clients"
+    availability: "My Availability"
+    sessions: "Sessions"
+    appointments: "Appointments"
     profile: "Profile"
     logout: "Logout"
   common:
@@ -64,6 +98,9 @@ en:
           new_exercise: "New Exercise"
           new_plan: "New Plan"
           new_client: "Add New Client"
+        bookings:
+          upcoming_appointments: "Upcoming Appointments"
+          no_appointments: "You have no upcoming appointments."
 
     exercises:
       index:
@@ -104,6 +141,10 @@ en:
         title: "Plans"
         new: "New Plan"
         all_plans: "List of all available plans"
+        tab:
+          all: "All"
+          by_client: "By Client"
+        by_client: "Plans of individual clients"
 
       show:
         title: "Plan Detail"
@@ -163,11 +204,55 @@ en:
         email: "Email"
         submit: "Create Client"
 
+    session_slots:
+      index:
+        title: "My Availability"
+        new: "Create Session"
+        add_first_slot: "Add your first session"
+        table:
+          headers:
+            name: "Name"
+      new:
+        title: "Create New Session"
+      form:
+        name: "Name"
+        location: "Location"
+        description: "Description"
+        duration: "Duration"
+        date_time: "Date and Time"
+        submit: "Save Session"
+      errors:
+        title: "There were some errors"
+
+    appointments:
+      index:
+        title: "Appointments"
+        upcoming: "Upcoming Appointments"
+        no_appointments: "You have no upcoming appointments."
+        past: "Past Appointments"
+        no_past_appointments: "You have no past appointments."
+
+      show:
+        client: "👤 Client"
+        date: "📅 Session"
+        location: "📍 Location"
+        datetime: "🕒 Date and time"
+        notes: "📝 Client notes"
+        status: "🔖 Status"
+        approve: "Approve"
+        reject: "Reject"
+        statuses:
+          pending: "Pending"
+          approved: "Approved"
+          rejected: "Rejected"
+
   client:
     dashboard:
       index:
         welcome: "Welcome, %{name}"
         description: "View your assigned exercise plans and stay consistent for better health and recovery!"
+        next_appointment: "Next Appointment"
+        no_upcoming_appointments: "You currently have no scheduled appointments."
 
     user_plans:
       index:
@@ -183,3 +268,52 @@ en:
           exercises: "Exercises for this plan"
         comments:
           title: "Use this space to communicate and discuss any details or concers about the plan."
+
+    session_slots:
+      index:
+        title: "Available Sessions from Your Physiotherapist"
+        no_slots: "Your physiotherapist has no available sessions right now."
+        table:
+          headers:
+            name: "Name"
+        book: "Book"
+
+    appointments:
+      book_session:
+        title: "Book a Session"
+      index:
+        title: "My Appointments"
+        upcoming: "Upcoming Appointments"
+        no_appointments: "You have no upcoming appointments."
+        past: "Past Appointments"
+        no_past_appointments: "You have no past appointments."
+        rejected: "Rejected Appointments"
+        no_rejected_appointments: "You have no rejected appointments."
+      show:
+        session: "👤 Appointment"
+        location: "📍 Location"
+        datetime: "🕒 Date and time"
+        notes: "📝 My notes"
+        status: "🔖 Status"
+        cancel: "Cancel Appointment"
+        statuses:
+          pending: "Pending"
+          approved: "Approved"
+          rejected: "Rejected"
+      new:
+        title: "Book a Session"
+        notes: "Notes (optional)"
+        session: "Session"
+        description: "Description"
+        datetime: "Date and Time"
+        duration: "Duration"
+        location: "Location"
+        physio: "Physiotherapist"
+        physio_email: "Physiotherapist Email"
+        confirm_booking: "Confirm Booking"
+        booking_error: "There was an error booking your session. Please try again."
+
+  comments:
+    form:
+      add_comment: "Add Comment"
+      reply: "Reply"
