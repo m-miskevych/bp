@@ -5,9 +5,10 @@ class Admin::PlansController < ApplicationController
   before_action :set_client, only: %i[assign_plan_to_client remove_plan_from_client]
 
   def index
-    @plans = Plan.all
-    @users = current_user.users
-    # @user_plans = UserPlan.includes(:user, :plan).order("users.name ASC")
+    @tab = params[:tab] || "all"
+
+    @plans = Plan.all if @tab == "all"
+    @users = current_user.users.includes(:plans) if @tab == "by_client"
     @user_plans = UserPlan.includes(:user, :plan).joins(:user, :plan)
   end
 
@@ -48,11 +49,12 @@ class Admin::PlansController < ApplicationController
   def assign_plan_to_client
     if @client.plans.include?(@plan)
       flash[:alert] = t("alerts.plan_already_assigned")
+      redirect_back fallback_location: admin_plans_url
     else
       @client.plans << @plan
       flash[:notice] = t("notices.plan_assigned")
+      redirect_to admin_plans_url
     end
-    redirect_back_or_to admin_plans_url
   end
 
   def remove_plan_from_client
