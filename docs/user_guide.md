@@ -12,10 +12,9 @@ Aplikácia je dostupná na linku: <a href="https://physioflow-efc5e7175d2c.herok
 - [1.2 Vytvorenie cvičenia](#12-vytvorenie-cvičenia)
 - [1.3 Vytvorenie plánu](#13-vytvorenie-plánu)
 - [1.4 Priradenie plánu klientovi](#14-priradenie-plánu-klientovi)
-- [1.5 Pridanie nového klienta](#15-pridanie-nového-klienta)
-- [1.6 Komunikácia s klientom](#16-komunikácia-s-klientom)
-- [1.7 Nastavenie dostupných termínov](#17-nastavenie-dostupných-termínov)
-- [1.8 Prehľad nadchádzajúcich stretnutí](#18-prehľad-nadchádzajúcich-stretnutí)
+- [1.5 Komunikácia s klientom](#16-komunikácia-s-klientom)
+- [1.6 Nastavenie dostupných termínov](#17-nastavenie-dostupných-termínov)
+- [1.7 Prehľad nadchádzajúcich stretnutí](#18-prehľad-nadchádzajúcich-stretnutí)
 
 [2. Klient](#2-klient)
 
@@ -42,6 +41,7 @@ Po registrácii je možné sa prihlásiť pomocou e-mailu a hesla. Po prihlásen
 | E-mail               | Heslo    |
 | -------------------- | -------- |
 | `admin1@example.com` | `123123` |
+| `admin2@example.com` | `123123` |
 
 ![Prihlásenie do systému](img/f_dashboard.png)
 
@@ -69,11 +69,23 @@ Pri vytváraní cvičenia si môže používateľ zvoliť jazyk, v ktorom bude c
 Po úspešnom uložení sa zobrazí náhľad vytvoreného cvičenia.
 ![Vytvorenie cvicenia](img/f_exercise4.png)
 
-### 1.3 Vytvorenie plánu
+### 1.3 Vytvorenie plánu a priradenie plánu
 
-### 1.4 Priradenie plánu klientovi
+Fyzioterapeut môže vytvoriť nový plán cez sekciu **Plans** kliknutím na vizuálne tlačidlo **+**.
 
-### 1.5 Pridanie nového klienta
+![Vytvorenie plánu](img/f_plan1.png)
+![Vytvorenie plánu](img/f_plan2.png)
+
+Podobne ako pri vytváraní cvičenia je možné zvoliť jazyk plánu – buď **slovenčinu**, alebo **angličtinu**. Po uložení sa plán zobrazí v zozname všetkých plánov pod záložkou **All**.
+
+Ak chceme plán priradiť konkrétnemu klientovi, klikneme na ikonu 👤 a zo zoznamu vyberieme požadovaného klienta.
+
+![Vytvorenie plánu](img/f_plan3.png)
+
+Pre lepšiu prehľadnosť je možné zobraziť zoznam plánov aj podľa jednotlivých klientov – kliknutím na záložku **By client**.
+![Vytvorenie plánu](img/f_plan4.png)
+
+### 1.4 Pridanie nového klienta
 
 V menu kliknete na sekciu **Clients** a po kliknutí na **New Client** sa otvorí formulár pre pridanie nového klienta.
 
@@ -88,9 +100,13 @@ Po kliknutí na sekciu **Clients** si fyzioterapeut môže prezrieť podrobnosti
 
 Ak klient ešte neprijal pozvánku, táto informácia sa zobrazí priamo v jeho profile. Fyzioterapeut tak vie jednoducho skontrolovať, či sa klient zaregistroval a má prístup do systému.
 
-### 1.6 Komunikácia s klientom
+### 1.5 Komunikácia s klientom
 
-### 1.7 Nastavenie dostupných termínov
+Ku každému plánu má fyzioterapeut aj klient prístup k diskusii, kde môžu navzájom komunikovať.
+
+![Pridanie noveho klienta](img/f_comment1.png)
+
+### 1.6 Nastavenie dostupných termínov
 
 Fyzioterapeut môže v sekcii **My Availability** vytvárať termíny, ktoré budú dostupné na rezerváciu jeho klientom.
 
@@ -105,7 +121,7 @@ Po kliknutí na tlačidlo **New Session** sa otvorí formulár, v ktorom fyziote
 ![Pridanie noveho klienta](img/f_sessions.png)
 Po uložení sa termín zobrazí v zozname dostupných stretnutí. Klienti si následne môžu tieto termíny rezervovať vo svojej časti aplikácie. Každý termín môže byť rezervovaný len jedným klientom.
 
-### 1.8 Prehľad nadchádzajúcich stretnutí
+### 1.7 Prehľad nadchádzajúcich stretnutí
 
 ---
 
