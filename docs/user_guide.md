@@ -12,18 +12,15 @@ Aplikácia je dostupná na linku: <a href="https://physioflow-efc5e7175d2c.herok
 - [1.2 Vytvorenie cvičenia](#12-vytvorenie-cvičenia)
 - [1.3 Vytvorenie plánu](#13-vytvorenie-plánu)
 - [1.4 Priradenie plánu klientovi](#14-priradenie-plánu-klientovi)
-- [1.5 Komunikácia s klientom](#16-komunikácia-s-klientom)
-- [1.6 Nastavenie dostupných termínov](#17-nastavenie-dostupných-termínov)
-- [1.7 Prehľad nadchádzajúcich stretnutí](#18-prehľad-nadchádzajúcich-stretnutí)
+- [1.5 Komunikácia s klientom](#15-komunikácia-s-klientom)
+- [1.6 Nastavenie dostupných termínov](#16-nastavenie-dostupných-termínov)
+- [1.7 Prehľad nadchádzajúcich stretnutí](#17-prehľad-nadchádzajúcich-stretnutí)
 
 [2. Klient](#2-klient)
 
 - [2.1 Prihlásenie po pozvánke](#21-prihlásenie-po-pozvánke)
 - [2.2 Prehľad priradených plánov](#22-prehľad-priradených-plánov)
-- [2.3 Označenie splnených cvičení](#23-označenie-splnených-cvičení)
-- [2.4 Rezervácia termínu](#24-rezervácia-termínu)
-- [2.5 Komunikácia](#25-komunikácia)
-- [2.6 Prehľad stretnutí](#26-prehľad-stretnutí)
+- [2.3 Rezervácia termínu](#23-rezervácia-termínu)
 
 ---
 
@@ -89,14 +86,14 @@ Pre lepšiu prehľadnosť je možné zobraziť zoznam plánov aj podľa jednotli
 
 V menu kliknete na sekciu **Clients** a po kliknutí na **New Client** sa otvorí formulár pre pridanie nového klienta.
 
-![Pridanie noveho klienta](img/f_client1.png)
+![Clients](img/f_client1.png)
 
 Zadajte meno, e-mail a systém automaticky odošle pozvánku na registráciu.
 
 > 🔔 **Upozornenie:** Klient by si mal skontrolovať aj priečinok **Spam**
 
 Po kliknutí na sekciu **Clients** si fyzioterapeut môže prezrieť podrobnosti o konkrétnom klientovi vrátane jeho údajov a priradených plánov (ak už nejaké má).
-![Pridanie noveho klienta](img/f_client2.png)
+![Clients](img/f_client2.png)
 
 Ak klient ešte neprijal pozvánku, táto informácia sa zobrazí priamo v jeho profile. Fyzioterapeut tak vie jednoducho skontrolovať, či sa klient zaregistroval a má prístup do systému.
 
@@ -104,7 +101,7 @@ Ak klient ešte neprijal pozvánku, táto informácia sa zobrazí priamo v jeho 
 
 Ku každému plánu má fyzioterapeut aj klient prístup k diskusii, kde môžu navzájom komunikovať.
 
-![Pridanie noveho klienta](img/f_comment1.png)
+![Communication](img/f_comment1.png)
 
 ### 1.6 Nastavenie dostupných termínov
 
@@ -118,10 +115,16 @@ Po kliknutí na tlačidlo **New Session** sa otvorí formulár, v ktorom fyziote
 - **Duration** – dĺžka trvania stretnutia v minútach,
 - **Date and Time** – dátum a čas stretnutia.
 
-![Pridanie noveho klienta](img/f_sessions.png)
+![Sessions](img/f_sessions.png)
 Po uložení sa termín zobrazí v zozname dostupných stretnutí. Klienti si následne môžu tieto termíny rezervovať vo svojej časti aplikácie. Každý termín môže byť rezervovaný len jedným klientom.
 
 ### 1.7 Prehľad nadchádzajúcich stretnutí
+
+Fyzioterapeut má možnosť zobraziť všetky nadchádzajúce stretnutia so svojimi klientmi v sekcii **Appointments**. Po kliknutí na túto sekciu sa zobrazí zoznam všetkých termínov, ktoré si klienti rezervovali.
+
+Pri každom termíne sú uvedené všetky dôležité informácie – meno klienta, dátum a čas stretnutia, miesto a typ stretnutia (napr. osobne alebo online). Fyzioterapeut má možnosť stretnutie buď potvrdiť, alebo zamietnuť. Po potvrdení stretnutia systém automaticky odošle klientovi e-mailové upozornenie s detailmi termínu.
+
+![Appointments](img/f_app1.png)
 
 ---
 
@@ -129,14 +132,54 @@ Po uložení sa termín zobrazí v zozname dostupných stretnutí. Klienti si n�
 
 ### 2.1 Prihlásenie po pozvánke
 
+Klient dostane pozvánku na registráciu e-mailom. Po kliknutí na odkaz si nastaví heslo a prihlási sa do systému.
+![Prijatie pozvanky](img/c_login1.png)
+
+Po prihlásení sa zobrazí hlavná stránka aplikácie (dashboard), kde klient vidí:
+
+- priradené cvičebné plány,
+- nadchádzajúce stretnutia (ak má nejaké rezervované).
+
+![Dashboard](img/c_dashboard.png)
+
 ### 2.2 Prehľad priradených plánov
 
-### 2.3 Označenie splnených cvičení
+Po prekliku do sekcie **Plans** vidí klient zoznam všetkých svojich plánov, rozdelených podľa ich stavu:
 
-### 2.4 Rezervácia termínu
+- **Draft** – plán ešte nebol začatý,
+- **In progress** – plán je aktívny a cvičí sa,
+- **Done** – plán bol dokončený.
 
-### 2.5 Komunikácia
+![Plans](img/c_plan1.png)
 
-### 2.6 Prehľad stretnutí
+V konkrétnom pláne si klient môže spustiť plán a prechádzať jednotlivé cvičenia. Pri každom cvičení sú uvedené:
+
+- názov a popis,
+- počet sérií a opakovaní,
+- prípadne priradené obrázky alebo video (ak ich fyzioterapeut doplnil).
+
+![Plan](img/c_plan2.png)
+
+Po absolvovaní celého plánu si klient môže označiť plán ako **dokončený**.
+
+### 2.3 Rezervácia termínu
+
+Klient si môže rezervovať stretnutie so svojím fyzioterapeutom cez sekciu **Sessions**, kde sa zobrazujú všetky dostupné termíny. Každý záznam obsahuje informácie o:
+
+- názve stretnutia,
+- mieste konania (napr. Google Meet alebo ambulancia),
+- dátume a čase,
+- dĺžke trvania,
+- stručnom popise.
+
+![Appointments](img/c_app1.png)
+
+Na rezerváciu termínu stačí kliknúť na tlačidlo **Book** pri vybranom stretnutí. Voliteľne môže pridať aj poznámku pre fyzioterapeuta. Po kontrole údajov klikne na **Confirm Booking**.
+
+![Appointments](img/c_app2.png)
+
+Po potvrdení sa stretnutie zobrazí v sekcii **Appointments** medzi nadchádzajúcimi termínmi. Stretnutie je možné aj zrušiť kliknutím na **Cancel Appointment**.
+
+![Appointments](img/c_app3.png)
 
 ---
