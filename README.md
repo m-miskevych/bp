@@ -72,21 +72,7 @@ bundle exec rspec spec/models
 bundle exec rspec spec/requests
 ```
 
-### 3.3 Run 
-```bash
-
-```
-
 ## 4. PLANNING
-
-BUGS
-+ Delete Exercise Associated to a Plan - how to handle it ? can not delete if exercise is assigned to a plan
-+ Plan - Exercise -> make it redirect to exercise detail page
-+ Better visualization for Detail, Edit, Delete Buttons
-+ In Plans, amdin can see only his clients assigned to the plan
-- [x] exercise -> set and repetition are required
-- [ ] exercise show detial -> if img or video are missing, adjust the view
-
 🏋️ Exercise Model
 **✅ Done**
 
